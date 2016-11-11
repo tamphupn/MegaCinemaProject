@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCinemaCommon", "MegaCinemaCommon\MegaCinemaCommon.csproj", "{6B3B7DC5-00C2-4E14-97F8-82CA9AFD9391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCinemaWeb", "MegaCinemaWeb\MegaCinemaWeb.csproj", "{4B7F9EA2-1A53-431F-BA04-C2BA58587E32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCinemaData", "MegaCinemaData\MegaCinemaData.csproj", "{B5E28EF3-97B0-4DD8-9A13-D36937CF0E7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCinemaModel", "MegaCinemaModel\MegaCinemaModel.csproj", "{22D035CB-14D2-46DA-A05B-8FB173947826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCinemaService", "MegaCinemaService\MegaCinemaService.csproj", "{C044287E-D44F-44CE-A73E-9B308935047F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCinemaUnitTest", "MegaCinemaUnitTest\MegaCinemaUnitTest.csproj", "{D168745E-B9FD-4C01-9A21-1718318ADD78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B3B7DC5-00C2-4E14-97F8-82CA9AFD9391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B3B7DC5-00C2-4E14-97F8-82CA9AFD9391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B3B7DC5-00C2-4E14-97F8-82CA9AFD9391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B3B7DC5-00C2-4E14-97F8-82CA9AFD9391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B7F9EA2-1A53-431F-BA04-C2BA58587E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B7F9EA2-1A53-431F-BA04-C2BA58587E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B7F9EA2-1A53-431F-BA04-C2BA58587E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7F9EA2-1A53-431F-BA04-C2BA58587E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E28EF3-97B0-4DD8-9A13-D36937CF0E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E28EF3-97B0-4DD8-9A13-D36937CF0E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E28EF3-97B0-4DD8-9A13-D36937CF0E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E28EF3-97B0-4DD8-9A13-D36937CF0E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D035CB-14D2-46DA-A05B-8FB173947826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D035CB-14D2-46DA-A05B-8FB173947826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D035CB-14D2-46DA-A05B-8FB173947826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D035CB-14D2-46DA-A05B-8FB173947826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C044287E-D44F-44CE-A73E-9B308935047F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C044287E-D44F-44CE-A73E-9B308935047F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C044287E-D44F-44CE-A73E-9B308935047F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C044287E-D44F-44CE-A73E-9B308935047F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D168745E-B9FD-4C01-9A21-1718318ADD78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D168745E-B9FD-4C01-9A21-1718318ADD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D168745E-B9FD-4C01-9A21-1718318ADD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D168745E-B9FD-4C01-9A21-1718318ADD78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
