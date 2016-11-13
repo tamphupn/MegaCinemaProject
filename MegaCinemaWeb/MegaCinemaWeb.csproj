@@ -179,6 +179,35 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\background.png" />
+    <Content Include="Content\images\bg-footer.png" />
+    <Content Include="Content\images\cinema_icon.ico" />
+    <Content Include="Content\images\film.png" />
+    <Content Include="Content\images\gift.png" />
+    <Content Include="Content\images\icon-dk.png" />
+    <Content Include="Content\images\icon-member.png" />
+    <Content Include="Content\images\icon-phone.png" />
+    <Content Include="Content\images\icon.png" />
+    <Content Include="Content\images\img-facebook.png" />
+    <Content Include="Content\images\img-home.png" />
+    <Content Include="Content\images\img-login.png" />
+    <Content Include="Content\images\img-youtube.png" />
+    <Content Include="Content\images\item-vien.png" />
+    <Content Include="Content\images\lich.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\phim.png" />
+    <Content Include="Content\images\two-tickets.png" />
+    <Content Include="Content\images\uudai.png" />
+    <Content Include="Content\images\ve.png" />
+    <Content Include="Content\scripts\Client\css\bootstrap.min.css" />
+    <Content Include="Content\scripts\Client\css\font-awesome.css" />
+    <Content Include="Content\scripts\Client\css\index-css.css" />
+    <Content Include="Content\scripts\Client\css\jquery.bxslider.css" />
+    <Content Include="Content\scripts\Client\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\scripts\Client\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\scripts\Client\js\index.js" />
+    <Content Include="Content\scripts\Client\js\jquery.bxslider.js" />
+    <Content Include="Content\scripts\Client\js\jquery.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -186,6 +215,15 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Content\scripts\Client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\scripts\Client\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\scripts\Client\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\scripts\Client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\scripts\Client\fonts\FontAwesome.otf" />
+    <Content Include="Content\scripts\Client\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\scripts\Client\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\scripts\Client\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\scripts\Client\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -244,7 +282,6 @@
     <Folder Include="Areas\AdminDashboard\Views\Shared\" />
     <Folder Include="Assets\" />
     <Folder Include="Content\Avatars\" />
-    <Folder Include="Content\Images\" />
     <Folder Include="Content\Promotion\" />
   </ItemGroup>
   <ItemGroup>

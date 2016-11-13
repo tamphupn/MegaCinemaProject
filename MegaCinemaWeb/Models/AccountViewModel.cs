@@ -69,28 +69,47 @@ namespace MegaCinemaWeb.Models
 
     public class RegisterViewModel
     {
+        [Display(Name = "Tên")]
         public string FirstName { set; get; }
+
+        [Display(Name = "Họ")]
         public string LastName { set; get; }
 
+        [Display(Name = "Ngày sinh")]
         [DisplayFormat(DataFormatString = "{0:MMM dd, yyyy}")]
         public DateTime Birthday { get; set; }
-        public bool Sex { get; set; }      
+
+        [Display(Name = "Giới tính")]
+        public bool Sex { get; set; }
+
+        [Display(Name = "CMND")]
         [MaxLength(13)]
         public string SSN { get; set; }
+
+        [Display(Name = "Địa chỉ")]
         public string Address { set; get; }
+
+        [Display(Name = "Số điện thoại")]
+        [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
+        public string PhoneNumber { set; get; }
+
+        [Display(Name = "Quận")]
         public string District { get; set; }
+
+        [Display(Name = "Thành phố")]
         public string City { get; set; }
 
+        [Display(Name = "Email")]
         [Required(ErrorMessage = "Bạn cần nhập email.")]
         [EmailAddress(ErrorMessage = "Địa chỉ email không đúng.")]
         public string Email { set; get; }
 
+        [Display(Name = "Password")]
         [Required(ErrorMessage = "Bạn cần nhập mật khẩu.")]
         [MinLength(8, ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự")]
         public string Password { set; get; }
 
-        [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
-        public string PhoneNumber { set; get; }
+
     }
 
     public class RegisterCustomerViewModel
@@ -101,8 +120,12 @@ namespace MegaCinemaWeb.Models
         //[DisplayFormat(DataFormatString = "{0:dd/mm/yyy")]
         //public DateTime Birthday { get; set; }
         public bool Sex { get; set; }
+
+        [Required(ErrorMessage = "Bạn cần nhập Mã CMND/passport")]
         [MaxLength(13)]
         public string SSN { get; set; }
+
+        [Required(ErrorMessage = "Bạn cần nhập địa chỉ")]
         public string Address { set; get; }
         public string District { get; set; }
         public string City { get; set; }
@@ -114,6 +137,10 @@ namespace MegaCinemaWeb.Models
         [Required(ErrorMessage = "Bạn cần nhập mật khẩu.")]
         [MinLength(8, ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự")]
         public string Password { set; get; }
+
+        [Required(ErrorMessage = "Bạn cần nhập mật khẩu.")]
+        [MinLength(8, ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự")]
+        public string ConfirmPassword { set; get; }
 
         [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
         public string PhoneNumber { set; get; }
