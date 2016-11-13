@@ -923,13 +923,14 @@ ul.clearfix li:nth-child(8){
     color:#ffd555;
 }
 
-.register-form-area input{
+.register-form-area input, .login-form-area input{
     font-size:14px;
     color:black;
     padding:20px 28px;
     border-radius:0px;
 }
-.register-form-area input:focus{
+
+.register-form-area input:focus, .login-form-area input:focus{
     outline:0;
     border-color:#bf4d4d;
     box-shadow:0 1px 1px rgba(0,0,0,1) inset, 0 0 8px #bf4d4d;
@@ -945,8 +946,44 @@ ul.clearfix li:nth-child(8){
     margin-bottom:20px;
 }
 
- /*End of customer register */
+/*End of customer register */
 
- /*login customer css*/
+/*login customer css*/
+.link-action-confirm{
+    margin-top:10px;
+}
 
- /*end of login customer css*/
+.link-action-confirm a{
+     color:white;
+     font-size:14px;
+     font-weight:500;
+     margin-bottom:10px;
+     display:inline-block
+}
+
+.link-action-confirm a:hover{
+     color:#f2c641;
+}
+
+.login-form-area{
+    margin-top:10px;
+}
+
+.login-form-area h4{
+    color: #f2c641;
+    font-size : 1.7em;
+    font-weight : 700;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.login-form-area h4 span{
+    font-weight: 200;
+    text-transform:uppercase;
+}
+
+.login-form-area p:first-child{
+    font-size:1.2em;
+    font-weight:200;
+}
+/*end of login customer css*/

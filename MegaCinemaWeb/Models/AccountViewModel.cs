@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace MegaCinemaWeb.Models
 {
@@ -53,12 +54,12 @@ namespace MegaCinemaWeb.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email không được để trống")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password không được để trống")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -173,5 +174,15 @@ namespace MegaCinemaWeb.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    [DataContract]
+    public class RecapchaResult
+    {
+        [DataMember(Name = "success")]
+        public bool Success { get; set; }
+
+        [DataMember(Name = "error-codes")]
+        public string[] ErrorCodes { get; set; }
     }
 }
