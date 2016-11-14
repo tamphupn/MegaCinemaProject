@@ -97,6 +97,7 @@
     <Compile Include="Models\DetailFormat.cs" />
     <Compile Include="Models\FeatureDetail.cs" />
     <Compile Include="Models\Film.cs" />
+    <Compile Include="Models\FilmCalendarCreate.cs" />
     <Compile Include="Models\FilmCategories.cs" />
     <Compile Include="Models\FilmFormat.cs" />
     <Compile Include="Models\FilmRating.cs" />

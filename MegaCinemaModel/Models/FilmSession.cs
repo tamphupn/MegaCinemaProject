@@ -23,14 +23,17 @@ namespace MegaCinemaModel.Models
         [Required]
         public int CinemaID { get; set; }
 
-        [Required, DataType("nvarchar")]
-        public string FilmCalendar { get; set; }
-
         [Required]
         public DateTime DateStartSession { get; set; }
 
         [Required]
         public DateTime DateFinishSession { get; set; }
+
+        [DataType("nvarchar"),MaxLength(100)]
+        public string AssignDescription { get; set; }
+
+        [Required]
+        public int StaffID { get; set; }
 
         [Required, DataType("nvarchar"), MaxLength(3)]
         public string FilmSessionStatusID { get; set; }
@@ -43,6 +46,11 @@ namespace MegaCinemaModel.Models
 
         [ForeignKey("FilmSessionStatusID")]
         public virtual Status Status { get; set; }
+
+        [ForeignKey("StaffID")]
+        public virtual Staff Staff { get; set; }
+
+        public virtual FilmCalendarCreate FilmCalendarCreate { get; set; }
 
     }
 }
