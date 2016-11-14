@@ -16,7 +16,14 @@
     - Working with DB
   - MegaCinemaModel
     - Domain Entities of DB
+  - MegaCinemaService
+    - Service process in project
   - MegaCinemaUnitTest
     - Unit test
   - MegaCinemaWeb
     - Main Project 
+
+# Coding Convention
+- Controller: [name] + Controller 
+- Service: [name] + Service 
+- ViewModel:  [name] + ViewModel 
