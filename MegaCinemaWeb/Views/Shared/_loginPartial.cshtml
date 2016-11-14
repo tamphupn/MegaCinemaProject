@@ -9,13 +9,14 @@
         }
         @Html.Raw(url)
     </li>
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm",@class="navbar-right" }))
-    {
-        @Html.AntiForgeryToken()          
-        <li>
-            <a href="javascript:document.getElementById('logoutForm').submit()" id = "user-register-area"><i class="fa fa-bell-o" aria-hidden="true"></i> Log off</a>
-        </li>
-    }
+    <li id="user-register-area">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+        {
+        @Html.AntiForgeryToken()
+        <a href="javascript:document.getElementById('logoutForm').submit()" ><i class="fa fa-bell-o" aria-hidden="true"></i> Log off</a>
+        }
+    </li>
+    
 }
 else
 {
