@@ -174,11 +174,7 @@ ul.clearfix li:nth-child(8){
 .user-area ul li{
 	display:inline-block;
 	line-height: 47px;
-}
-.user-area ul li{
-	display:inline-block;
-	line-height: 47px;
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 .user-area ul li a{
@@ -189,6 +185,7 @@ ul.clearfix li:nth-child(8){
 	color:white;
 }
 .user-area{
+
 }
 /*MENU CLIENT CSS*/
 #header-content{
@@ -835,7 +832,7 @@ ul.clearfix li:nth-child(8){
 	.topbar-left{
 		margin-left: 0px!important;
 	}
-	.user-area ul li{
+	.user-area ul li, .user-area ul form li{
 		float: left;
 	}
 	.user-area ul{
@@ -848,6 +845,7 @@ ul.clearfix li:nth-child(8){
 	}
 	.user-area ul li:nth-child(3) a, .user-area ul li:nth-child(4) a{
 		font-size: 0.75em;
+        border:1px solid black;
 	}
 	
 	/*user area*/
