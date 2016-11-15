@@ -12,6 +12,7 @@ namespace MegaCinemaData.Infrastructures
         private readonly IDbFactory dbFactory;
         private MegaCinemaDBContext dbContext;
         private DbContextTransaction _transaction;
+
         public UnitOfWork(IDbFactory dbFactory)
         {
             this.dbFactory = dbFactory;
@@ -30,7 +31,7 @@ namespace MegaCinemaData.Infrastructures
 
         public void Commit()
         {
-            dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
 
         public void CommitTransaction()

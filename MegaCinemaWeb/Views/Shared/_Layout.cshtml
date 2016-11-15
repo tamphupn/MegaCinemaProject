@@ -179,9 +179,10 @@
     </div>
 
     <!--js-->
-    <script type="text/javascript" src="~/Content/scripts/Client/js/jquery.min.js"></script>
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryClient")
+    @*<script type="text/javascript" src="~/Content/scripts/Client/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/Content/scripts/Client/js/index.js"></script>
-    <script type="text/javascript" src="~/Content/scripts/Client/js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="~/Content/scripts/Client/js/jquery.bxslider.js"></script>*@
     @RenderSection("scriptData",false)
 </body>
 

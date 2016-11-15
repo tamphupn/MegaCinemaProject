@@ -148,6 +148,7 @@
     <Compile Include="Repositories\DetailFormatRepository.cs" />
     <Compile Include="Repositories\FeatureDetailRepository.cs" />
     <Compile Include="Repositories\FilmRepository.cs" />
+    <Compile Include="Repositories\FoodListRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="SampleData\SampleData.cs" />
   </ItemGroup>

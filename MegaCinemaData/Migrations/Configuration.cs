@@ -4,6 +4,7 @@ namespace MegaCinemaData.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using MegaCinemaData.SampleData;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MegaCinemaData.MegaCinemaDBContext>
     {

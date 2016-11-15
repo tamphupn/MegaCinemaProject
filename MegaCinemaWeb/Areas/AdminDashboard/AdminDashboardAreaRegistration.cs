@@ -14,6 +14,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+
             context.MapRoute(
                 "AdminDashboard_default",
                 "AdminDashboard/{controller}/{action}/{id}",

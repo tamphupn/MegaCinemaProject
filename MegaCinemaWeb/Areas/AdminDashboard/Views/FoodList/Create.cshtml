@@ -1,0 +1,57 @@
+﻿@model MegaCinemaWeb.Models.FoodListViewModel
+
+@{
+    ViewBag.Title = "Thêm món ăn mới";
+    ViewBag.FeatureTitle = "Thêm món ăn mới";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create","FoodList",FormMethod.Post,new { @enctype= "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FoodName, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FoodName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FoodName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FoodPrice, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FoodPrice, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+        @Html.ValidationMessageFor(model => model.FoodPrice, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FoodDescription, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FoodDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mô tả không quá 100 ký tự" } })
+        @Html.ValidationMessageFor(model => model.FoodDescription, "", new { @class = "text-danger" })
+    </div>
+
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodStatusID, "Trạng thái món ăn", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownListFor(model => model.FoodStatusID, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FoodStatusID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Upload ảnh
+            </label>
+            <input id="file-upload" name="fileUpload" type="file" />
+            <label id="custome-file-upload"></label>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <input type="submit" value="Lưu" class="btn btn-primary pull-right" />
+            </div>
+        </div>
+}
+
+@section scripts{
+<script src="@Url.Content("~/scripts/adminjs.js")"></script>
+    }

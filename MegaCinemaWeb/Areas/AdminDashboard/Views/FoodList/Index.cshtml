@@ -1,0 +1,22 @@
+﻿@using MegaCinemaWeb.Models;
+@model IEnumerable<FoodListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h3>Danh sách các món ăn</h3>
+@{ 
+    foreach(var item in Model)
+    {
+        <div class="food-area">
+            <p>@item.FoodName</p>
+            <p>@item.FoodCode</p>
+            <p>@item.CreatedDate</p>
+            <p>@item.FoodPrice</p>
+            <img src="@Url.Content("~/Content/FoodList/"+@item.FoodPoster)"/>
+        </div>
+    }
+}
+
