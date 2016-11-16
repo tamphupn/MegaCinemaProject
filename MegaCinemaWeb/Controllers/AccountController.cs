@@ -205,7 +205,7 @@ namespace MegaCinemaWeb.Controllers
                     {
                         CustomerPoint = 0,
                         CustomerPrefix = "CUS",
-                        CustomerAccountType = 4,
+                        CustomerAccountType = 1,
                         CustomerStatus = "NAT",
                     },
                 };
