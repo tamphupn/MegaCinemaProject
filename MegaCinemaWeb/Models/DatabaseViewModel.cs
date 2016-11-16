@@ -26,7 +26,6 @@ namespace MegaCinemaWeb.Models
 
     public class FoodListViewModel
     {
-        
         public int FoodID { get; set; }
 
         [DisplayName("Mã món ăn")]
@@ -54,6 +53,66 @@ namespace MegaCinemaWeb.Models
         [DisplayName("Trạng thái món ăn")]
         public string FoodStatusID { get; set; }
         public virtual StatusViewModel Status { get; set; }
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
+    public class FilmViewModel
+    {
+        public int FilmID { get; set; }
+
+        public string FilmPrefix { get; set; }
+
+        public string FilmCode { get; set; }
+
+        [DisplayName("Tên film")]
+        [Required(ErrorMessage = "Tên phim không được để trống")]        
+        public string FilmName { get; set; }
+
+        [DisplayName("Thời lượng")]
+        [Required(ErrorMessage = "Thời lượng không được để trống")]
+        public int FilmDuration { get; set; }
+
+        [DisplayName("Ngày công chiếu")]
+        //[Required(ErrorMessage = "Ngày công chiếu không được để trống")]
+        public DateTime FilmFirstPremiered { get; set; }
+
+        [DisplayName("Ngôn ngữ")]
+        [Required(ErrorMessage = "Ngôn ngữ không được để trống")]
+        public string FilmLanguage { get; set; }
+
+        [DisplayName("Nội dung phim")]
+        [Required(ErrorMessage = "Nội dung phim không được để trống")]
+        public string FilmContent { get; set; }
+
+        [DisplayName("Ngày chiếu cuối cùng")]
+        //[Required(ErrorMessage = "Ngày chiếu cuối cùng không được để trống")]
+        public DateTime? FilmFinishPremiered { get; set; }
+
+        [DisplayName("Poster phim")]
+        //[Required(ErrorMessage = "Poster phim không được để trống")]
+        public string FilmPoster { get; set; }
+
+        [DisplayName("Công ty sản xuất")]
+        [Required(ErrorMessage = "Công ty sản xuất không được để trống")]
+        public string FilmCompanyRelease { get; set; }
+
+        [DisplayName("Link trailer (youtube)")]
+        [Required(ErrorMessage = "Link trailer (youtube) không được để trống")]
+        public string FilmTrailer { get; set; }
+
+        [DisplayName("Đánh giá")]
+        //[Required(ErrorMessage = "Đánh giá không được để trống")]
+        public int FilmRatingID { get; set; }
+
+        [DisplayName("Trạng thái phim")]
+        [Required(ErrorMessage = "Trạng thái phim không được để trống")]
+        public string FilmStatus { get; set; }
+
+        //Add
         public DateTime? CreatedDate { set; get; }
         public string CreatedBy { set; get; }
         public DateTime? UpdatedDate { set; get; }

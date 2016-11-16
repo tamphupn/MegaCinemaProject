@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
@@ -440,7 +440,6 @@
     <Content Include="Content\scripts\Admin\js\jquery\src\.jshintrc" />
     <Content Include="Areas\AdminDashboard\Views\FoodList\Index.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\FoodList\Create.cshtml" />
-    <Content Include="Areas\AdminDashboard\Views\Status\Create.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -457,7 +456,6 @@
     <Compile Include="Areas\AdminDashboard\Controllers\BaseController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\FoodListController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\HomeController.cs" />
-    <Compile Include="Areas\AdminDashboard\Controllers\StatusController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
