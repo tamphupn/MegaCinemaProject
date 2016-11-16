@@ -16,7 +16,6 @@ namespace MegaCinemaService
         FoodList Add(FoodList foodList);
         void SaveChanges();
     }
-
     public class FoodListService : IFoodListService
     {
         //implement method
