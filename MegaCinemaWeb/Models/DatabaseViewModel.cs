@@ -11,6 +11,9 @@ namespace MegaCinemaWeb.Models
     public class StatusViewModel
     {
         public string StatusID { get; set; }
+
+        [DisplayName("Tên trạng thái")]
+        [Required(ErrorMessage = "Tên trạng thái không được để trống")]
         public string StatusName { get; set; }
         public string StatusDescription { get; set; }
         public DateTime? CreatedDate { set; get; }
@@ -20,6 +23,7 @@ namespace MegaCinemaWeb.Models
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
     }
+
     public class FoodListViewModel
     {
         
