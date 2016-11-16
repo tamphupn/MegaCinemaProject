@@ -120,4 +120,9 @@ namespace MegaCinemaWeb.Models
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
     }
+
+    public class FilmCategory
+    {
+
+    }
 }
