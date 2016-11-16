@@ -440,6 +440,8 @@
     <Content Include="Content\scripts\Admin\js\jquery\src\.jshintrc" />
     <Content Include="Areas\AdminDashboard\Views\FoodList\Index.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\FoodList\Create.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Film\Create.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -454,6 +456,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\AdminDashboard\AdminDashboardAreaRegistration.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\BaseController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\FilmController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\FoodListController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />

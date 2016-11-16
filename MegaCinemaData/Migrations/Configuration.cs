@@ -27,6 +27,7 @@ namespace MegaCinemaData.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            
         }
     }
 }
