@@ -26,7 +26,8 @@ namespace MegaCinemaData.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            //           
+            //
+            //SampleData.GenerateData(context);
         }
     }
 }
