@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <div class="col-md-10">
-                    <div class="checkbox">
+                    <div class="checkbox col-md-offset-2">
                         @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
                         @Html.EditorFor(model => model.RememberMe)<span> Remember me?</span>
                     </div>

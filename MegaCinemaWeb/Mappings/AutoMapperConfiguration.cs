@@ -13,6 +13,7 @@ namespace MegaCinemaWeb.Mappings
         public static void Configure()
         {
             Mapper.CreateMap<Status, StatusViewModel>();
+            Mapper.CreateMap<FoodList, FoodListViewModel>();
         }
     }
 }
