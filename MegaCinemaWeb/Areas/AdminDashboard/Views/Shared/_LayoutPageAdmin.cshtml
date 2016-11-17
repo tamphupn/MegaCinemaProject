@@ -24,7 +24,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="#" class="site_title"><i class="fa fa-paw"></i> <span style="margin-left:10px">A&D</span></a>
+                        <a href="#" class="site_title"><i class="fa fa-paw"></i> <span style="margin-left:10px">Mega Cinema!</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -84,7 +84,7 @@
                                 <li>
                                     <a><i class="fa fa-table"></i>Combo kèm theo<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="#">Thêm món ăn</a></li>
+                                        <li>@Html.ActionLink("Thêm món ăn", "Create", "FoodList")</li>
                                         <li>@Html.ActionLink("Danh sách món ăn", "Index", "FoodList")</li>
                                     </ul>
                                 </li>
@@ -176,6 +176,12 @@
                 <!-- /top tiles -->
                 <br />
                 <div class="row feature-main-content">
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="alert-custombox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }               
                     @RenderBody()
                 </div>
 
@@ -198,7 +204,7 @@
     <script src="~/Content/scripts/Admin/css/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="~/Content/scripts/Admin/js/custom.min.js"></script>
-
+    <script src="~/scripts/adminjs.js"></script>
     @RenderSection("scripts", false)
 </body>
 </html>

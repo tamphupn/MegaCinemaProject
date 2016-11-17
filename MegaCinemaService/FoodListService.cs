@@ -14,6 +14,7 @@ namespace MegaCinemaService
         //defined method
         IEnumerable<FoodList> GetAll();
         FoodList Add(FoodList foodList);
+        IEnumerable<FoodList> GetFoodListPaging(int page, int pageSize,out int totalRow);
         void SaveChanges();
     }
 
@@ -37,6 +38,13 @@ namespace MegaCinemaService
         public IEnumerable<FoodList> GetAll()
         {
             return _foodListRepository.GetAll();
+        }
+
+        public IEnumerable<FoodList> GetFoodListPaging(int page, int pageSize, out int totalRow )
+        {
+            var query = _foodListRepository.GetMulti(x => x.FoodStatus == "AC");
+            totalRow = query.Count();
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
         public void SaveChanges()

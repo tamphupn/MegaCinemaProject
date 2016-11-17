@@ -1,22 +1,123 @@
 ﻿@using MegaCinemaWeb.Models;
-@model IEnumerable<FoodListViewModel>
+@using MegaCinemaWeb.Infrastructure.Core;
+
+@model PaginationSet<FoodListViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách các món ăn";
+    ViewBag.FeatureTitle = "Danh sách các món ăn trong hệ thống";
     Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h3>Danh sách các món ăn</h3>
-@{ 
-    foreach(var item in Model)
+<div class="row">
+    <div class="col-md-8 col-lg-8">
+        <input type="text" class="form-control" id="search-component" />
+        <button type="submit" class="btn btn-primary search-button-component">Tìm kiếm</button>
+    </div>
+    <div class="col-md-4 col-lg-4">
+        <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Mã món ăn
+                </th>
+                <th>
+                    Tên món ăn
+                </th>
+                <th>
+                    Giá tiền
+                </th>
+                <th>
+                    Mô tả
+                </th>
+                <th>
+                    Poster
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @item.FoodCode
+                        </td>
+                        <td>
+                            @item.FoodName
+                        </td>
+                        <td>
+                            @item.FoodPrice
+                        </td>
+                        <td>
+                            @item.FoodDescription
+                        </td>
+                        <td>
+                            <img src="@Url.Content("~/Content/FoodList/"+@item.FoodPoster)" />
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>no result</tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination-area">
+    @if (ViewBag.TotalPage > 1)
     {
-        <div class="food-area">
-            <p>@item.FoodName</p>
-            <p>@item.FoodCode</p>
-            <p>@item.CreatedDate</p>
-            <p>@item.FoodPrice</p>
-            <img src="@Url.Content("~/Content/FoodList/"+@item.FoodPoster)"/>
-        </div>
+        var pageDisplay = int.Parse(ViewBag.MaxPage);
+        int totalPage = (int)ViewBag.TotalPage;
+
+        int currentPage = ((int)ViewBag.Page);
+
+        var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+        var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+        var link = "/danh-muc-mon-an/" + currentPage;
+        <nav>
+            <ul class="pagination">
+                @if (currentPage > ViewBag.First)
+                {
+                    <li><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                    <li>
+                        <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                    </li>
+
+                }
+                @for (int i = startPageIndex; i <= endPageIndex; i++)
+                {
+                    if (currentPage == i)
+                    {
+
+                        <li> <a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
+                    }
+                }
+                @if (currentPage < totalPage)
+                {
+                    <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                    <li> <a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                }
+
+            </ul>
+        </nav>
     }
-}
+    else
+    {
+        <span>không có sản phẩm</span>
+    }
+</div>
 

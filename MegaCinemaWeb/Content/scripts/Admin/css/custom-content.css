@@ -28,4 +28,25 @@ custom-file-upload +hover{
 
 .feature-main-content{
     padding:0px 15px;
+    color:black;
+    font-size:15px;
+}
+
+/*alert text validation*/
+
+.validation-summary-valid.alert-danger {
+    display: none;
+}
+
+.validation-summary-errors ul { 
+    list-style: none;
+}
+
+.validation-summary-errors ul li{ 
+    font-size:1.25em;
+    font-weight:400;
+}
+
+.search-button-component{
+    display:inline-block
 }

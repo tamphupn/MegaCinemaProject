@@ -10,10 +10,11 @@ using System.IO;
 using MegaCinemaCommon.StatusCommon;
 using MegaCinemaModel.Models;
 using MegaCinemaWeb.Infrastructure.Extensions;
+using MegaCinemaWeb.Infrastructure.Core;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    public class FoodListController : Controller
+    public class FoodListController : BaseController
     {
         IFoodListService _foodListService;
         IStatusService _statusService;
@@ -23,10 +24,25 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             _statusService = statusService;
         }
         // GET: AdminDashboard/FoodList
-        public ActionResult Index()
+        public ActionResult Index(int page = 0)
         {
-            var result = Mapper.Map<IEnumerable<FoodListViewModel>>(_foodListService.GetAll());
-            return View(result);
+            int pageSize = CommonConstrants.PAGE_SIZE;
+            int totalRow = 0;
+            var result = _foodListService.GetFoodListPaging(page, pageSize, out totalRow);
+            var resultVm = Mapper.Map<IEnumerable<FoodList>, IEnumerable<FoodListViewModel>>(result);
+
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+            var paginationSet = new PaginationSet<FoodListViewModel>()
+            {
+                Items = resultVm,
+                MaxPage = CommonConstrants.PAGE_SIZE,
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage,
+                Count = resultVm.Count(),
+            };
+
+            return View(paginationSet);
         }
 
         [HttpGet]
@@ -81,10 +97,12 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 else
                 {
                     fileUpload.SaveAs(pathImage);
+                    SetAlert("Thêm món ăn thành công", CommonConstrants.SUCCESS_ALERT);
                     return RedirectToAction("Index", "FoodList");
                 }
             }
-            return View();
+            ViewBag.FoodStatusID = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
+            return View(foodList);
         }
     }
 }
