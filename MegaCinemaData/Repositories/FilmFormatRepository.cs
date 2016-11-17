@@ -8,13 +8,14 @@ using MegaCinemaModel.Models;
 
 namespace MegaCinemaData.Repositories
 {
-    public interface IDetailFormatRepository : IRepository<DetailFormat>
+    public interface IFilmFormatRepository : IRepository<FilmFormat>
     {
         //triển khai phương thức mới không phải CRUD + paging
     }
-    public class DetailFormatRepository:RepositoryBase<DetailFormat>,IDetailFormatRepository
+
+    public class FilmFormatRepository:RepositoryBase<FilmFormat>, IFilmFormatRepository
     {
-        public DetailFormatRepository(IDbFactory dbfactory):base(dbfactory)
+        public FilmFormatRepository(IDbFactory dbfactory):base(dbfactory)
         {
 
         }

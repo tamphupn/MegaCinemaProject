@@ -50,3 +50,14 @@ custom-file-upload +hover{
 .search-button-component{
     display:inline-block
 }
+
+nav{
+    text-align:center;
+    margin: 0 auto;
+}
+
+.table-custom thead th{
+    background-color:#c0392b;
+    color:white;
+    text-align:center;
+}
