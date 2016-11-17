@@ -8,8 +8,5 @@ namespace MegaCinemaService
 {
     public class FilmService
     {
-        ///jkhjghjghjghj
-        ///
-        public int MyProperty { get; set; }
     }
 }
