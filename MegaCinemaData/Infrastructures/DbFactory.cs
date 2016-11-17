@@ -17,7 +17,6 @@ namespace MegaCinemaData.Infrastructures
 
         public MegaCinemaDBContext Init()
         {
-            //return dbContext == null ? dbContext : new MegaCinemaDBContext();
             return dbContext ?? (dbContext = new MegaCinemaDBContext());
         }
 

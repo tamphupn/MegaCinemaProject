@@ -17,7 +17,6 @@ namespace MegaCinemaService
         IEnumerable<FoodList> GetFoodListPaging(int page, int pageSize,out int totalRow);
         void SaveChanges();
     }
-
     public class FoodListService : IFoodListService
     {
         //implement method

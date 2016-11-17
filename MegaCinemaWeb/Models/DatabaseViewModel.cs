@@ -125,4 +125,56 @@ namespace MegaCinemaWeb.Models
     {
 
     }
+
+    #region #TranVanPhuc: PromotionViewModel class, PromotionCineViewModel class
+    public class PromotionViewModel
+    {
+        public int PromotionID { get; set; }
+
+        [DisplayName("Tên ưu đãi")]
+        [Required(ErrorMessage = "Tên ưu đãi không được để trống")]
+        public string PromotionHeader { get; set; }
+
+        [DisplayName("Nội dung ưu đãi")]
+        [Required(ErrorMessage = "Nội dung ưu đãi không được để trống")]
+        public string PromotionContent { get; set; }
+
+        [DisplayName("Ảnh poster")]
+        [Required(ErrorMessage = "Ảnh poster không được để trống")]
+        public string PromotionPoster { get; set; }
+
+        [DisplayName("Ngày kết thúc")]
+        public DateTime PromotionDateFinish { get; set; }
+
+        [DisplayName("Trạng thái")]
+        public string PromotionStatusID { get; set; }
+
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
+    public class PromotionCineViewModel
+    {
+        public int PromotionID { get; set; }
+        
+        public int CinemaID { get; set; }
+
+        [DisplayName("Mô tả")]
+        public string Description { get; set; }
+
+        [DisplayName("Trạng thái ưu đãi")]
+        [Required(ErrorMessage = "Trạng thái ưu đãi không được để trống")]
+        public string PromotionCineStatusID { get; set; }
+
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
+    #endregion #TranVanPhuc
 }

@@ -440,6 +440,10 @@
     <Content Include="Content\scripts\Admin\js\jquery\src\.jshintrc" />
     <Content Include="Areas\AdminDashboard\Views\FoodList\Index.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\FoodList\Create.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\FilmCategory\Create.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\FilmCategory\Index.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Promotion\Create.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\PromotionCine\Create.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -454,8 +458,11 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\AdminDashboard\AdminDashboardAreaRegistration.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\BaseController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\FilmCategoryController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\FoodListController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\PromotionCineController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\PromotionController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
