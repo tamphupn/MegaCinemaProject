@@ -14,7 +14,7 @@ namespace MegaCinemaWeb.Mappings
         {
             Mapper.CreateMap<Status, StatusViewModel>();
             Mapper.CreateMap<FoodList, FoodListViewModel>();
-            Mapper.CreateMap<FilmCategory, FilmCategoryViewModel>();
+            Mapper.CreateMap<Film, FilmViewModel>();
         }
     }
 }
