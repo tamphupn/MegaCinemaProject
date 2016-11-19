@@ -1,20 +1,25 @@
-﻿using System;
+﻿using AutoMapper;
+using MegaCinemaCommon.StatusCommon;
+using MegaCinemaModel.Models;
+using MegaCinemaService;
+using MegaCinemaWeb.Infrastructure.Extensions;
+using MegaCinemaWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
     public class FilmController : Controller
     {
         IFilmService _filmService;
-        IFilmRatingService _filmRatingService;
         IStatusService _statusService;
-        public FilmController(IFilmService filmService, IStatusService statusService, IFilmRatingService filmRatingService)
+        public FilmController(IFilmService filmService, IStatusService statusService)
         {
             _filmService = filmService;
             _statusService = statusService;
-            _filmRatingService = filmRatingService;
         }
 
         // GET: AdminDashboard/Film
@@ -28,7 +33,6 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         public ActionResult Create()
         {
             ViewBag.FilmStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
-            ViewBag.FilmRatingID = new SelectList(_filmRatingService.GetAll(), "RatingID", "RatingName");
             return View();
         }
 
