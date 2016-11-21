@@ -177,4 +177,32 @@ namespace MegaCinemaWeb.Models
         public string MetaDescription { set; get; }
     }
     #endregion #TranVanPhuc
+
+    #region NghiaNV
+    public class CinemaFeatureViewModel
+    {
+        public int FeatureID { get; set; }
+
+        [DisplayName("0 ảnh, - 1 nội dung")]
+        [Required(ErrorMessage = "Trường dữ liệu này không được để trống")]
+        public bool FeatureType { get; set; }
+
+        [DisplayName("Nội dung")]
+        [Required (ErrorMessage = "Nội dung không được để trống"), MaxLength(100)]
+        public string FeatureContent { get; set; }
+
+
+        [DisplayName("Mô tả")]
+        [MaxLength(100)]
+        public string FeatureDescription { get; set; }
+
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+
+    }
+    #endregion
 }
