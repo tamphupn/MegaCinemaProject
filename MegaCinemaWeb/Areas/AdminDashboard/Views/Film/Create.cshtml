@@ -1,0 +1,120 @@
+﻿@model MegaCinemaWeb.Models.FilmViewModel
+
+@{
+    ViewBag.Title = ViewBag.FeatureTitle = "Thêm phim mới";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmID, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.FilmID, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FilmID, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmPrefix, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.FilmPrefix, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FilmPrefix, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.FilmCode, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FilmCode, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.FilmName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FilmName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.FilmDuration, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FilmDuration, "", new { @class = "text-danger" })
+    </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmFirstPremiered, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmFirstPremiered, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmFirstPremiered, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmLanguage, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmLanguage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmLanguage, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmContent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmContent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmContent, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmFinishPremiered, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmFinishPremiered, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmFinishPremiered, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmPoster, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmPoster, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmPoster, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmCompanyRelease, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmCompanyRelease, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmCompanyRelease, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmTrailer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmTrailer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmTrailer, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmRatingID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmRatingID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmRatingID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FilmStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FilmStatus, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmStatus, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Upload ảnh
+            </label>
+            <input id="file-upload" name="fileUpload" type="file" />
+            <label id="custome-file-upload"></label>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <input type="submit" value="Lưu" class="btn btn-primary pull-right" />
+            </div>
+        </div>
+
+}
+
+<div>
+    @Html.ActionLink("Trở về List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
