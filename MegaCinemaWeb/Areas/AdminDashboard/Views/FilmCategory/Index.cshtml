@@ -1,8 +1,12 @@
-﻿
+﻿@model IEnumerable<MegaCinemaModel.Models>
+@using MegaCinemaWeb.Infrastructure.Core;
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = ViewBag.FeatureTitle = "Danh sách thể loại phim";
     Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
 }
-
-<h2>Index</h2>
-
+@{ foreach(var item in Model) {
+        <p>@item.FilmCategoryName</p>
+    }
+    
+}

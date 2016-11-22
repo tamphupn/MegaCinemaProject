@@ -24,6 +24,7 @@ namespace MegaCinemaWeb.Models
         public string MetaDescription { set; get; }
     }
 
+    #region TamPhu
     public class FoodListViewModel
     {
         public int FoodID { get; set; }
@@ -60,6 +61,9 @@ namespace MegaCinemaWeb.Models
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
     }
+    #endregion
+
+    #region #HoangMinh: Film, FilmCategories
     public class FilmViewModel
     {
         public int FilmID { get; set; }
@@ -69,7 +73,7 @@ namespace MegaCinemaWeb.Models
         public string FilmCode { get; set; }
 
         [DisplayName("Tên film")]
-        [Required(ErrorMessage = "Tên phim không được để trống")]        
+        [Required(ErrorMessage = "Tên phim không được để trống")]
         public string FilmName { get; set; }
 
         [DisplayName("Thời lượng")]
@@ -121,10 +125,27 @@ namespace MegaCinemaWeb.Models
         public string MetaDescription { set; get; }
     }
 
-    public class FilmCategory
+    public class FilmCategoryViewModel
     {
+        public int FilmCategoryID { get; set; }
 
+        [DisplayName("Thể loại phim")]
+        [Required(ErrorMessage = "Thể loại phim không được để trống")]
+        public string FilmCategoryName { get; set; }
+
+        [DisplayName("Mô tả thể loại phim")]
+        [Required(ErrorMessage = "* Không được để trống")]
+        public string FilmCategoryDescrip { get; set; }
+
+        //Add
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
     }
+    #endregion
 
     #region #TranVanPhuc: PromotionViewModel class, PromotionCineViewModel class
     public class PromotionViewModel
@@ -159,7 +180,7 @@ namespace MegaCinemaWeb.Models
     public class PromotionCineViewModel
     {
         public int PromotionID { get; set; }
-        
+
         public int CinemaID { get; set; }
 
         [DisplayName("Mô tả")]
