@@ -15,6 +15,13 @@ namespace MegaCinemaWeb.Areas.AdminDashboard
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                name: "Film Category",
+                url: "danh-sach-the-loai-phim/{id}",
+                defaults: new { action = "Index", controller = "FilmCategory", id = UrlParameter.Optional },
+                namespaces: new[] { "MegaCinemaWeb.Areas.AdminDashboard.Controllers" }
+            );
+
+            context.MapRoute(
                 name:"Food List Detail",
                 url: "danh-muc-mon-an/{id}",
                 defaults: new { action = "Index", controller = "FoodList", id = UrlParameter.Optional },
