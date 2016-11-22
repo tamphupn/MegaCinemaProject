@@ -181,6 +181,7 @@ namespace MegaCinemaWeb.Models
     #region NghiaNV
     public class CinemaFeatureViewModel
     {
+        //No Display
         public int FeatureID { get; set; }
 
         [DisplayName("0 ảnh, - 1 nội dung")]
@@ -190,7 +191,6 @@ namespace MegaCinemaWeb.Models
         [DisplayName("Nội dung")]
         [Required (ErrorMessage = "Nội dung không được để trống"), MaxLength(100)]
         public string FeatureContent { get; set; }
-
 
         [DisplayName("Mô tả")]
         [MaxLength(100)]
