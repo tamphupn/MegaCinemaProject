@@ -225,5 +225,50 @@ namespace MegaCinemaWeb.Models
         public string MetaDescription { set; get; }
 
     }
+
+
+    public class CinemaViewModel
+    {
+        public int CinemaID { get; set; }
+
+        [DisplayName("Tên Status")]
+        [Required(ErrorMessage = "Status không được để trống")]
+        public string CinemaPrefix { get; set; }
+
+        [DisplayName("Mã rạp")]
+        public string CinemaCode { get; set; }
+
+        [DisplayName("Tên rạp")]
+        [Required (ErrorMessage = "Tên rạp không được để trống")]
+        public string CinemaFullName { get; set; }
+
+        [DisplayName("Đia chỉ")]
+        [Required(ErrorMessage =  "Địa chỉ không được để trống")]
+        public string CinemaAddress { get; set; }
+
+        [DisplayName("Điện thoại")]
+        [Required(ErrorMessage = "Điện thoại không được để trống")]
+        public string CinemaPhone { get; set; }
+
+        [DisplayName("Email")]
+        [Required(ErrorMessage = "Email không được để trống")]
+        [EmailAddress]
+        public string CinemaEmail { get; set; }
+
+        [DisplayName("Mã quản lý")]
+        [Required(ErrorMessage = "Mã quản lý không được để trống")]
+        public int CinemaManagerID { get; set; }
+
+        [DisplayName("Trạng thái")]
+        [Required(ErrorMessage = "Trạng thái không được để trống")]
+        public string CinemaStatus { get; set; }
+
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
     #endregion
 }
