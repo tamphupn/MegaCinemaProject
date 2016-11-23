@@ -28,7 +28,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             Console.WriteLine(viewModel.FeatureDescription);
             if(ModelState.IsValid)
             {
-
+                Console.WriteLine("aldjfljasdfdjsf");
             }
             return RedirectToAction(("Index"));
         }
