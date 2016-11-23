@@ -29,7 +29,7 @@ namespace MegaCinemaData.Migrations
             //
             //SampleData.GenerateData(context);
             //SampleData.GenerateRegency(context);
-            SampleData.GenerateStaff(context);
+            //SampleData.GenerateStaff(context);
         }
     }
 }

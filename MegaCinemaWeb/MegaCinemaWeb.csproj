@@ -461,6 +461,7 @@
     <Content Include="Areas\AdminDashboard\Views\CinemaFeature\Index.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Film\Create.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Status\Create.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Cinema\Create.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -475,6 +476,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\AdminDashboard\AdminDashboardAreaRegistration.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\BaseController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\CinemaController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\CinemaFeatureController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\FilmCategoryController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\FilmController.cs" />

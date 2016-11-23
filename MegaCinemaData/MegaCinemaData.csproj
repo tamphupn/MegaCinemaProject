@@ -137,6 +137,10 @@
     <Compile Include="Migrations\201611140150381_ChangeTableCalendar.Designer.cs">
       <DependentUpon>201611140150381_ChangeTableCalendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611231310579_AddAFieldToPromotionTable.cs" />
+    <Compile Include="Migrations\201611231310579_AddAFieldToPromotionTable.Designer.cs">
+      <DependentUpon>201611231310579_AddAFieldToPromotionTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountTypeRepository.cs" />
@@ -203,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611140150381_ChangeTableCalendar.resx">
       <DependentUpon>201611140150381_ChangeTableCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611231310579_AddAFieldToPromotionTable.resx">
+      <DependentUpon>201611231310579_AddAFieldToPromotionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

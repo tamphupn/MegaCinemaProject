@@ -45,11 +45,7 @@
                             @item.FilmCategoryName
                         </td>
                         <td align="center">
-                            @Html.ActionLink(
-                            "Xóa",
-                            "Delete",
-                            new { id = item.FilmCategoryID },
-                            new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                            @Html.ActionLink("Xóa","Delete", "FilmCategory",new { id = item.FilmCategoryID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
                         </td>
                     </tr>
                 }

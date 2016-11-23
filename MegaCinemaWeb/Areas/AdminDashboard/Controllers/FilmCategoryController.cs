@@ -95,18 +95,20 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         //    return View(filmCategory);
         //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            FilmCategory filmCategory = _filmCategoryService.Find(id);
-            if (filmCategory == null)
+            if (id != null)
             {
-                return HttpNotFound();
+                //FilmCategory filmCategory = _filmCategoryService.Find((int)id);
+                //if (filmCategory == null)
+                //{
+                //    return HttpNotFound();
+                //}
+                //_filmCategoryService.Delete(filmCategory);
+                //_filmCategoryService.SaveChanges();
+                return RedirectToAction("Index");
             }
-            _filmCategoryService.Delete(filmCategory);
-            _filmCategoryService.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "FoodList");            
         }
 
         #endregion
