@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MegaCinemaWeb.Infrastructure.Extensions;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    public class FilmCategoryController : Controller
+    public class FilmCategoryController : BaseController
     {
         IFilmCategoryService _filmCategoryService;        
         public FilmCategoryController(IFilmCategoryService filmCategoryService)
@@ -44,7 +45,33 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //load drop down list
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(FilmCategoryViewModel filmCategory)
+        {
+            if (ModelState.IsValid)
+            {
+                //cập nhật thời gian, tên ảnh, người thực hiện, mã của sản phẩm - thiếu người thực hiện
+                filmCategory.CreatedDate = filmCategory.UpdatedDate = DateTime.Now;
+                //Phân quyền
+                //filmCategory.CreatedBy = filmCategory.UpdatedBy = USER_ID;
+
+                //thêm vào database và lưu kết quả
+                FilmCategory result = new FilmCategory();
+                result.UpdateFilmCategory(filmCategory);
+                var resultFilmCategory = _filmCategoryService.Add(result);
+                _filmCategoryService.SaveChanges();
+
+                if (resultFilmCategory == null) return RedirectToAction("Index", "Home");
+                else
+                {
+                    //fileUpload.SaveAs(pathImage);
+                    SetAlert("Thêm thể loại phim thành công", CommonConstrants.SUCCESS_ALERT);
+                    return RedirectToAction("Index", "FilmCategory");
+                }
+            }
             return View();
         }
     }

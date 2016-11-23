@@ -11,13 +11,14 @@ namespace MegaCinemaService
 {
     public interface IFilmCategoryService
     {
-        // triển khai các phương thức của service
+        //Triển khai các phương thức của service
         IEnumerable<FilmCategory> GetAll();
-
         IEnumerable<FilmCategory> GetFilmCategoryPaging(int page, int pageSize, out int totalRow);
+        FilmCategory Add(FilmCategory filmCategory);
 
         void SaveChanges();
     }
+
     public class FilmCategoryService:IFilmCategoryService
     {
         IFilmCategoryRepository _filmCategoryRepository;
@@ -27,6 +28,11 @@ namespace MegaCinemaService
         {
             _filmCategoryRepository = filmCategoryRepository;
             _unitOfWork = unitOfWork;
+        }
+
+        public FilmCategory Add(FilmCategory filmCategory)
+        {
+            return _filmCategoryRepository.Add(filmCategory);
         }
 
         public IEnumerable<FilmCategory> GetAll()

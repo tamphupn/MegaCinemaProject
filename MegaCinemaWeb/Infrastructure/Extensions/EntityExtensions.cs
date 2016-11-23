@@ -32,6 +32,19 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             foodList.MetaDescription = foodListVm.MetaDescription;
         }
 
+        public static void UpdateFilmCategory(this FilmCategory filmCategory, FilmCategoryViewModel filmCategoryVm)
+        {
+            filmCategory.FilmCategoryName = filmCategoryVm.FilmCategoryName;
+            filmCategory.FilmCategoryDescrip = filmCategoryVm.FilmCategoryDescrip;
+
+            filmCategory.CreatedDate = filmCategoryVm.CreatedDate;
+            filmCategory.CreatedBy = filmCategoryVm.CreatedBy;
+            filmCategory.UpdatedDate = filmCategoryVm.UpdatedDate;
+            filmCategory.UpdatedBy = filmCategoryVm.UpdatedBy;
+            filmCategory.MetaKeyword = filmCategoryVm.MetaKeyword;
+            filmCategory.MetaDescription = filmCategoryVm.MetaDescription;
+        }
+
         public static void UpdateFilm(this Film filmM, FilmViewModel filmVM)
         {
             filmM.FilmPrefix = filmVM.FilmPrefix;
