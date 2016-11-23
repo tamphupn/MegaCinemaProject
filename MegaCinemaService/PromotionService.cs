@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MegaCinemaData.Infrastructures;
 using MegaCinemaData.Repositories;
+using MegaCinemaModel.Models;
 
 namespace MegaCinemaService
 {
     public interface IPromotionService
     {
+        Promotion Add(Promotion promotion);
         // triển khai các phương thức của service
         void SaveChanges();
     }
@@ -22,6 +24,11 @@ namespace MegaCinemaService
         {
             _promotionRepository = promotionRepository;
             _unitOfWork = unitOfWork;
+        }
+
+        public Promotion Add(Promotion promotion)
+        {
+            return _promotionRepository.Add(promotion);
         }
 
         public void SaveChanges()

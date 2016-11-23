@@ -161,10 +161,15 @@ namespace MegaCinemaWeb.Models
         public string PromotionContent { get; set; }
 
         [DisplayName("Ảnh poster")]
-        [Required(ErrorMessage = "Ảnh poster không được để trống")]
         public string PromotionPoster { get; set; }
 
+
+        [DisplayName("Ngày bắt đầu")]
+        [Required(ErrorMessage = "Ngày bắt đầu không được để trống")]
+        public DateTime PromotionDateStart { get; set; }
+
         [DisplayName("Ngày kết thúc")]
+        [Required(ErrorMessage = "Ngày kết thúc không được để trống")]
         public DateTime PromotionDateFinish { get; set; }
 
         [DisplayName("Trạng thái")]
