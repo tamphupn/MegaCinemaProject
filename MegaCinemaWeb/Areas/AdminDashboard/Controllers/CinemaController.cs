@@ -10,6 +10,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
     public class CinemaController : Controller
     {
+        //TEST
         ICinemaService _foodListService;
         IStatusService _statusService;
         public CinemaController(ICinemaService foodListService, IStatusService statusService)
