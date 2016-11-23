@@ -44,5 +44,11 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             return RedirectToAction("Index", "FoodList");
            
         }
+
+        [HttpPost]
+        public ActionResult Edit()
+        {
+            return View();
+        }
     }
 }
