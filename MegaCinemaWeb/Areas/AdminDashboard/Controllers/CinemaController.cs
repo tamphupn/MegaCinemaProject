@@ -13,6 +13,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         //TEST
         ICinemaService _foodListService;
         IStatusService _statusService;
+
         public CinemaController(ICinemaService foodListService, IStatusService statusService)
         {
             _foodListService = foodListService;
@@ -21,6 +22,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         // GET: AdminDashboard/Cinema
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -42,9 +44,15 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 
             //Action/Controller
             return RedirectToAction("Index", "FoodList");
-           
         }
 
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            return RedirectToAction("Index");
+        }
+
+      
         [HttpPost]
         public ActionResult Edit()
         {
