@@ -4,11 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MegaCinemaModel.Models;
+using MegaCinemaCommon.StatusCommon;
 
 namespace MegaCinemaData.SampleData
 {
     public static class SampleData
     {
+        public static void GenerateRegency(MegaCinemaDBContext context)
+        {
+            context.Regencies.Add(new Regency { RegencyName = "Quản trị hệ thống", CreatedDate = DateTime.Now });
+            context.Regencies.Add(new Regency { RegencyName = "Quản lý rạp phim", CreatedDate = DateTime.Now });
+        }
+        public static void GenerateStaff(MegaCinemaDBContext context)
+        {
+            context.Users.Add(new ApplicationUser
+            {
+                FirstName = "Nghĩa",
+                LastName = "Nguyễn Văn",
+                Birthday = DateTime.Parse("18/10/1995"),
+                Sex = true,
+                SSN = "22150678",
+                Address = "KTX khu B, DHQG TPHCM",
+                District = "Thủ đức",
+                City = "Hồ chí minh",
+                Email = "nghiauit@gmail.com",
+                EmailConfirmed = true,
+                PhoneNumber = "0123456789",
+                UserName = "nguyennghia",
+                Staff = new Staff
+                {
+                    StaffPrefix = CommonConstrants.STAFF_PREFIX,
+                    StaffRegencyID = 1,
+                    StaffStatus = "AC",
+                },
+            });
+        }
         public static void GenerateStatus(MegaCinemaDBContext context)
         {
             context.Statuss.Add(new Status { StatusID = "NOT", StatusName = "Không hoạt động", CreatedDate = DateTime.Now });
