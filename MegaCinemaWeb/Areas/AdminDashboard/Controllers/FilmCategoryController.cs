@@ -10,12 +10,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MegaCinemaWeb.Infrastructure.Extensions;
+using System.Net;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
     public class FilmCategoryController : BaseController
     {
-        IFilmCategoryService _filmCategoryService;        
+        IFilmCategoryService _filmCategoryService;
         public FilmCategoryController(IFilmCategoryService filmCategoryService)
         {
             _filmCategoryService = filmCategoryService;
@@ -42,6 +43,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             return View(paginationSet);
         }
 
+        #region #Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -74,5 +76,39 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             }
             return View();
         }
+        #endregion
+
+        #region #Delete
+        //public ActionResult Delete(int id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
+
+        //    FilmCategory filmCategory = _filmCategoryService.Find(id);            
+
+        //    if (filmCategory == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(filmCategory);
+        //}
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            FilmCategory filmCategory = _filmCategoryService.Find(id);
+            if (filmCategory == null)
+            {
+                return HttpNotFound();
+            }
+            _filmCategoryService.Delete(filmCategory);
+            _filmCategoryService.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        #endregion
     }
 }

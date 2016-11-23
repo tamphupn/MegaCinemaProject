@@ -16,6 +16,9 @@ namespace MegaCinemaService
         IEnumerable<FilmCategory> GetFilmCategoryPaging(int page, int pageSize, out int totalRow);
         FilmCategory Add(FilmCategory filmCategory);
 
+        FilmCategory Find(int id);
+        FilmCategory Delete(FilmCategory filmCategory);
+
         void SaveChanges();
     }
 
@@ -40,6 +43,16 @@ namespace MegaCinemaService
             return _filmCategoryRepository.GetAll();
         }
 
+        public FilmCategory Find(int id)
+        {
+            return _filmCategoryRepository.GetSingleById(id);
+        }
+
+        public FilmCategory Delete(FilmCategory filmCategory)
+        {
+            return _filmCategoryRepository.Delete(filmCategory);
+        }
+
         public void SaveChanges()
         {
             _unitOfWork.Commit();
@@ -51,5 +64,7 @@ namespace MegaCinemaService
             totalRow = query.Count();
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
+
+        
     }
 }
