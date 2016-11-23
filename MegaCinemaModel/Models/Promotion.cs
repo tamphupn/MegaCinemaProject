@@ -27,6 +27,9 @@ namespace MegaCinemaModel.Models
         public string PromotionPoster { get; set; }
 
         [Required]
+        public DateTime PromotionDateStart { get; set; }
+
+        [Required]
         public DateTime PromotionDateFinish { get; set; }
 
         [Required, DataType("nvarchar"), MaxLength(3)]

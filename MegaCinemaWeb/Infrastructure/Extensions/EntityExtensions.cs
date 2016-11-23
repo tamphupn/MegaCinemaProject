@@ -66,5 +66,23 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             filmM.MetaDescription = filmVM.MetaDescription;
             filmM.FilmFinishPremiered = filmVM.FilmFinishPremiered;
         }
+
+        public static void UpdatePromotion(this Promotion promotion, PromotionViewModel promotionVm)
+        {
+            promotion.PromotionHeader = promotionVm.PromotionHeader;
+            promotion.PromotionContent = promotionVm.PromotionContent;
+            promotion.PromotionPoster = promotionVm.PromotionPoster;
+            promotion.PromotionDateStart = promotionVm.PromotionDateStart;
+            promotion.PromotionDateFinish = promotionVm.PromotionDateFinish;
+            promotion.PromotionStatusID = promotionVm.PromotionStatusID;
+
+            promotion.CreatedDate = promotionVm.CreatedDate;
+            promotion.CreatedBy = promotionVm.CreatedBy;
+            promotion.UpdatedDate = promotionVm.UpdatedDate;
+            promotion.UpdatedBy = promotionVm.UpdatedBy;
+            promotion.MetaKeyword = promotionVm.MetaKeyword;
+            promotion.MetaDescription = promotionVm.MetaDescription;
+
+        }
     }
 }
