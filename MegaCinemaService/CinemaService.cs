@@ -15,33 +15,33 @@ namespace MegaCinemaService
         //defined method
         IEnumerable<Cinema> GetAll();
         Cinema Add(Cinema cinema);
-        IEnumerable<Cinema> GetFoodListPaging(int page, int pageSize, out int totalRow);
         void SaveChanges();
     }
 
     public class CinemaService : ICinemaService
     {
-        private IFoodListRepository _foodListRepository;
+        private ICinemaRepository _cinemaRepository;
         private IUnitOfWork _unitOfWork;
+
+        public CinemaService(ICinemaRepository cinemaRepository, IUnitOfWork unitOfWork)
+        {
+            _cinemaRepository = cinemaRepository;
+            _unitOfWork = unitOfWork;
+        }
 
         public Cinema Add(Cinema cinema)
         {
-            return null;
+            return _cinemaRepository.Add(cinema);
         }
 
         public IEnumerable<Cinema> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Cinema> GetFoodListPaging(int page, int pageSize, out int totalRow)
-        {
-            throw new NotImplementedException();
+            return _cinemaRepository.GetAll();
         }
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
     }
 }
