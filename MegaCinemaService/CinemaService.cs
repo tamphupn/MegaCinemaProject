@@ -37,7 +37,6 @@ namespace MegaCinemaService
         public IEnumerable<Cinema> GetAll()
         {
             return _cinemaRepository.GetAll();
-            _cinemaRepository.GetSingleById()
         }
 
         public void SaveChanges()
