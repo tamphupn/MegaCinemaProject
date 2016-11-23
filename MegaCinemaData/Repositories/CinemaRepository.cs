@@ -13,7 +13,7 @@ namespace MegaCinemaData.Repositories
         
     }
 
-    public class CinemaRepository: RepositoryBase<Cinema>
+    public class CinemaRepository: RepositoryBase<Cinema>, ICinemaRepository
     {
         public CinemaRepository(IDbFactory dbfactory):base(dbfactory)
         {
