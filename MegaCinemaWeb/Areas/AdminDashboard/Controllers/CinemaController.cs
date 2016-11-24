@@ -8,21 +8,21 @@ using System.Web.Mvc;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    public class CinemaController : Controller
+    public class CinemaController : BaseController
     {
         //TEST
-        ICinemaService _foodListService;
+        ICinemaService _cinemaService;
         IStatusService _statusService;
 
-        public CinemaController(ICinemaService foodListService, IStatusService statusService)
+        public CinemaController(ICinemaService cinemaService, IStatusService statusService)
         {
-            _foodListService = foodListService;
+            _cinemaService = cinemaService;
             _statusService = statusService;
         }
         // GET: AdminDashboard/Cinema
         public ActionResult Index()
         {
-
+            
             return View();
         }
 
@@ -41,7 +41,6 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             {
                 return RedirectToAction("Index");
             }
-
             //Action/Controller
             return RedirectToAction("Index", "FoodList");
         }
