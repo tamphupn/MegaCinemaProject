@@ -78,39 +78,67 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
         #endregion
 
+        #region #Edit
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id != null)
+            {
+                FilmCategory filmCategory = _filmCategoryService.Find((int)id);
+                if (filmCategory == null)
+                {
+                    return HttpNotFound();
+                }
+                
+                var resultVm = Mapper.Map<FilmCategory, FilmCategoryViewModel>(filmCategory);
+                TempData["filmCategoryItem"] = resultVm;
+                return View(resultVm);
+            }
+            return RedirectToAction("Index", "FilmCategory");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(FilmCategory filmCategory)
+        {
+            if (ModelState.IsValid)
+            {
+                //filmCategory.UpdatedBy               
+
+                var result = (FilmCategoryViewModel)TempData["filmCategoryItem"];
+                filmCategory.FilmCategoryID = result.FilmCategoryID;
+                filmCategory.CreatedDate = result.CreatedDate;
+                filmCategory.CreatedBy = result.CreatedBy;
+                filmCategory.UpdatedDate = DateTime.Now;
+                filmCategory.UpdatedBy = result.UpdatedBy;
+                filmCategory.MetaDescription = result.MetaDescription;
+                filmCategory.MetaKeyword = result.MetaKeyword;
+
+                _filmCategoryService.Update(filmCategory);
+                _filmCategoryService.SaveChanges();
+
+                SetAlert("Sửa thể loại phim thành công", CommonConstrants.SUCCESS_ALERT);
+                return RedirectToAction("Index");
+            }
+            return View(filmCategory);
+        }
+        #endregion
+
         #region #Delete
-        //public ActionResult Delete(int id)
-        //{
-        //    //if (id == null)
-        //    //{
-        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    //}
-
-        //    FilmCategory filmCategory = _filmCategoryService.Find(id);            
-
-        //    if (filmCategory == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(filmCategory);
-        //}
-
         public ActionResult Delete(int? id)
         {
             if (id != null)
             {
-                //FilmCategory filmCategory = _filmCategoryService.Find((int)id);
-                //if (filmCategory == null)
-                //{
-                //    return HttpNotFound();
-                //}
-                //_filmCategoryService.Delete(filmCategory);
-                //_filmCategoryService.SaveChanges();
+                FilmCategory filmCategory = _filmCategoryService.Find((int)id);
+                if (filmCategory == null)
+                {
+                    return HttpNotFound();
+                }
+                _filmCategoryService.Delete(filmCategory);
+                _filmCategoryService.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Index", "FoodList");            
+            return RedirectToAction("Index", "FilmCategory");
         }
-
         #endregion
     }
 }

@@ -16,6 +16,8 @@ namespace MegaCinemaService
         IEnumerable<FilmCategory> GetFilmCategoryPaging(int page, int pageSize, out int totalRow);
         FilmCategory Add(FilmCategory filmCategory);
 
+        void Update(FilmCategory filmCategory);
+
         FilmCategory Find(int id);
         FilmCategory Delete(FilmCategory filmCategory);
 
@@ -65,6 +67,9 @@ namespace MegaCinemaService
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
-        
+        public void Update(FilmCategory filmCategory)
+        {
+            _filmCategoryRepository.Update(filmCategory);
+        }
     }
 }

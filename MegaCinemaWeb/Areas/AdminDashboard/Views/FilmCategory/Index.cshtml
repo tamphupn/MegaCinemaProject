@@ -8,12 +8,12 @@
 }
 
 <div class="row">
-    <div class="col-md-8 col-lg-8">
-        <input type="text" class="form-control" id="search-component" />
-        <button type="submit" class="btn btn-primary search-button-component" style="margin-top: 5px;">Tìm kiếm</button>
-    </div>
+    @*<div class="col-md-8 col-lg-8">
+            <input type="text" class="form-control" id="search-component" />
+            <button type="submit" class="btn btn-primary search-button-component" style="margin-top: 5px;">Tìm kiếm</button>
+        </div>*@
     <div class="col-md-4 col-lg-4">
-        <a href="Create"><button type="submit" class="btn btn-primary pull-right">Thêm mới</button></a>
+        <button type="submit" class="btn btn-primary pull-left" onclick="window.location.href='Create'">Thêm mới</button>
     </div>
 </div><br />
 
@@ -45,7 +45,9 @@
                             @item.FilmCategoryName
                         </td>
                         <td align="center">
-                            @Html.ActionLink("Xóa","Delete", "FilmCategory",new { id = item.FilmCategoryID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                            @Html.ActionLink("Sửa", "Edit", "FilmCategory", new { id = item.FilmCategoryID }, null)
+                            |
+                            @Html.ActionLink("Xóa", "Delete", "FilmCategory", new { id = item.FilmCategoryID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
                         </td>
                     </tr>
                 }
