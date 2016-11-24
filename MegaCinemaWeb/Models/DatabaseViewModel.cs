@@ -63,7 +63,7 @@ namespace MegaCinemaWeb.Models
     }
     #endregion
 
-    #region #HoangMinh: Film, FilmCategories
+    #region #HoangMinh: FilmCategory, FilmFormat
     public class FilmViewModel
     {
         public int FilmID { get; set; }
@@ -144,6 +144,16 @@ namespace MegaCinemaWeb.Models
         public string UpdatedBy { set; get; }
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
+    }
+
+    public class FilmFormatViewModel
+    {
+        public int FilmFormatID { get; set; }
+
+        [Required(ErrorMessage = "Tên định dạng phim không được để trống")]
+        public string FilmFormatName { get; set; }
+
+        public string FilmFormatDescrip { get; set; }
     }
     #endregion
 

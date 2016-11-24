@@ -1,9 +1,9 @@
 ﻿@using MegaCinemaWeb.Models;
 @using MegaCinemaWeb.Infrastructure.Core;
-@model PaginationSet<FilmCategoryViewModel>
+@model PaginationSet<FilmFormatViewModel>
 
 @{
-    ViewBag.Title = ViewBag.FeatureTitle = "Danh sách thể loại phim";
+    ViewBag.Title = ViewBag.FeatureTitle = "Danh sách định dạnh phim";
     Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
@@ -15,7 +15,50 @@
     <div class="col-md-4 col-lg-4">
         <button type="submit" class="btn btn-primary pull-left" onclick="window.location.href='Create'">Thêm mới</button>
     </div>
-</div><br/>
+</div><br />
+
+
+
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmFormatID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmFormatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmFormatDescrip)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmFormatID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmFormatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmFormatDescrip)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
 
 <div class="table-responsive">
     <table class="table table-bordered table-custom">
@@ -25,7 +68,7 @@
                     Code
                 </th>
                 <th>
-                    Tên loại phim
+                    Tên định dạng phim
                 </th>
                 <th width="100px">
                     Thao tác
@@ -39,15 +82,15 @@
                 {
                     <tr>
                         <td align="center">
-                            @item.FilmCategoryID
+                            @item.FilmFormatID
                         </td>
                         <td>
-                            @item.FilmCategoryName
+                            @item.FilmFormatName
                         </td>
                         <td align="center">
-                            @Html.ActionLink("Sửa", "Edit", "FilmCategory", new { id = item.FilmCategoryID }, null)
+                            @Html.ActionLink("Sửa", "Edit", "FilmFormat", new { id = item.FilmFormatID }, null)
                             |
-                            @Html.ActionLink("Xóa", "Delete", "FilmCategory", new { id = item.FilmCategoryID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                            @Html.ActionLink("Xóa", "Delete", "FilmFormat", new { id = item.FilmFormatID }, new { onclick = "return confirm('Bạn có chắc chắn xóa định dạng phim này không?');" })
                         </td>
                     </tr>
                 }

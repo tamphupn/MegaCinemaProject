@@ -7,14 +7,13 @@ using System.Web.Mvc;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    public class CinemaFeatureController : Controller
+    public class CinemaFeatureController : BaseController
     {
         // GET: AdminDashboard/CinemaFeature
         public ActionResult Index()
         {
             return View();
         }
-
 
         [HttpGet]
         public ActionResult Create()
