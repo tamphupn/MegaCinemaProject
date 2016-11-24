@@ -66,7 +66,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 var resultFilmCategory = _filmCategoryService.Add(result);
                 _filmCategoryService.SaveChanges();
 
-                if (resultFilmCategory == null) return RedirectToAction("Index", "Home");
+                if (resultFilmCategory == null) return RedirectToAction("Index", "FilmCategory");
                 else
                 {
                     //fileUpload.SaveAs(pathImage);

@@ -12,6 +12,7 @@ namespace MegaCinemaService
     public interface IFilmFormatService
     {
         // triển khai các phương thức của service
+        FilmFormat Add(FilmFormat filmFormat);
         IEnumerable<FilmFormat> GetAll();
         IEnumerable<FilmFormat> GetFilmFormatPaging(int page, int pageSize, out int totalRow);
         void SaveChanges();
@@ -24,6 +25,11 @@ namespace MegaCinemaService
         {
             _filmFormatRepository = filmFormatRepository;
             _unitOfWork = unitOfWork;
+        }
+
+        public FilmFormat Add(FilmFormat filmFormat)
+        {
+            return _filmFormatRepository.Add(filmFormat);
         }
 
         public IEnumerable<FilmFormat> GetAll()

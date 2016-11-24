@@ -149,11 +149,17 @@ namespace MegaCinemaWeb.Models
     public class FilmFormatViewModel
     {
         public int FilmFormatID { get; set; }
-
         [Required(ErrorMessage = "Tên định dạng phim không được để trống")]
         public string FilmFormatName { get; set; }
-
         public string FilmFormatDescrip { get; set; }
+
+        //Add
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
     }
     #endregion
 

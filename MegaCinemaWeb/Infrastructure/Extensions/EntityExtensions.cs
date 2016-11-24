@@ -45,6 +45,19 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             filmCategory.MetaDescription = filmCategoryVm.MetaDescription;
         }
 
+        public static void UpdateFilmFormat(this FilmFormat filmFormat, FilmFormatViewModel filmFormatVm)
+        {
+            filmFormat.FilmFormatName = filmFormatVm.FilmFormatName;
+            filmFormat.FilmFormatDescrip = filmFormatVm.FilmFormatDescrip;
+
+            filmFormat.CreatedDate = filmFormatVm.CreatedDate;
+            filmFormat.CreatedBy = filmFormatVm.CreatedBy;
+            filmFormat.UpdatedDate = filmFormatVm.UpdatedDate;
+            filmFormat.UpdatedBy = filmFormatVm.UpdatedBy;
+            filmFormat.MetaKeyword = filmFormatVm.MetaKeyword;
+            filmFormat.MetaDescription = filmFormatVm.MetaDescription;
+        }
+
         public static void UpdateFilm(this Film filmM, FilmViewModel filmVM)
         {
             filmM.FilmPrefix = filmVM.FilmPrefix;
