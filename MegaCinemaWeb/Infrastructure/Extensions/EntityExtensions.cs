@@ -101,5 +101,25 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             cinemaFeature.MetaDescription = cinemaFeatureViewModel.MetaDescription;
         }
 
+        public static void UpdateCinema(this Cinema cinema, CinemaViewModel cinemaViewModel)
+        {
+
+            //cinema.CinemaID = cinemaViewModel.CinemaID;
+            cinema.CinemaPrefix = cinemaViewModel.CinemaPrefix;
+            cinema.CinemaFullName = cinemaViewModel.CinemaFullName;
+            cinema.CinemaAddress = cinemaViewModel.CinemaAddress;
+            cinema.CinemaPhone = cinemaViewModel.CinemaPhone;
+            cinema.CinemaEmail = cinemaViewModel.CinemaEmail;
+            cinema.CinemaManagerID = cinemaViewModel.CinemaManagerID;
+            cinema.CinemaStatus = cinemaViewModel.CinemaStatus;
+
+            cinema.CreatedDate = cinemaViewModel.CreatedDate;
+            cinema.CreatedBy = cinemaViewModel.CreatedBy;
+            cinema.UpdatedDate = cinemaViewModel.UpdatedDate;
+            cinema.UpdatedBy = cinemaViewModel.UpdatedBy;
+            cinema.MetaKeyword = cinemaViewModel.MetaKeyword;
+            cinema.MetaDescription = cinemaViewModel.MetaDescription;
+        }
+
     }
 }
