@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using MegaCinemaModel.Models;
 using MegaCinemaWeb.Infrastructure.Extensions;
 using MegaCinemaCommon.StatusCommon;
+using AutoMapper;
+using MegaCinemaWeb.Infrastructure.Core;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
@@ -24,9 +26,25 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
 
         // GET: AdminDashboard/Promotion
-        public ActionResult Index()
+        public ActionResult Index(int page = 0)
         {
-            return View();
+            int pageSize = CommonConstrants.PAGE_SIZE;
+            int totalRow = 0;
+            var result = _promotionService.GetPromotionPaging(page, pageSize, out totalRow);
+            var resultVm = Mapper.Map<IEnumerable<Promotion>, IEnumerable<PromotionViewModel>>(result);
+
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+            var paginationSet = new PaginationSet<PromotionViewModel>()
+            {
+                Items = resultVm,
+                MaxPage = CommonConstrants.PAGE_SIZE,
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage,
+                Count = resultVm.Count(),
+            };
+
+            return View(paginationSet);
         }
 
         [HttpGet]
@@ -53,8 +71,10 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 }
                 else
                 {
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    pathImage = Path.Combine(Server.MapPath("~/Content/Promotion"), fileName);
+                    filePathSave = Path.GetFileName(fileUpload.FileName);
+                    pathImage = Path.Combine(Server.MapPath("~/Content/Promotion"), filePathSave);
+                    //var fileName = Path.GetFileName(fileUpload.FileName);
+                    //pathImage = Path.Combine(Server.MapPath("~/Content/Promotion"), fileName);
                     if (System.IO.File.Exists(pathImage))
                     {
                         //Hình ảnh đã tồn tại
@@ -78,8 +98,11 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 if (resultPromotion == null) return RedirectToAction("Index", "Home");
                 else
                 {
-                    fileUpload.SaveAs(pathImage);
-                    SetAlert("Thêm món ăn thành công", CommonConstrants.SUCCESS_ALERT);
+                    if (filePathSave != "404.png")
+                        fileUpload.SaveAs(pathImage);
+                    _promotionService.SaveChanges();
+
+                    SetAlert("Thêm ưu đãi thành công!", CommonConstrants.SUCCESS_ALERT);
                     return RedirectToAction("Index", "FoodList");
                 }
             }

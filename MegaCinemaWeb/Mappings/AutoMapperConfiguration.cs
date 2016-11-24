@@ -17,8 +17,9 @@ namespace MegaCinemaWeb.Mappings
             Mapper.CreateMap<Film, FilmViewModel>();
             Mapper.CreateMap<FilmCategory, FilmCategoryViewModel>();
             Mapper.CreateMap<FilmFormat, FilmFormatViewModel>();
-            Mapper.CreateMap<Cinema, CinemaViewModel>();
+			Mapper.CreateMap<Cinema, CinemaViewModel>();
             Mapper.CreateMap<CinemaFeature, CinemaFeatureViewModel>();
-        }
+			Mapper.CreateMap<Promotion, PromotionViewModel>();
+		}
     }
 }

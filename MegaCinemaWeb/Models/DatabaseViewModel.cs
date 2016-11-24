@@ -201,8 +201,8 @@ namespace MegaCinemaWeb.Models
         [DisplayName("Mô tả")]
         public string Description { get; set; }
 
-        [DisplayName("Trạng thái ưu đãi")]
-        [Required(ErrorMessage = "Trạng thái ưu đãi không được để trống")]
+        [DisplayName("Trạng thái áp dụng ưu đãi cho rạp")]
+        [Required(ErrorMessage = "Trạng thái áp dụng ưu đãi cho rạp không được để trống")]
         public string PromotionCineStatusID { get; set; }
 
         public DateTime? CreatedDate { set; get; }
