@@ -16,6 +16,9 @@ namespace MegaCinemaService
         IEnumerable<Cinema> GetAll();
         Cinema Add(Cinema cinema);
         void SaveChanges();
+        Cinema Find(int id);
+        Cinema Delete(Cinema cinema);
+    
     }
 
     public class CinemaService : ICinemaService
@@ -32,6 +35,16 @@ namespace MegaCinemaService
         public Cinema Add(Cinema cinema)
         {
             return _cinemaRepository.Add(cinema);
+        }
+
+        public Cinema Delete(Cinema cinema)
+        {
+            return _cinemaRepository.Delete(cinema);
+        }
+
+        public Cinema Find(int id)
+        {
+            return _cinemaRepository.GetSingleById(id);
         }
 
         public IEnumerable<Cinema> GetAll()
