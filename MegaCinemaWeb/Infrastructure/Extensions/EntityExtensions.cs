@@ -84,5 +84,22 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             promotion.MetaDescription = promotionVm.MetaDescription;
 
         }
+
+        public static void UpdateCinemaFeature(this CinemaFeature cinemaFeature, CinemaFeatureViewModel cinemaFeatureViewModel)
+        {
+
+            //cinemaFeature.FeatureID = cinemaFeatureViewModel.FeatureID;
+            cinemaFeature.FeatureType = cinemaFeatureViewModel.FeatureType;
+            cinemaFeature.FeatureContent = cinemaFeatureViewModel.FeatureContent;
+            cinemaFeature.FeatureDescription = cinemaFeatureViewModel.FeatureDescription;
+
+            cinemaFeature.CreatedDate = cinemaFeatureViewModel.CreatedDate;
+            cinemaFeature.CreatedBy = cinemaFeatureViewModel.CreatedBy;
+            cinemaFeature.UpdatedDate = cinemaFeatureViewModel.UpdatedDate;
+            cinemaFeature.UpdatedBy = cinemaFeatureViewModel.UpdatedBy;
+            cinemaFeature.MetaKeyword = cinemaFeatureViewModel.MetaKeyword;
+            cinemaFeature.MetaDescription = cinemaFeatureViewModel.MetaDescription;
+        }
+
     }
 }
