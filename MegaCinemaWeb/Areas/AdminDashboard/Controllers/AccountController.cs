@@ -208,7 +208,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                         StaffPrefix = CommonConstrants.STAFF_PREFIX,
                         StaffRegencyID = 1,
                         StaffStatus = "AC",
-                        CreatedDate = DateTime.Now;
+                        CreatedDate = DateTime.Now,
                     },
                 };
                 try

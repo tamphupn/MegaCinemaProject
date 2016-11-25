@@ -254,6 +254,10 @@
     <Content Include="Content\images\two-tickets.png" />
     <Content Include="Content\images\uudai.png" />
     <Content Include="Content\images\ve.png" />
+    <Content Include="Content\Promotion\404.png" />
+    <Content Include="Content\Promotion\cocacola.jpg" />
+    <Content Include="Content\Promotion\khoai_tay_chien.png" />
+    <Content Include="Content\Promotion\voucher %282%29.png" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap.css" />
@@ -542,7 +546,6 @@
     <Folder Include="Areas\AdminDashboard\Views\Base\" />
     <Folder Include="Assets\" />
     <Folder Include="Content\Avatars\" />
-    <Folder Include="Content\Promotion\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
