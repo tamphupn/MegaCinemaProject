@@ -141,6 +141,34 @@
     <Compile Include="Migrations\201611231310579_AddAFieldToPromotionTable.Designer.cs">
       <DependentUpon>201611231310579_AddAFieldToPromotionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611250052413_FixFilmCalendarCreate.cs" />
+    <Compile Include="Migrations\201611250052413_FixFilmCalendarCreate.Designer.cs">
+      <DependentUpon>201611250052413_FixFilmCalendarCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611250114329_FixFilmCalendar.cs" />
+    <Compile Include="Migrations\201611250114329_FixFilmCalendar.Designer.cs">
+      <DependentUpon>201611250114329_FixFilmCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611250118563_RemoveInFilmCalendar.cs" />
+    <Compile Include="Migrations\201611250118563_RemoveInFilmCalendar.Designer.cs">
+      <DependentUpon>201611250118563_RemoveInFilmCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611250122411_RemoveStaff.cs" />
+    <Compile Include="Migrations\201611250122411_RemoveStaff.Designer.cs">
+      <DependentUpon>201611250122411_RemoveStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611250150569_AddForeignkeyFilmCalendar.cs" />
+    <Compile Include="Migrations\201611250150569_AddForeignkeyFilmCalendar.Designer.cs">
+      <DependentUpon>201611250150569_AddForeignkeyFilmCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611250222338_FixFilmSession.cs" />
+    <Compile Include="Migrations\201611250222338_FixFilmSession.Designer.cs">
+      <DependentUpon>201611250222338_FixFilmSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611250226337_FinishFixStaff.cs" />
+    <Compile Include="Migrations\201611250226337_FinishFixStaff.Designer.cs">
+      <DependentUpon>201611250226337_FinishFixStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountTypeRepository.cs" />
@@ -210,6 +238,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611231310579_AddAFieldToPromotionTable.resx">
       <DependentUpon>201611231310579_AddAFieldToPromotionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250052413_FixFilmCalendarCreate.resx">
+      <DependentUpon>201611250052413_FixFilmCalendarCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250114329_FixFilmCalendar.resx">
+      <DependentUpon>201611250114329_FixFilmCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250118563_RemoveInFilmCalendar.resx">
+      <DependentUpon>201611250118563_RemoveInFilmCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250122411_RemoveStaff.resx">
+      <DependentUpon>201611250122411_RemoveStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250150569_AddForeignkeyFilmCalendar.resx">
+      <DependentUpon>201611250150569_AddForeignkeyFilmCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250222338_FixFilmSession.resx">
+      <DependentUpon>201611250222338_FixFilmSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611250226337_FinishFixStaff.resx">
+      <DependentUpon>201611250226337_FinishFixStaff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

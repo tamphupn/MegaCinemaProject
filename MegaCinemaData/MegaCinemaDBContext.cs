@@ -229,14 +229,14 @@ namespace MegaCinemaData
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Staff>()
-                .HasRequired(e=>e.FilmSession)
-                .WithRequiredDependent(e=>e.Staff)
+                .HasMany(e => e.FilmSessions)
+                .WithRequired(e => e.Staff)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Staff>()
-               .HasRequired(e => e.FilmCalendarCreate)
-               .WithRequiredDependent(e => e.Staff)
-               .WillCascadeOnDelete(false);
+                .HasMany(e => e.FilmCalendarCreates)
+                .WithRequired(e => e.Staff)
+                .WillCascadeOnDelete(false);
 
             //Regency
             modelBuilder.Entity<Regency>()
@@ -376,6 +376,14 @@ namespace MegaCinemaData
             //Promotion Cinema
 
             //Parameters
+
+            //Application 
+
+            //Film Calendar Create
+            //modelBuilder.Entity<FilmCalendarCreate>()
+            //    .HasRequired<Staff>(s => s.Staff)
+            //    .WithMany(s => s.FilmCalendarCreates)
+            //    .HasForeignKey(s => s.StaffID);
         }
     }
 }

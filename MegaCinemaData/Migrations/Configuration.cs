@@ -5,7 +5,8 @@ namespace MegaCinemaData.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using MegaCinemaData.SampleData;
-
+    using MegaCinemaModel.Models;
+    using MegaCinemaCommon.StatusCommon;
     internal sealed class Configuration : DbMigrationsConfiguration<MegaCinemaData.MegaCinemaDBContext>
     {
         public Configuration()
@@ -30,6 +31,12 @@ namespace MegaCinemaData.Migrations
             //SampleData.GenerateData(context);
             //SampleData.GenerateRegency(context);
             //SampleData.GenerateStaff(context);
+            //context.Staffs.Add(new Staff
+            //{
+            //    StaffPrefix = CommonConstrants.STAFF_PREFIX,
+            //    StaffRegencyID = 1,
+            //    StaffStatus = "AC",
+            //});
         }
     }
 }

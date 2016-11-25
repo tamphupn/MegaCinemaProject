@@ -32,7 +32,7 @@ namespace MegaCinemaModel.Models
         public virtual Status Status { get; set; }
 
         public virtual ICollection<Cinema> Cinemas { get; set; }
-        public virtual FilmSession FilmSession { get; set; }
-        public virtual FilmCalendarCreate FilmCalendarCreate { get; set; }
+        public virtual ICollection<FilmSession> FilmSessions { get; set; }
+        public virtual ICollection<FilmCalendarCreate> FilmCalendarCreates { get; set; }
     }
 }

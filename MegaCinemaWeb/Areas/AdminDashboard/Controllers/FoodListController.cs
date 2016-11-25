@@ -69,8 +69,8 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 }
                 else
                 {
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    pathImage = Path.Combine(Server.MapPath("~/Content/FoodList"), fileName);
+                    filePathSave = Path.GetFileName(fileUpload.FileName);
+                    pathImage = Path.Combine(Server.MapPath("~/Content/FoodList"), filePathSave);
                     if (System.IO.File.Exists(pathImage))
                     {
                         //Hình ảnh đã tồn tại
@@ -83,6 +83,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                     }
                     
                 }
+
                 //cập nhật thời gian, tên ảnh, người thực hiện, mã của sản phẩm - thiếu người thực hiện
                 foodList.FoodPoster = filePathSave;
                 foodList.CreatedDate = DateTime.Now;
@@ -90,13 +91,13 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 //thêm vào database và lưu kết quả
                 FoodList result = new FoodList();
                 result.UpdateFoodList(foodList);
-                var resultFoodList = _foodListService.Add(result);
-                _foodListService.SaveChanges();
-
+                var resultFoodList = _foodListService.Add(result);               
                 if (resultFoodList == null) return RedirectToAction("Index", "Home");
                 else
                 {
-                    fileUpload.SaveAs(pathImage);
+                    if (filePathSave != "404.png")
+                        fileUpload.SaveAs(pathImage);
+                    _foodListService.SaveChanges();
                     SetAlert("Thêm món ăn thành công", CommonConstrants.SUCCESS_ALERT);
                     return RedirectToAction("Index", "FoodList");
                 }

@@ -36,7 +36,7 @@ namespace MegaCinemaData.SampleData
                     StaffPrefix = CommonConstrants.STAFF_PREFIX,
                     StaffRegencyID = 1,
                     StaffStatus = "AC",
-                },
+                },          
             });
         }
         public static void GenerateStatus(MegaCinemaDBContext context)
