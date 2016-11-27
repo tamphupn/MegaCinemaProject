@@ -21,12 +21,12 @@ namespace MegaCinemaWeb.Areas.AdminDashboard
                 namespaces: new[] { "MegaCinemaWeb.Areas.AdminDashboard.Controllers" }
             );
 
-            context.MapRoute(
-                name: "Film Category",
-                url: "danh-sach-the-loai-phim/{id}",
-                defaults: new { action = "Index", controller = "FilmCategory", id = UrlParameter.Optional },
-                namespaces: new[] { "MegaCinemaWeb.Areas.AdminDashboard.Controllers" }
-            );
+            //context.MapRoute(
+            //    name: "Film Category",
+            //    url: "danh-sach-the-loai-phim/{id}",
+            //    defaults: new { action = "Index", controller = "FilmCategory", id = UrlParameter.Optional },
+            //    namespaces: new[] { "MegaCinemaWeb.Areas.AdminDashboard.Controllers" }
+            //);
 
             context.MapRoute(
                 name: "Food List Detail",

@@ -135,6 +135,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 }
                 _filmCategoryService.Delete(filmCategory);
                 _filmCategoryService.SaveChanges();
+                SetAlert("Xóa 1 thể loại phim thành công", CommonConstrants.SUCCESS_ALERT);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index", "FilmCategory");

@@ -17,7 +17,7 @@ namespace MegaCinemaService
         IEnumerable<FilmFormat> GetFilmFormatPaging(int page, int pageSize, out int totalRow);
         void SaveChanges();
     }
-    public class FilmFormatService:IFilmFormatService
+    public class FilmFormatService : IFilmFormatService
     {
         IFilmFormatRepository _filmFormatRepository;
         IUnitOfWork _unitOfWork;
@@ -40,7 +40,7 @@ namespace MegaCinemaService
         public IEnumerable<FilmFormat> GetFilmFormatPaging(int page, int pageSize, out int totalRow)
         {
             var query = _filmFormatRepository.GetAll();
-            totalRow = query.Count();
+                totalRow = query.Count();
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
