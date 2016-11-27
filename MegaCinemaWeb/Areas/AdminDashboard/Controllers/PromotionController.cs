@@ -47,6 +47,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             return View(paginationSet);
         }
 
+        #region Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -109,5 +110,50 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             ViewBag.PromotionStatusID = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
             return View(promotion);
         }
+        #endregion
+
+        #region Edit
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id != null)
+            {
+                Promotion promotion = _promotionService.Find((int)id);
+                if (promotion == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var resultVm = Mapper.Map<Promotion, PromotionViewModel>(promotion);
+                TempData["promotionItem"] = resultVm;
+                ViewBag.PromotionStatusID = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
+                return View(resultVm);
+            }
+            return RedirectToAction("Index", "Promotion");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Promotion promotion)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = (PromotionViewModel)TempData["promotionItem"];
+                promotion.PromotionID = result.PromotionID;
+                promotion.CreatedDate = result.CreatedDate;
+                promotion.CreatedBy = result.CreatedBy;
+                promotion.UpdatedDate = DateTime.Now;
+                promotion.UpdatedBy = result.UpdatedBy;
+                promotion.MetaDescription = result.MetaDescription;
+                promotion.MetaKeyword = result.MetaKeyword;
+
+                _promotionService.Update(promotion);
+                _promotionService.SaveChanges();
+
+                SetAlert("Sửa ưu đãi thành công", CommonConstrants.SUCCESS_ALERT);
+                return RedirectToAction("Index");
+            }
+            return View(promotion);
+        }
+        #endregion
     }
 }

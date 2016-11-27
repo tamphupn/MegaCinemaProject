@@ -15,6 +15,8 @@ namespace MegaCinemaService
         IEnumerable<Promotion> GetPromotionPaging(int page, int pageSize, out int totalRow);
         // triển khai các phương thức của service
         void SaveChanges();
+        Promotion Find(int id);
+        void Update(Promotion promotion);
     }
     public class PromotionService : IPromotionService
     {
@@ -32,6 +34,11 @@ namespace MegaCinemaService
             return _promotionRepository.Add(promotion);
         }
 
+        public Promotion Find(int id)
+        {
+            return _promotionRepository.GetSingleById(id);
+        }
+
         public IEnumerable<Promotion> GetPromotionPaging(int page, int pageSize, out int totalRow)
         {
             var query = _promotionRepository.GetAll();
@@ -42,6 +49,11 @@ namespace MegaCinemaService
         public void SaveChanges()
         {
             _unitOfWork.Commit();
+        }
+
+        public void Update(Promotion promotion)
+        {
+            _promotionRepository.Update(promotion);
         }
     }
 }

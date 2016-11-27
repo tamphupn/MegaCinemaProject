@@ -64,9 +64,9 @@
                             <img src="@Url.Content("~/Content/Promotion/"+@item.PromotionPoster)" />
                         </td>
                         <td align="center">
-                            @Html.ActionLink("Sửa", "Edit", "FilmCategory", new { id = item.FilmCategoryID }, null)
+                            @Html.ActionLink("Sửa", "Edit", "Promotion", new { id = item.PromotionID }, null)
                             |
-                            @Html.ActionLink("Xóa", "Delete", "FilmCategory", new { id = item.FilmCategoryID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                            @Html.ActionLink("Xóa", "Delete", "Promotion", new { id = item.PromotionID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
                         </td>
                     </tr>
                 }
