@@ -133,7 +133,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Promotion promotion)
+        public ActionResult Edit(PromotionViewModel promotion)
         {
             if (ModelState.IsValid)
             {
@@ -145,8 +145,13 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 promotion.UpdatedBy = result.UpdatedBy;
                 promotion.MetaDescription = result.MetaDescription;
                 promotion.MetaKeyword = result.MetaKeyword;
+                promotion.PromotionPoster = result.PromotionPoster;
 
-                _promotionService.Update(promotion);
+                Promotion promotionUpdate = new Promotion();
+                promotionUpdate.UpdatePromotion(promotion);
+                promotionUpdate.PromotionID = result.PromotionID;
+
+                _promotionService.Update(promotionUpdate);
                 _promotionService.SaveChanges();
 
                 SetAlert("Sửa ưu đãi thành công", CommonConstrants.SUCCESS_ALERT);

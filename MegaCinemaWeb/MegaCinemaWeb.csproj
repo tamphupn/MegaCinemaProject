@@ -475,6 +475,8 @@
     <Content Include="Areas\AdminDashboard\Views\Cinema\Create.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\FilmFormat\Index.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Account\StaffRegister.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Promotion\Index.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Promotion\Edit.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
