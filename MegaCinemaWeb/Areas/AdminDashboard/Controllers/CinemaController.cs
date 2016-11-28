@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MegaCinemaWeb.Infrastructure.Extensions;
+using MegaCinemaModel.Models;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
@@ -13,36 +15,49 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         //TEST
         ICinemaService _cinemaService;
         IStatusService _statusService;
-
-        public CinemaController(ICinemaService cinemaService, IStatusService statusService)
+        IStaffService _staffService;
+        
+        public CinemaController(ICinemaService cinemaService, IStatusService statusService, IStaffService staffService)
         {
             _cinemaService = cinemaService;
             _statusService = statusService;
+            _staffService = staffService;
         }
         // GET: AdminDashboard/Cinema
         public ActionResult Index()
-        {
-            
-            return View();
+        {   //Show List Cinema in Database
+            IEnumerable<Cinema> cinemas = _cinemaService.GetAll();
+            return View(cinemas);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
             ViewBag.CinemaStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
+            ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CinemaViewModel cinema)
+        public ActionResult Create(CinemaViewModel cinemaViewModel)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
+                Cinema cinema = new Cinema();
+                cinemaViewModel.CreatedDate = DateTime.Now;
+                cinema.UpdateCinema(cinemaViewModel);
+
+                if(cinema != null)
+                {
+                    _cinemaService.Add(cinema);
+                    _cinemaService.SaveChanges();
+                    //Redirect To Index Action
+                    return RedirectToAction("Index");
+                }
             }
             //Action/Controller
-            return RedirectToAction("Index", "FoodList");
+            return RedirectToAction("Create");
         }
 
         [HttpPost]
@@ -52,7 +67,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
 
       
-        [HttpPost]
+        [HttpGet]
         public ActionResult Edit()
         {
             return View();
