@@ -48,6 +48,10 @@
                     Mã rạp
                 </th>
 
+                <th>
+                    Action
+                </th>
+
             </tr>
         </thead>
         <tbody>
@@ -81,6 +85,11 @@
                         </td>
                         <td>
                             @item.CinemaCode
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = @item.CinemaID })
+                            @Html.ActionLink("Delete", "Delete", new { id = @item.CinemaID})
                         </td>
                     </tr>
                 }

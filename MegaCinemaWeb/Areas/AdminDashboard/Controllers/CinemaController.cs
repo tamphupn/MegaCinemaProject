@@ -19,7 +19,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         ICinemaService _cinemaService;
         IStatusService _statusService;
         IStaffService _staffService;
-        
+
         public CinemaController(ICinemaService cinemaService, IStatusService statusService, IStaffService staffService)
         {
             _cinemaService = cinemaService;
@@ -66,7 +66,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 cinemaViewModel.CreatedDate = DateTime.Now;
                 cinema.UpdateCinema(cinemaViewModel);
 
-                if(cinema != null)
+                if (cinema != null)
                 {
                     _cinemaService.Add(cinema);
                     _cinemaService.SaveChanges();
@@ -81,17 +81,45 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             return View(cinemaViewModel);
         }
 
-        [HttpPost]
-        public ActionResult Delete(int id)
+
+        public ActionResult Delete(int? id)
         {
+            if (id != null)
+            {
+                Cinema cinema = _cinemaService.Find((int)id);
+                _cinemaService.Delete(cinema);
+                _cinemaService.SaveChanges();
+            }
+
             return RedirectToAction("Index");
         }
 
-      
-        [HttpGet]
-        public ActionResult Edit()
+
+
+        public ActionResult Edit(int? id)
         {
-            return View();
+            CinemaViewModel cinemaViewModel = null;
+            if (id != null)
+            {
+                Cinema cinema  = _cinemaService.Find((int)id);
+                cinemaViewModel = Mapper.Map<Cinema, CinemaViewModel>(cinema);
+            }
+            if (cinemaViewModel != null)
+                return View(cinemaViewModel);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CinemaViewModel viewModel)
+        {
+            Cinema cinema = new Cinema();
+            viewModel.UpdatedDate = DateTime.Now;
+            cinema.UpdateCinema(viewModel);
+            _cinemaService.Update(cinema);
+            _cinemaService.SaveChanges();
+            System.Diagnostics.Debug.WriteLine("dajflkdsajfsdaf");
+            return RedirectToAction("Index");
         }
     }
 }

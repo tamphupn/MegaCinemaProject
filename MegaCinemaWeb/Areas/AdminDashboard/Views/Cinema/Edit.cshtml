@@ -1,7 +1,77 @@
-﻿
-
+﻿@using MegaCinemaWeb.Models
+@model MegaCinemaWeb.Models.CinemaViewModel
 @{
     ViewBag.Title = ViewBag.FeatureTitle = "Thay đổi thông tin rạp chiếp phim";
     Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
 }
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "alert alert-danger"})
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CinemaPrefix, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(x => x.CinemaPrefix, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(x => x.CinemaID, htmlAttributes: new { @class = "control-label" })*@
+        @Html.HiddenFor(x => x.CinemaID, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CinemaFullName, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(x => x.CinemaFullName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CinemaAddress, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(x => x.CinemaAddress, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CinemaManagerID, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(x => x.CinemaManagerID, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CinemaEmail, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(x => x.CinemaEmail, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-control">
+        @Html.LabelFor(x => x.CinemaPhone, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(x => x.CinemaPhone, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-control">
+        @Html.HiddenFor(x => x.CreatedDate)
+    </div>
+
+    <div class="form-control">
+        @Html.HiddenFor(x => x.CinemaStatus)
+    </div>
+
+
+    <div class="form-control">
+        @Html.HiddenFor(x => x.CinemaCode)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
 
