@@ -18,7 +18,7 @@ namespace MegaCinemaService
         void SaveChanges();
         Cinema Find(int id);
         Cinema Delete(Cinema cinema);
-    
+        IEnumerable<Cinema> GetCinemaPaging(int page, int pageSize, out int totalRow);
     }
 
     public class CinemaService : ICinemaService
@@ -50,6 +50,13 @@ namespace MegaCinemaService
         public IEnumerable<Cinema> GetAll()
         {
             return _cinemaRepository.GetAll();
+        }
+
+        public IEnumerable<Cinema> GetCinemaPaging(int page, int pageSize, out int totalRow)
+        {
+            var query = _cinemaRepository.GetMulti(x => x.CinemaStatus == "AC");
+            totalRow = query.Count();
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
         public void SaveChanges()

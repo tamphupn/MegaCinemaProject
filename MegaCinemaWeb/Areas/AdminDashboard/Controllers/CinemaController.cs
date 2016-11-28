@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.Mvc;
 using MegaCinemaWeb.Infrastructure.Extensions;
 using MegaCinemaModel.Models;
+using MegaCinemaCommon.StatusCommon;
+using AutoMapper;
+using MegaCinemaWeb.Infrastructure.Core;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
@@ -24,10 +27,25 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             _staffService = staffService;
         }
         // GET: AdminDashboard/Cinema
-        public ActionResult Index()
+        public ActionResult Index(int page = 0)
         {   //Show List Cinema in Database
-            IEnumerable<Cinema> cinemas = _cinemaService.GetAll();
-            return View(cinemas);
+            int pageSize = CommonConstrants.PAGE_SIZE;
+            int totalRow = 0;
+            var result = _cinemaService.GetCinemaPaging(page, pageSize, out totalRow);
+            var resultVm = Mapper.Map<IEnumerable<Cinema>, IEnumerable<CinemaViewModel>>(result);
+
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+            var paginationSet = new PaginationSet<CinemaViewModel>()
+            {
+                Items = resultVm,
+                MaxPage = CommonConstrants.PAGE_SIZE,
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage,
+                Count = resultVm.Count(),
+            };
+
+            return View(paginationSet);
         }
 
         [HttpGet]
@@ -53,11 +71,14 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                     _cinemaService.Add(cinema);
                     _cinemaService.SaveChanges();
                     //Redirect To Index Action
+                    SetAlert("Thêm rạp chiếu phim thành công!", CommonConstrants.SUCCESS_ALERT);
                     return RedirectToAction("Index");
                 }
             }
             //Action/Controller
-            return RedirectToAction("Create");
+            ViewBag.CinemaStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
+            ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
+            return View(cinemaViewModel);
         }
 
         [HttpPost]
