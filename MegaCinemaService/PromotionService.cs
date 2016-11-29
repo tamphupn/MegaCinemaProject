@@ -17,6 +17,7 @@ namespace MegaCinemaService
         void SaveChanges();
         Promotion Find(int id);
         void Update(Promotion promotion);
+        Promotion Delete(Promotion promotion);
     }
     public class PromotionService : IPromotionService
     {
@@ -32,6 +33,11 @@ namespace MegaCinemaService
         public Promotion Add(Promotion promotion)
         {
             return _promotionRepository.Add(promotion);
+        }
+
+        public Promotion Delete(Promotion promotion)
+        {
+            return _promotionRepository.Delete(promotion);
         }
 
         public Promotion Find(int id)
