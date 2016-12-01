@@ -9,12 +9,12 @@
 }
 
 <div class="row">
-    <div class="col-md-8 col-lg-8">
+    @*<div class="col-md-8 col-lg-8">
         <input type="text" class="form-control" id="search-component" />
         <button type="submit" class="btn btn-primary search-button-component">Tìm kiếm</button>
-    </div>
+    </div>*@
     <div class="col-md-4 col-lg-4">
-        <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
+        <button type="submit" class="btn btn-primary pull-left" onclick="window.location.href='./Create'">Thêm mới</button>
     </div>
 </div><br/>
 
@@ -61,12 +61,12 @@
                             @item.PromotionDateFinish
                         </td>
                         <td>
-                            <img src="@Url.Content("~/Content/Promotion/"+@item.PromotionPoster)" />
+                            <img style="max-width:150px" src="@Url.Content("~/Content/Promotion/"+@item.PromotionPoster)" />
                         </td>
                         <td align="center">
                             @Html.ActionLink("Sửa", "Edit", "Promotion", new { id = item.PromotionID }, null)
                             |
-                            @Html.ActionLink("Xóa", "Delete", "Promotion", new { id = item.PromotionID }, new { onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                            @Html.ActionLink("Xóa", "Delete", "Promotion", new { id = item.PromotionID }, new { onclick = "return confirm('Bạn có chắc chắn xóa ưu đãi này không?');" })
                         </td>
                     </tr>
                 }

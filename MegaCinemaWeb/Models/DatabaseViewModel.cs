@@ -276,8 +276,8 @@ namespace MegaCinemaWeb.Models
     {
         public int CinemaID { get; set; }
 
-        [DisplayName("Tên Status")]
-        [Required(ErrorMessage = "Status không được để trống")]
+        [DisplayName("Tiền tố rạp chiếu phim")]
+        [Required(ErrorMessage = "Tiền tố không được để trống")]
         public string CinemaPrefix { get; set; }
 
         [DisplayName("Mã rạp")]

@@ -57,7 +57,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PromotionViewModel promotion, HttpPostedFileBase fileUpload)
+        public ActionResult Create(PromotionViewModel promotionVm, HttpPostedFileBase fileUpload)
         {
             string pathImage = string.Empty;
             //kiểm tra và thêm dữ liệu vào database
@@ -74,8 +74,6 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 {
                     filePathSave = Path.GetFileName(fileUpload.FileName);
                     pathImage = Path.Combine(Server.MapPath("~/Content/Promotion"), filePathSave);
-                    //var fileName = Path.GetFileName(fileUpload.FileName);
-                    //pathImage = Path.Combine(Server.MapPath("~/Content/Promotion"), fileName);
                     if (System.IO.File.Exists(pathImage))
                     {
                         //Hình ảnh đã tồn tại
@@ -90,10 +88,11 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 }
                 //update model từ view lên controller 
                 //cập nhật thời gian, tên ảnh, người thực hiện, mã của sản phẩm - thiếu người thực hiện
-                promotion.PromotionPoster = filePathSave;
-                promotion.CreatedDate = DateTime.Now;
+                promotionVm.PromotionPoster = filePathSave;
+
+                promotionVm.CreatedDate = DateTime.Now;
                 Promotion result = new Promotion();
-                result.UpdatePromotion(promotion);
+                result.UpdatePromotion(promotionVm);
                 var resultPromotion = _promotionService.Add(result);
                 _promotionService.SaveChanges();
                 if (resultPromotion == null) return RedirectToAction("Index", "Home");
@@ -104,11 +103,11 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                     _promotionService.SaveChanges();
 
                     SetAlert("Thêm ưu đãi thành công!", CommonConstrants.SUCCESS_ALERT);
-                    return RedirectToAction("Index", "FoodList");
+                    return RedirectToAction("Index", "Promotion");
                 }
             }
             ViewBag.PromotionStatusID = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
-            return View(promotion);
+            return View(promotionVm);
         }
         #endregion
 
@@ -126,33 +125,91 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 
                 var resultVm = Mapper.Map<Promotion, PromotionViewModel>(promotion);
                 TempData["promotionItem"] = resultVm;
-                ViewBag.PromotionStatusID = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
+                
+                ViewBag.PromotionStatusID = new SelectList(_statusService.GetAll(), "StatusID", "StatusName", resultVm.PromotionStatusID);
                 return View(resultVm);
             }
             return RedirectToAction("Index", "Promotion");
         }
 
         [HttpPost]
-        public ActionResult Edit(Promotion promotion)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PromotionViewModel promotionVm, HttpPostedFileBase fileUpload, bool checkEditPoster = false)
         {
             if (ModelState.IsValid)
             {
                 var result = (PromotionViewModel)TempData["promotionItem"];
-                promotion.PromotionID = result.PromotionID;
-                promotion.CreatedDate = result.CreatedDate;
-                promotion.CreatedBy = result.CreatedBy;
-                promotion.UpdatedDate = DateTime.Now;
-                promotion.UpdatedBy = result.UpdatedBy;
-                promotion.MetaDescription = result.MetaDescription;
-                promotion.MetaKeyword = result.MetaKeyword;
+                promotionVm.PromotionID = result.PromotionID;
+                promotionVm.CreatedDate = result.CreatedDate;
+                promotionVm.CreatedBy = result.CreatedBy;
+                promotionVm.UpdatedDate = DateTime.Now;
+                promotionVm.UpdatedBy = result.UpdatedBy;
+                promotionVm.MetaDescription = result.MetaDescription;
+                promotionVm.MetaKeyword = result.MetaKeyword;
 
-                _promotionService.Update(promotion);
+
+                if (checkEditPoster)
+                {
+                    // Lưu hình ảnh vào thư mục ~/Content/Promotion
+                    string pathImage = string.Empty;
+                    string filePathSave = string.Empty;
+                    if (fileUpload == null)
+                    {
+                        filePathSave = "404.png";
+                    }
+                    else
+                    {
+                        filePathSave = Path.GetFileName(fileUpload.FileName);
+                        pathImage = Path.Combine(Server.MapPath("~/Content/Promotion"), filePathSave);
+                        if (System.IO.File.Exists(pathImage))
+                        {
+                            //return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            filePathSave = fileUpload.FileName;
+                        }
+                    }
+                    if (filePathSave != "404.png")
+                        fileUpload.SaveAs(pathImage);
+                    promotionVm.PromotionPoster = filePathSave;
+                }
+                else
+                {
+                    promotionVm.PromotionPoster = result.PromotionPoster;
+                }
+
+
+                Promotion promotionUpdate = new Promotion();
+                promotionUpdate.UpdatePromotion(promotionVm);
+                promotionUpdate.PromotionID = result.PromotionID;
+
+                _promotionService.Update(promotionUpdate);
                 _promotionService.SaveChanges();
 
                 SetAlert("Sửa ưu đãi thành công", CommonConstrants.SUCCESS_ALERT);
                 return RedirectToAction("Index");
             }
-            return View(promotion);
+            return View(promotionVm);
+        }
+        #endregion
+
+        #region #Delete
+        public ActionResult Delete(int? id)
+        {
+            if (id != null)
+            {
+                Promotion promotion = _promotionService.Find((int)id);
+                if (promotion == null)
+                {
+                    return HttpNotFound();
+                }
+                _promotionService.Delete(promotion);
+                _promotionService.SaveChanges();
+                SetAlert("Xóa 1 ưu đãi phim thành công", CommonConstrants.SUCCESS_ALERT);
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index", "Promotion");
         }
         #endregion
     }
