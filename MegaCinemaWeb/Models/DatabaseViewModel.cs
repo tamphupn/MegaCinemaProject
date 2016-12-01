@@ -63,7 +63,7 @@ namespace MegaCinemaWeb.Models
     }
     #endregion
 
-    #region #HoangMinh: FilmCategory, FilmFormat
+    #region #HoangMinh: FilmCategory, FilmFormat, FilmRating
     public class FilmViewModel
     {
         public int FilmID { get; set; }
@@ -149,9 +149,33 @@ namespace MegaCinemaWeb.Models
     public class FilmFormatViewModel
     {
         public int FilmFormatID { get; set; }
+
+        [DisplayName("Định dạng phim")]
         [Required(ErrorMessage = "Tên định dạng phim không được để trống")]
         public string FilmFormatName { get; set; }
+
+        [DisplayName("Mô tả")]
         public string FilmFormatDescrip { get; set; }
+
+        //Add
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
+
+    public class FilmRatingViewModel
+    {
+        public int RatingID { get; set; }
+
+        [DisplayName("Rating name")]
+        [Required(ErrorMessage = "* Không được để trống")]
+        public string RatingName { get; set; }
+
+        [DisplayName("Mô tả")]
+        public string RatingDescription { get; set; }
 
         //Add
         public DateTime? CreatedDate { set; get; }

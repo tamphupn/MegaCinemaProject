@@ -43,7 +43,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             return View(paginationSet);
         }
 
-        #region #Create
+        #region #Create_FilmCategory
         [HttpGet]
         public ActionResult Create()
         {
@@ -78,7 +78,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
         #endregion
 
-        #region #Edit
+        #region #Edit_FilmCategory
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -102,12 +102,9 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         {
             if (ModelState.IsValid)
             {
-                //filmCategory.UpdatedBy               
-
+                //filmCategory.UpdatedBy
                 var result = (FilmCategoryViewModel)TempData["filmCategoryItem"];
                 filmCategory.FilmCategoryID = result.FilmCategoryID;
-                filmCategory.CreatedDate = result.CreatedDate;
-                filmCategory.CreatedBy = result.CreatedBy;
                 filmCategory.UpdatedDate = DateTime.Now;
                 filmCategory.UpdatedBy = result.UpdatedBy;
                 filmCategory.MetaDescription = result.MetaDescription;
@@ -123,7 +120,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
         #endregion
 
-        #region #Delete
+        #region #Delete_FilmCategory
         public ActionResult Delete(int? id)
         {
             if (id != null)

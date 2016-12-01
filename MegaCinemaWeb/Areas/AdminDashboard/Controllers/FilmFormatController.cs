@@ -45,6 +45,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         }
         #endregion
 
+        #region #Create_FilmFormat
         [HttpGet]
         public ActionResult Create()
         {
@@ -77,6 +78,67 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             }
             return View();
         }
+        #endregion
 
+        #region #Edit_FilmFormat
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id != null)
+            {
+                FilmFormat filmFormat = _filmFormatService.Find((int)id);
+                if (filmFormat == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var resultVm = Mapper.Map<FilmFormat, FilmFormatViewModel>(filmFormat);
+                TempData["filmFormatItem"] = resultVm;
+                return View(resultVm);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(FilmFormat filmFormat)
+        {
+            if (ModelState.IsValid)
+            {
+                //filmCategory.UpdatedBy
+                var result = (FilmFormatViewModel)TempData["filmFormatItem"];
+                filmFormat.FilmFormatID = result.FilmFormatID;
+                filmFormat.UpdatedDate = DateTime.Now;
+                filmFormat.UpdatedBy = result.UpdatedBy;
+                filmFormat.MetaDescription = result.MetaDescription;
+                filmFormat.MetaKeyword = result.MetaKeyword;
+
+                _filmFormatService.Update(filmFormat);
+                _filmFormatService.SaveChanges();
+
+                SetAlert("Sửa định dạng phim thành công", CommonConstrants.SUCCESS_ALERT);
+                return RedirectToAction("Index");
+            }
+            return View(filmFormat);
+        }
+        #endregion
+
+        #region #Delete_FilmFormat
+        public ActionResult Delete(int? id)
+        {
+            if (id != null)
+            {
+                FilmFormat filmFormat = _filmFormatService.Find((int)id);
+                if (filmFormat == null)
+                {
+                    return HttpNotFound();
+                }
+                _filmFormatService.Delete(filmFormat);
+                _filmFormatService.SaveChanges();
+                SetAlert("Xóa 1 định dạng phim thành công", CommonConstrants.SUCCESS_ALERT);
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index", "FilmFormat");
+        }
+        #endregion
     }
 }

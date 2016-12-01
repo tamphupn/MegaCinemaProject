@@ -16,6 +16,10 @@ namespace MegaCinemaService
         IEnumerable<FilmFormat> GetAll();
         IEnumerable<FilmFormat> GetFilmFormatPaging(int page, int pageSize, out int totalRow);
         void SaveChanges();
+        FilmFormat Find(int id);
+        void Update(FilmFormat filmFormat);
+        FilmFormat Delete(FilmFormat filmFormat);
+
     }
     public class FilmFormatService : IFilmFormatService
     {
@@ -30,6 +34,16 @@ namespace MegaCinemaService
         public FilmFormat Add(FilmFormat filmFormat)
         {
             return _filmFormatRepository.Add(filmFormat);
+        }
+
+        public FilmFormat Delete(FilmFormat filmFormat)
+        {
+            return _filmFormatRepository.Delete(filmFormat);
+        }
+
+        public FilmFormat Find(int id)
+        {
+            return _filmFormatRepository.GetSingleById(id);
         }
 
         public IEnumerable<FilmFormat> GetAll()
@@ -47,6 +61,11 @@ namespace MegaCinemaService
         public void SaveChanges()
         {
             _unitOfWork.Commit();
+        }
+
+        public void Update(FilmFormat filmFormat)
+        {
+            _filmFormatRepository.Update(filmFormat);
         }
     }
 }

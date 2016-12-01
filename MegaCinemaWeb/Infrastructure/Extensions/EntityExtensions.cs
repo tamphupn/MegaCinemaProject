@@ -95,12 +95,10 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             promotion.UpdatedBy = promotionVm.UpdatedBy;
             promotion.MetaKeyword = promotionVm.MetaKeyword;
             promotion.MetaDescription = promotionVm.MetaDescription;
-
         }
 
         public static void UpdateCinemaFeature(this CinemaFeature cinemaFeature, CinemaFeatureViewModel cinemaFeatureViewModel)
         {
-
             //cinemaFeature.FeatureID = cinemaFeatureViewModel.FeatureID;
             cinemaFeature.FeatureType = cinemaFeatureViewModel.FeatureType;
             cinemaFeature.FeatureContent = cinemaFeatureViewModel.FeatureContent;
@@ -116,7 +114,6 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
 
         public static void UpdateCinema(this Cinema cinema, CinemaViewModel cinemaViewModel)
         {
-
             //cinema.CinemaID = cinemaViewModel.CinemaID;
             cinema.CinemaPrefix = cinemaViewModel.CinemaPrefix;
             cinema.CinemaFullName = cinemaViewModel.CinemaFullName;

@@ -22,7 +22,6 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             _statusService = statusService;
         }
 
-        // GET: AdminDashboard/Film
         public ActionResult Index()
         {
             var result = Mapper.Map<IEnumerable<FilmViewModel>>(_filmService.GetAll());
