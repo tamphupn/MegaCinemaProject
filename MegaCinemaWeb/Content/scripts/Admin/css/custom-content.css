@@ -1,0 +1,63 @@
+﻿.feature-title{
+    text-transform:uppercase;
+    font-size:1.75em;
+    font-weight:bold;
+}
+
+hr{
+    width:100%;
+    border-color: #34495e;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #2980b9;
+    color:white;
+    font-weight:400;
+}
+
+custom-file-upload +hover{
+    background-color: #3498db;
+}
+
+.feature-main-content{
+    padding:0px 15px;
+    color:black;
+    font-size:15px;
+}
+
+/*alert text validation*/
+
+.validation-summary-valid.alert-danger {
+    display: none;
+}
+
+.validation-summary-errors ul { 
+    list-style: none;
+}
+
+.validation-summary-errors ul li{ 
+    font-size:1.25em;
+    font-weight:400;
+}
+
+.search-button-component{
+    display:inline-block
+}
+
+nav{
+    text-align:center;
+    margin: 0 auto;
+}
+
+.table-custom thead th{
+    background-color:#c0392b;
+    color:white;
+    text-align:center;
+}

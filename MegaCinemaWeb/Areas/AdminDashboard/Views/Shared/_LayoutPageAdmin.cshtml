@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../../Content/images/cinema_icon.ico" type="image/ico" size="16x16" />
+    <title>@ViewBag.Title - Mega Cinema</title>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/scripts/Admin/css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Content/scripts/Admin/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <!-- Custom Theme Style -->
+    <link href="~/Content/scripts/Admin/css/custom.min.css" rel="stylesheet">
+    <link href="~/Content/scripts/Admin/css/custom-content.css" rel="stylesheet" />
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="#" class="site_title"><i class="fa fa-paw"></i> <span style="margin-left:10px">Mega Cinema!</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="~/Content/images/background.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Xin chào,</span>
+                            <h2>Phạm phú</h2>
+                        </div>
+                    </div>
+
+                    <!-- /menu profile quick info -->
+
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Chức vụ</h3>
+                            <!--Menu-->
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-home"></i>Thông tin rạp phim<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="index.html">Thông tin rạp</a></li>
+                                        <li><a href="index2.html">Dashboard2</a></li>
+                                        <li><a href="index3.html">Dashboard3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-edit"></i>Phim <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Thêm thể loại phim", "Create", "FilmCategory")</li>
+                                        <li>@Html.ActionLink("Danh sách thể loại phim", "Index", "FilmCategory")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-desktop"></i>Phòng chiếu <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="general_elements.html">General Elements</a></li>
+                                        <li><a href="media_gallery.html">Media Gallery</a></li>
+                                        <li><a href="typography.html">Typography</a></li>
+                                        <li><a href="icons.html">Icons</a></li>
+                                        <li><a href="glyphicons.html">Glyphicons</a></li>
+                                        <li><a href="widgets.html">Widgets</a></li>
+                                        <li><a href="invoice.html">Invoice</a></li>
+                                        <li><a href="inbox.html">Inbox</a></li>
+                                        <li><a href="calendar.html">Calendar</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-table"></i>Combo kèm theo<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Thêm món ăn", "Create", "FoodList")</li>
+                                        <li>@Html.ActionLink("Danh sách món ăn", "Index", "FoodList")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-bar-chart-o"></i> Bảo trì <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="chartjs.html">Chart JS</a></li>
+                                        <li><a href="chartjs2.html">Chart JS2</a></li>
+                                        <li><a href="morisjs.html">Moris JS</a></li>
+                                        <li><a href="echarts.html">ECharts</a></li>
+                                        <li><a href="other_charts.html">Other Charts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-clone"></i>Thống kê <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
+                                        <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-clone"></i>Nhân viên <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Thêm nhân viên", "StaffRegister", "Account")</li>
+                                        <li>@Html.ActionLink("Danh sách nhân viên", "Create", "FoodList")></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/Content/images/background.png" alt="..."> Phạm Phú
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="#" id="btnPasswordChange"> Thay đổi mật khẩu</a></li>
+                                    <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!--Modal pop up Detail-->
+            <div class="modal fade" id="PasswordChange" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="text-transform:uppercase">Thay đổi mật khẩu</h4>
+                        </div>
+                        <div class="modal-body">
+                            <!--content of submit form -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="txtEmailUser">Mật khẩu cũ: </label>
+                                    <input type="password" class="form-control" id="txtOldPassword" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEmailUser">Mật khẩu mới</label>
+                                    <input type="password" class="form-control" id="txtNewPassword1" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEmailUser">Nhập lại mật khẩu mới</label>
+                                    <input type="password" class="form-control" id="txtNewPassword2" autocomplete="off">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="btnSavePassWord">Save</button>
+                        </div>
+                        <div id="AlertBoxChange" class="alert alert-success" style="margin-left:10px; margin-right:10px">Thành Công</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <div class="row tile_count">
+                    <p class="feature-title text-center">@ViewBag.FeatureTitle</p>
+                </div>
+                <!-- /top tiles -->
+                <br />
+                <div class="row feature-main-content">
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="alert-custombox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
+                    @RenderBody()
+                </div>
+
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Mega Cinema Dashboard <a href="https://www.facebook.com/groups/570466236321946/?fref=ts">Uboiz Team</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/Content/scripts/Admin/js/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Content/scripts/Admin/css/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/scripts/Admin/js/custom.min.js"></script>
+    <script src="~/scripts/adminjs.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

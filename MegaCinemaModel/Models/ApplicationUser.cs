@@ -51,6 +51,7 @@ namespace MegaCinemaModel.Models
         }
 
         public virtual Customer Customer { get; set; }
+
         public virtual Staff Staff { get; set; }
     }
 }

@@ -37,5 +37,6 @@ namespace MegaCinemaModel.Models
         public virtual ICollection<TicketCombo> TicketCombos { get; set; }
         public virtual ICollection<Promotion> Promotions { get; set; }
         public virtual ICollection<PromotionCine> PromotionCines { get; set; }
+        public virtual ICollection<FilmCalendarCreate> FilmCalendarCreates { get; set; }
     }
 }

@@ -4,11 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MegaCinemaModel.Models;
+using MegaCinemaCommon.StatusCommon;
 
 namespace MegaCinemaData.SampleData
 {
     public static class SampleData
     {
+        public static void GenerateRegency(MegaCinemaDBContext context)
+        {
+            context.Regencies.Add(new Regency { RegencyName = "Quản trị hệ thống", CreatedDate = DateTime.Now });
+            context.Regencies.Add(new Regency { RegencyName = "Quản lý rạp phim", CreatedDate = DateTime.Now });
+        }
+        public static void GenerateStaff(MegaCinemaDBContext context)
+        {
+            context.Users.Add(new ApplicationUser
+            {
+                FirstName = "Nghĩa",
+                LastName = "Nguyễn Văn",
+                Birthday = DateTime.Parse("18/10/1995"),
+                Sex = true,
+                SSN = "22150678",
+                Address = "KTX khu B, DHQG TPHCM",
+                District = "Thủ đức",
+                City = "Hồ chí minh",
+                Email = "nghiauit@gmail.com",
+                EmailConfirmed = true,
+                PhoneNumber = "0123456789",
+                UserName = "nguyennghia",
+                Staff = new Staff
+                {
+                    StaffPrefix = CommonConstrants.STAFF_PREFIX,
+                    StaffRegencyID = 1,
+                    StaffStatus = "AC",
+                },          
+            });
+        }
         public static void GenerateStatus(MegaCinemaDBContext context)
         {
             context.Statuss.Add(new Status { StatusID = "NOT", StatusName = "Không hoạt động", CreatedDate = DateTime.Now });
@@ -54,26 +84,26 @@ namespace MegaCinemaData.SampleData
 
         public static void GenerateFoodList(MegaCinemaDBContext context)
         {
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iCouple Combo", FoodPrice= 127000, FoodDescription = "02 bắp vừa + 02 nước vừa + 01 snack", FoodStatus = "AC",CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iLovers' Combo", FoodPrice = 97000, FoodDescription = "01 bắp lớn + 02 nước vừa + 01 snack", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iMEGA Combo", FoodPrice = 72000, FoodDescription = "01 bắp lớn + 01 nước vừa + 01 snack", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iMEGA Standard Combo", FoodPrice = 60000, FoodDescription = "01 bắp lớn + 01 nước vừa", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSunday Combo", FoodPrice = 70000, FoodDescription = "01 hotdog + 01 nước vừa", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iCaramel Popcorn", FoodPrice = 45000, FoodDescription = "Bắp rang lớn", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iCheese Popcorn", FoodPrice = 45000, FoodDescription = "Bắp phô mai lớn", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSweet Popcorn", FoodPrice = 40000, FoodDescription = "Bắp ngọt lớn", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iAquafina", FoodPrice = 20000, FoodDescription = "Nước tinh khiết Aquafina 500ml", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iBeverage", FoodPrice = 36000, FoodDescription = "Mirinda Cam Ly lớn", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iHotdog", FoodPrice = 40000, FoodDescription = "Hot dog", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iNoodle Cup", FoodPrice = 22000, FoodDescription = "Mì ly", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iBeef Jerky", FoodPrice = 35000, FoodDescription = "Bò khô", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iBeer Heineken", FoodPrice = 40000, FoodDescription = "Bia Heinneken", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iChip", FoodPrice = 22000, FoodDescription = "Snack", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSeaweed", FoodPrice = 35000, FoodDescription = "Rong biển", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSnack", FoodPrice = 18000, FoodDescription = "Snack", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iWall's Ice Cream Stick", FoodPrice = 15000, FoodDescription = "Kem que Wall's", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iHaribo", FoodPrice = 50000, FoodDescription = "Kẹo Haribon (gói)", FoodStatus = "AC", CreatedDate = DateTime.Now });
-            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iM&M", FoodPrice = 35000, FoodDescription = "Kẹo M&M gói", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iCouple Combo", FoodPrice= 127000, FoodDescription = "02 bắp vừa + 02 nước vừa + 01 snack",FoodPoster="lovers.png", FoodStatus = "AC",CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iLovers' Combo", FoodPrice = 97000, FoodDescription = "01 bắp lớn + 02 nước vừa + 01 snack", FoodPoster = "mega.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iMEGA Combo", FoodPrice = 72000, FoodDescription = "01 bắp lớn + 01 nước vừa + 01 snack", FoodPoster = "mega-std.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iMEGA Standard Combo", FoodPrice = 60000, FoodDescription = "01 bắp lớn + 01 nước vừa", FoodPoster = "couple.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSunday Combo", FoodPrice = 70000, FoodDescription = "01 hotdog + 01 nước vừa", FoodPoster = "sunday.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iCaramel Popcorn", FoodPrice = 45000, FoodDescription = "Bắp rang lớn", FoodPoster = "popcorn(1).png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iCheese Popcorn", FoodPrice = 45000, FoodDescription = "Bắp phô mai lớn", FoodPoster = "popcorn(2).png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSweet Popcorn", FoodPrice = 40000, FoodDescription = "Bắp ngọt lớn", FoodPoster = "popcorn.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iAquafina", FoodPrice = 20000, FoodDescription = "Nước tinh khiết Aquafina 500ml", FoodPoster = "aquafina.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iBeverage", FoodPrice = 36000, FoodDescription = "Mirinda Cam Ly lớn", FoodPoster = "baverage.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iHotdog", FoodPrice = 40000, FoodDescription = "Hot dog", FoodPoster = "hotdog.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iNoodle Cup", FoodPrice = 22000, FoodDescription = "Mì ly", FoodPoster = "noodlecup.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iBeef Jerky", FoodPrice = 35000, FoodDescription = "Bò khô", FoodPoster = "khobo.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iBeer Heineken", FoodPrice = 40000, FoodDescription = "Bia Heinneken", FoodPoster = "heineken.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iChip", FoodPrice = 22000, FoodDescription = "Snack", FoodPoster = "chip.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSeaweed", FoodPrice = 35000, FoodDescription = "Rong biển", FoodPoster = "seaweed.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iSnack", FoodPrice = 18000, FoodDescription = "Snack", FoodPoster = "snack.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iWall's Ice Cream Stick", FoodPrice = 15000, FoodDescription = "Kem que Wall's", FoodPoster = "wallsicecream.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iHaribo", FoodPrice = 50000, FoodDescription = "Kẹo Haribon (gói)", FoodPoster = "haribo.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
+            context.FoodLists.Add(new FoodList { FoodPrefix = "FOO", FoodName = "iM&M", FoodPrice = 35000, FoodDescription = "Kẹo M&M gói", FoodPoster = "mm.png", FoodStatus = "AC", CreatedDate = DateTime.Now });
         }
 
         public static void GenerateSeatType(MegaCinemaDBContext context)

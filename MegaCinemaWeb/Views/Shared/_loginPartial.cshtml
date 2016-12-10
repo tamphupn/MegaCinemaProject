@@ -2,22 +2,36 @@
 
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
+    <li>
+        @{
+            var link = Html.ActionLink("{0}", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @id = "user-login-area" }).ToString();
+            var url = string.Format(link, "<i class=\"fa fa-users\" aria-hidden=\"true\"></i> " + User.Identity.GetUserName().Substring(0, 6) + "..");
+        }
+        @Html.Raw(url)
+    </li>
+    <li id="user-register-area">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+        {
         @Html.AntiForgeryToken()
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-        </ul>
-    }
+        <a href="javascript:document.getElementById('logoutForm').submit()" ><i class="fa fa-bell-o" aria-hidden="true"></i> Log off</a>
+        }
+    </li>
+    
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "CustomerRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <li>
+        @{
+            var link = Html.ActionLink("{0}", "Login", "Account", routeValues: null, htmlAttributes: new { @id = "user-login-area" }).ToString();
+            var url = string.Format(link, "<i class=\"fa fa-users\" aria-hidden=\"true\"></i> Đăng nhập");
+        }
+        @Html.Raw(url)
+    </li>
+    <li>
+        @{
+            var link1 = Html.ActionLink("{0}", "CustomerRegister", "Account", routeValues: null, htmlAttributes: new { @id = "user-register-area" }).ToString();
+            var url1 = string.Format(link1, "<i class=\"fa fa-bell-o\" aria-hidden=\"true\"></i> Đăng ký");
+         }
+        @Html.Raw(url1)
+    </li>
 }

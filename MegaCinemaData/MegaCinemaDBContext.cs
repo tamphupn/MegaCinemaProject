@@ -28,7 +28,7 @@ namespace MegaCinemaData
                 string errorMessages = string.Join("; ", ex.EntityValidationErrors.SelectMany(x => x.ValidationErrors).Select(x => x.ErrorMessage));
                 throw new DbEntityValidationException(errorMessages);
             }
-        }
+        }        
         
         //Entity list
         public DbSet<Status> Statuss { get; set; }
@@ -59,6 +59,7 @@ namespace MegaCinemaData
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<PromotionCine> PromotionCines { get; set; }
         public DbSet<Parameter> Parameters { get; set; }
+        public DbSet<FilmCalendarCreate> FilmCalendarCreates { get; set; }
 
         public static MegaCinemaDBContext Create()
         {
@@ -157,6 +158,11 @@ namespace MegaCinemaData
                 .WithRequired(e => e.Status)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Status>()
+                .HasMany(e => e.FilmCalendarCreates)
+                .WithRequired(e => e.Status)
+                .WillCascadeOnDelete(false);
+
             //Film categories
             modelBuilder.Entity<FilmCategory>()
                .HasMany(e => e.DetailCategories)
@@ -219,6 +225,16 @@ namespace MegaCinemaData
             //Staff
             modelBuilder.Entity<Staff>()
                 .HasMany(e => e.Cinemas)
+                .WithRequired(e => e.Staff)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Staff>()
+                .HasMany(e => e.FilmSessions)
+                .WithRequired(e => e.Staff)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Staff>()
+                .HasMany(e => e.FilmCalendarCreates)
                 .WithRequired(e => e.Staff)
                 .WillCascadeOnDelete(false);
 
@@ -295,6 +311,10 @@ namespace MegaCinemaData
             //Seat Maintenance
 
             //Film session
+            modelBuilder.Entity<FilmSession>()
+                .HasRequired(e => e.FilmCalendarCreate)
+                .WithRequiredDependent(e => e.FilmSession)
+                .WillCascadeOnDelete(false);
 
             //Ticket Categories
             modelBuilder.Entity<TicketCategory>()
@@ -356,6 +376,14 @@ namespace MegaCinemaData
             //Promotion Cinema
 
             //Parameters
+
+            //Application 
+
+            //Film Calendar Create
+            //modelBuilder.Entity<FilmCalendarCreate>()
+            //    .HasRequired<Staff>(s => s.Staff)
+            //    .WithMany(s => s.FilmCalendarCreates)
+            //    .HasForeignKey(s => s.StaffID);
         }
     }
 }

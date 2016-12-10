@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace MegaCinemaWeb.Models
 {
@@ -53,12 +54,12 @@ namespace MegaCinemaWeb.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email không được để trống")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password không được để trống")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -69,28 +70,47 @@ namespace MegaCinemaWeb.Models
 
     public class RegisterViewModel
     {
+        [Display(Name = "Tên")]
         public string FirstName { set; get; }
+
+        [Display(Name = "Họ")]
         public string LastName { set; get; }
 
+        [Display(Name = "Ngày sinh")]
         [DisplayFormat(DataFormatString = "{0:MMM dd, yyyy}")]
         public DateTime Birthday { get; set; }
-        public bool Sex { get; set; }      
+
+        [Display(Name = "Giới tính")]
+        public bool Sex { get; set; }
+
+        [Display(Name = "CMND")]
         [MaxLength(13)]
         public string SSN { get; set; }
+
+        [Display(Name = "Địa chỉ")]
         public string Address { set; get; }
+
+        [Display(Name = "Số điện thoại")]
+        [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
+        public string PhoneNumber { set; get; }
+
+        [Display(Name = "Quận")]
         public string District { get; set; }
+
+        [Display(Name = "Thành phố")]
         public string City { get; set; }
 
+        [Display(Name = "Email")]
         [Required(ErrorMessage = "Bạn cần nhập email.")]
         [EmailAddress(ErrorMessage = "Địa chỉ email không đúng.")]
         public string Email { set; get; }
 
+        [Display(Name = "Password")]
         [Required(ErrorMessage = "Bạn cần nhập mật khẩu.")]
         [MinLength(8, ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự")]
         public string Password { set; get; }
 
-        [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
-        public string PhoneNumber { set; get; }
+
     }
 
     public class RegisterCustomerViewModel
@@ -101,8 +121,12 @@ namespace MegaCinemaWeb.Models
         //[DisplayFormat(DataFormatString = "{0:dd/mm/yyy")]
         //public DateTime Birthday { get; set; }
         public bool Sex { get; set; }
+
+        [Required(ErrorMessage = "Bạn cần nhập Mã CMND/passport")]
         [MaxLength(13)]
         public string SSN { get; set; }
+
+        [Required(ErrorMessage = "Bạn cần nhập địa chỉ")]
         public string Address { set; get; }
         public string District { get; set; }
         public string City { get; set; }
@@ -114,6 +138,10 @@ namespace MegaCinemaWeb.Models
         [Required(ErrorMessage = "Bạn cần nhập mật khẩu.")]
         [MinLength(8, ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự")]
         public string Password { set; get; }
+
+        [Required(ErrorMessage = "Bạn cần nhập mật khẩu.")]
+        [MinLength(8, ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự")]
+        public string ConfirmPassword { set; get; }
 
         [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
         public string PhoneNumber { set; get; }
@@ -146,5 +174,15 @@ namespace MegaCinemaWeb.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    [DataContract]
+    public class RecapchaResult
+    {
+        [DataMember(Name = "success")]
+        public bool Success { get; set; }
+
+        [DataMember(Name = "error-codes")]
+        public string[] ErrorCodes { get; set; }
     }
 }

@@ -1,0 +1,66 @@
+﻿@model MegaCinemaWeb.Models.PromotionViewModel
+
+@{
+    ViewBag.Title = "Thêm ưu đãi mới";
+    ViewBag.FeatureTitle = "Thêm ưu đãi mới";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Promotion", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
+    
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.PromotionID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PromotionID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PromotionID, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PromotionHeader, htmlAttributes: new { @class = "control-label " })
+        @Html.EditorFor(model => model.PromotionHeader, new { htmlAttributes = new { @class = "form-control" } })
+        @*@Html.ValidationMessageFor(model => model.PromotionHeader, "", new { @class = "text-danger" })*@
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PromotionContent, htmlAttributes: new { @class = "control-label" })
+        @Html.TextAreaFor(model => model.PromotionContent, new { @class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PromotionDateStart, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.PromotionDateStart, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PromotionDateFinish, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.PromotionDateFinish, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PromotionStatusID, "Trạng thái ưu đãi", htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.PromotionStatusID, (SelectList)ViewBag.PromotionStatusID, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Upload ảnh
+        </label>
+        <input id="file-upload" name="fileUpload" type="file" />
+        <label id="custome-file-upload"></label>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <input type="submit" value="Lưu" class="btn btn-primary pull-right" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    
+}

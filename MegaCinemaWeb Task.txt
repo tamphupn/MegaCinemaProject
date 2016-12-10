@@ -1,0 +1,30 @@
+- Film 
+	- Add / Update / Remove Film
+	- Assign film to Cinema
+	- Statistic Amount ticket in Film 
+	- View film session create of each Cinema 
+	- Create Film Session of Cinema
+	- Show detail phim in Home page 
+- Cinema 
+	- Add / Update / Remove Cinema 
+	- Statistic Amount ticket in Cinema 
+	- Show Detail Cinema in Home Page
+- Room Film 
+	- Add / Update / Remove Room film 
+	- Create seat position in room 
+	- Statistic Amount ticket in room
+	- Seat maintenance 
+- Customer 
+	- View list Customer 
+	- Statistic customer 
+	- Delete Customer 
+- Staff
+	- View list staff
+	- Add / Update / remove Staff
+	- Assign Staff to Cinema 
+- Ticket 
+	- Booking Ticket 
+	- Payment 
+	- Cancel Ticket payment 
+- Another Table 
+	- Film Categories, FoodList, Film ratting, Film Format, Promotion : CRUD

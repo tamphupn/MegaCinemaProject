@@ -1,40 +1,189 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <title>Hệ thống bán vé rạp chiếu phim Megastar</title>
+    <link rel="icon" href="../../Content/images/cinema_icon.ico" type="image/ico" size="16x16" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1">
+    <meta name="keywords" content="Hệ thống bán vé online, Hệ thống rạp lớn nhất việt nam, hệ thống bán vé nhanh nhất việt nam" />
+    <!--Bootstrap core css-->
+    <link rel="stylesheet" href="~/Content/scripts/Client/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/scripts/Client/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/Content/scripts/Client/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/scripts/Client/css/index-css.css">
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div id="main-wrapper">
+        <!--Header-->
+        <div id="mega-header">
+            <!--top bar -->
+            <div class="topbar">
+                <div class="topbar-content">
+                    <div class="topbar-left">
+                        <div class="menu-item">
+                            <ul class="clearfix" id="topbar-nav">
+                                <li class="res-toggle"><a href="javascript:void(0);" onclick="toggleClick()" class="tog-button"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                                <li>
+                                    <a class="img-home" href="#"></a>
+                                </li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Sự kiện</a></li>
+                                <li><a href="#">Dịch vụ</a></li>
+                                <li><a href="#">Tuyển dụng</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="topbar-right">
+                        <div class="user-area">
+                            <ul>
+                                <li>
+                                    <a class="img-youtube" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="img-facebook" href="#"></a>
+                                </li>
+                                @Html.Partial(Url.Content("../Shared/_loginPartial"))
+                            </ul>
+                        </div>
+                    </div>
+                    <!--user area -->
+
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+
+            <div style="clear:both"></div>
+            <!--Navigation-->
+            <div id="header-content">
+                <div class="header-group cleafix-navigation">
+                    <div class="header-left">
+                        <a href="#">
+                            <img class="img-responsive" alt="Hệ thống đặt vé rạp chiếu phim Megastar" src="../../Content/images/logo.png">
+                        </a>
+                    </div>
+
+                    <div class="header-right">
+                        <ul>
+                            <li id="A1">
+                                <a href="#">
+                                    <i class="item-phim"></i> PHIM
+                                </a>
+                            </li>
+                            <li id="A2">
+                                <a href="#">
+                                    <i class="item-lich"></i> LỊCH CHIẾU
+                                </a>
+                            </li>
+                            <li id="A3">
+                                <a href="#">
+                                    <i class="item-rap"></i> RẠP & GIÁ VÉ
+                                </a>
+                            </li>
+                            <li id="A4">
+                                <a href="#">
+                                    <i class="item-uudai"></i> ƯU ĐÃI
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+        <!--end of #header-->
+
+        <!--page direction-->
+        <div class="text-titles">
+            <div class="title-span">
+                <a href="#">Trang chủ</a> > Page
+            </div>
+        </div>
+        <!--end of page direction--->
+
+        <!--body-->
+        <div id="wrapper">
+            <div class="container">
+                <!--title page-->
+                <div class="row">
+                    <div class="view-title-repeat">
+                        <div class="title-center">
+                            <img src="../../Content/images/film.png">
+                            <span>@ViewBag.FeatureTitle</span>
+                        </div>
+                    </div>
+                </div>
+                <!--end of title page-->
+
+                <!--content page-->
+                <div class="row mega-content">
+                    @RenderBody()
+                </div>
+                <!--end of content page-->
+
+                <!--title end page-->
+                <div class="row end-title">
+                    <div class="view-title-repeat">
+                        <div class="title-center">
+                            <span>Vui giải trí - Vui bạn bè</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--end of #body-->
+        <!--Footer-->
+        <div id="mega-footer">
+            <div id="container">
+                <div id="star-left">
+                    <img src="../../Content/images/bg-footer.png">
+                </div>
+
+                <div id="footer-content">
+                    <div class="footer-left">
+                        <h3>Hotline hỗ trợ</h3>
+                        <div class="phone-number">
+                            <span class="icon-phone">
+                                <i class="icons"></i>
+                            </span>
+                            <span class="number-phone">08 2649 911</span>
+                        </div>
+                    </div>
+
+                    <div class="copyright">
+                        <div class="group-copy">
+                            <div class="copy-left">
+                                <h6>Công ty cổ phần Truyền Thông Giải Trí Mega GS</h6>
+                                <p>
+                                    Địa chỉ: 01 Lý Tự Trọng - Phường Bến Nghé - Quận 1 - TP. HCM / Email: cskh@megags.vn / Hotline hỗ trợ: +84 08 62649911
+                                </p>
+                                <p>
+                                    Số ĐKKD: 0312667335 - Ngày cấp: 22/6/2015 (Đăng ký thay đổi lần 6) / Nơi cấp: Sở kế hoạch và đầu tư thành phố Hồ Chí Minh
+                                </p>
+                                <p>
+                                    Copyright ©2016 Mega GS Cinemas. All rights reserved - Uboiz Team
+                                </p>
+
+                            </div>
+                            <div class="copy-right">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of #Footer-->
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!--js-->
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryClient")
+    @*<script type="text/javascript" src="~/Content/scripts/Client/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/scripts/Client/js/index.js"></script>
+    <script type="text/javascript" src="~/Content/scripts/Client/js/jquery.bxslider.js"></script>*@
+    @RenderSection("scriptData",false)
 </body>
+
 </html>
