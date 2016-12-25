@@ -18,13 +18,13 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         //TEST
         ICinemaService _cinemaService;
         IStatusService _statusService;
-        IStaffService _staffService;
+        //IStaffService _staffService;
 
-        public CinemaController(ICinemaService cinemaService, IStatusService statusService, IStaffService staffService)
+        public CinemaController(ICinemaService cinemaService, IStatusService statusService)
         {
             _cinemaService = cinemaService;
             _statusService = statusService;
-            _staffService = staffService;
+            //_staffService = staffService;
         }
         // GET: AdminDashboard/Cinema
         public ActionResult Index(int page = 0)
@@ -52,7 +52,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         public ActionResult Create()
         {
             ViewBag.CinemaStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
-            ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
+            //ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
             return View();
         }
 
@@ -77,7 +77,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             }
             //Action/Controller
             ViewBag.CinemaStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
-            ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
+            //ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
             return View(cinemaViewModel);
         }
 

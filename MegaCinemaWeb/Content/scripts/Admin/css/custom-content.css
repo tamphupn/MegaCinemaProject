@@ -61,3 +61,31 @@ nav{
     color:white;
     text-align:center;
 }
+
+/*Film insert css*/
+.film-information-detail{
+    background-color: #e74c3c;
+    padding: 15px;
+    border-radius:5px;
+    margin-top : 5px;
+    color: white;
+}
+
+.form-group-film-information-area li{
+    list-style:none;
+    list-style-type:none;
+}
+
+.form-group-film-detail-poster img{
+    width:200px;
+    height:200px;
+}
+
+.film-detail-name {
+    text-transform: uppercase;
+}
+/*End of film insert css*/
+
+/*Film index css*/
+
+/*End of Film index css*/

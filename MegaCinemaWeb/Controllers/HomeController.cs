@@ -11,10 +11,11 @@ namespace MegaCinemaWeb.Controllers
     public class HomeController : Controller
     {
         IStatusService _statusService;
-
-        public HomeController(IStatusService statusService)
+        IFilmService _filmService;
+        public HomeController(IStatusService statusService, IFilmService filmService)
         {
             _statusService = statusService;
+            _filmService = filmService;
         }
 
         // GET: Home
@@ -22,6 +23,13 @@ namespace MegaCinemaWeb.Controllers
         {
             var result = _statusService.GetAll();
             var resultVm = Mapper.Map<IEnumerable<StatusViewModel>>(result);
+            return View(resultVm);
+        }
+
+        public ActionResult HomePage()
+        {
+            var filmSlider = _filmService.GetAll();
+            var resultVm = Mapper.Map<IEnumerable<FilmViewModel>>(filmSlider);
             return View(resultVm);
         }
     }

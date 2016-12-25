@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = ViewBag.FeatureTitle = "Dự đoán phim sắp chiếu";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div class="row">
+    <p>Lưu ý khi sử dụng hệ thống</p>
+    <ul class="alert-predition-content">
+        <li>
+            Hệ thống chỉ đang được xây dựng cho việc dự đoán các bộ phim ngoài thị trường Việt Nam
+        </li>
+        <li>
+            Nhập tên phim vào khung search để hệ thống lấy thông tin chính của bộ phim đó (dữ liệu từ IMDB). Thời gian chờ đợi có thể lâu vì hệ thống cần tìm đầy đủ các thông tin xung quanh bộ phim đó
+        </li>
+        <li>
+            Nhấp dự đoán để hệ thống có thể bắt đầu quá trình thực hiện và đưa ra kết quả.
+        </li>
+    </ul>
+</div>
+<br/>
+
+<div class="row">
+    <form>
+        <div class="form-group">
+            <label class="control-label">Nhập tên phim: </label>
+            <input class="form-control" placeholder="Nhập tựa phim đầy đủ tại đây..." id = "film-create-name"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Ngày dự định công chiếu</label>
+            <input class="form-control text-box single-line" data-val="true" id="film-predition-first-premired" type="date" value="@DateTime.Now.AddDays(2)" />
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <input type="submit" value="Lưu" class="btn btn-primary pull-right" />
+                <input type="button" id="film-get-detail" class="btn btn-primary" style="margin-left:10px" data-toggle="tooltip" data-placement="bottom" title="Lấy thông tin tổng quan của phim từ IMDB để đánh giá phim" value="Lấy thông tin phim" />
+            </div>
+        </div>
+    </form>
+    
+    <div class="form-group film-information-detail">
+        <p><i class="fa fa-bar-chart" aria-hidden="true"></i> Thông tin của bộ phim sắp công chiếu - Số liệu dựa trên IMDB</p>
+        <ul class="form-group-film-information-area">
+            <li>
+                <img src="@Url.Content("~/Content/FilmPoster/poster1.jpg")" class="img img-responsive center-block form-group-film-detail-poster" />
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Tên phim: </span> <span class="film-detail-name">Bên nhau trọn đời bản điện ảnh</span></p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Thời lượng: </span> <span class="film-detail-duration"> 132</span> phút</p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Ngày công chiếu đầu tiên: </span> <span class="film-detail-release">1/1/2016</span></p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Ước lượng chi phí sản xuất: </span> <span class="film-detail-budget">132,000,000</span></p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Thể loại: </span> <span class="film-detail-genre">Hành động, kinh dị</span></p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Diễn viên: </span> <span class="film-detail-actor">Bên nhau trọn đời bản điện ảnh</span></p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Đạo diễn: </span> <span class="film-detail-director">Bên nhau trọn đời bản điện ảnh</span></p>
+            </li>
+            <li>
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Công ty sản xuất: </span> <span class="film-detail-production">Bên nhau trọn đời bản điện ảnh</span></p>
+            </li>
+            <li>
+                <iframe class="film-detail-trailer" src="http://www.imdb.com/video/imdb/vi2687214105/imdb/embed?autoplay=false&width=480" width="480" height="270" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no" align="middle"></iframe>
+            </li>
+            <li>
+                <input id="btn-predition-film-submit" type="submit" value="Dự đoán" class="btn btn-primary pull-right" style="position: relative;bottom: 40px"/>
+            </li>
+            <br/>
+            <li class="predition-li" style="visibility: hidden">
+                <p><i class="fa fa-chevron-right" aria-hidden="true"></i><span> Dự đoán cho phim: </span> <span class="film-detail-predidtion">HIT</span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/scripts/adminjs.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery.blockUI.js")"></script>
+}

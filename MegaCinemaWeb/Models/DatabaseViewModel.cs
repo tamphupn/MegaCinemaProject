@@ -72,27 +72,29 @@ namespace MegaCinemaWeb.Models
 
         public string FilmCode { get; set; }
 
-        [DisplayName("Tên film")]
+        [DisplayName("Tên phim")]
         [Required(ErrorMessage = "Tên phim không được để trống")]
         public string FilmName { get; set; }
 
-        [DisplayName("Thời lượng")]
+        [DisplayName("Thời lượng phim")]
         [Required(ErrorMessage = "Thời lượng không được để trống")]
         public int FilmDuration { get; set; }
 
-        [DisplayName("Ngày công chiếu")]
-        //[Required(ErrorMessage = "Ngày công chiếu không được để trống")]
+        [DisplayName("Ngày dự định công chiếu phim")]
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Ngày công chiếu không được để trống")]
         public DateTime FilmFirstPremiered { get; set; }
 
-        [DisplayName("Ngôn ngữ")]
+        [DisplayName("Ngôn ngữ hỗ trợ")]
         [Required(ErrorMessage = "Ngôn ngữ không được để trống")]
         public string FilmLanguage { get; set; }
 
-        [DisplayName("Nội dung phim")]
+        [DisplayName("Nội dung sơ lược của phim")]
         [Required(ErrorMessage = "Nội dung phim không được để trống")]
         public string FilmContent { get; set; }
 
-        [DisplayName("Ngày chiếu cuối cùng")]
+        [DisplayName("Ngày dự định kết thúc phim")]
+        [DataType(DataType.Date)]
         //[Required(ErrorMessage = "Ngày chiếu cuối cùng không được để trống")]
         public DateTime? FilmFinishPremiered { get; set; }
 
@@ -100,7 +102,7 @@ namespace MegaCinemaWeb.Models
         //[Required(ErrorMessage = "Poster phim không được để trống")]
         public string FilmPoster { get; set; }
 
-        [DisplayName("Công ty sản xuất")]
+        [DisplayName("Công ty sản xuất phim")]
         [Required(ErrorMessage = "Công ty sản xuất không được để trống")]
         public string FilmCompanyRelease { get; set; }
 
@@ -124,6 +126,7 @@ namespace MegaCinemaWeb.Models
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
     }
+
 
     public class FilmCategoryViewModel
     {

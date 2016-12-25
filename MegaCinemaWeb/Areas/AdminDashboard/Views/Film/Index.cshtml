@@ -1,0 +1,142 @@
+﻿@using MegaCinemaWeb.Models;
+@using MegaCinemaWeb.Infrastructure.Core;
+
+@model PaginationSet<FilmViewModel>
+    
+
+@{
+    ViewBag.Title = "Danh sách các phim";
+    ViewBag.FeatureTitle = "Danh sách các phim trong rạp";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-lg-8">
+        <input type="text" class="form-control" id="search-component" />
+        <button type="submit" class="btn btn-primary search-button-component">Tìm kiếm</button>
+    </div>
+    <div class="col-md-4 col-lg-4">
+        <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
+    </div>
+</div><br />
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-custom">
+        <thead>
+            <tr>
+                <th>
+                    Mã phim
+                </th>
+                <th>
+                    Tên phim
+                </th>
+                <th>
+                    Thời lượng
+                </th>
+                <th>
+                    Ngày công chiếu
+                </th>
+                <th>
+                    Ngôn ngữ
+                </th>
+                <th>
+                    Nội dung
+                </th>
+                <th>
+                    Ảnh bìa
+                </th>
+                <th>
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @item.FilmCode
+                        </td>
+                        <td>
+                            @item.FilmName
+                        </td>
+                        <td>
+                            @item.FilmDuration
+                        </td>
+                        <td>
+                            @item.FilmFirstPremiered
+                        </td>
+                        <td>
+                            @item.FilmLanguage
+                        </td>
+                        <td>
+                            @item.FilmContent
+                        </td>
+                        <td>
+                            <img src="@Url.Content("~/Content/FilmPoster/"+@item.FilmPoster)" style="width:125px; height:150px"/>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", "Film", new { id = item.FilmID})
+                            |
+                            @Html.ActionLink("Xóa", "Delete", "Film", new { id = item.FilmID, @class = "btn btn primary" }, new {onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                        </td>
+
+                    </tr>
+                }
+
+                <div style="clear:both"></div>
+            }
+            else
+            {
+                <tr>Không có sản phẩm hiển thị</tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (Model.TotalPages > 1)
+{
+    var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+    var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @if (Model.Page > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="?page=@(Model.Page - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+            }
+            @{
+                for (int i = startPageIndex; i <= endPageIndex; i++)
+                {
+                    if (Model.Page == i)
+                    {
+                        <li class="page-item"><a class="page-link active" href="?page=@i" title="trang @i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="?page=@i" title="trang @i">@i</a></li>
+                    }
+                }
+            }
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+                }
+
+
+@section Scripts {
+    <script src="@Url.Content("~/scripts/adminjs.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery.blockUI.js")"></script>
+}

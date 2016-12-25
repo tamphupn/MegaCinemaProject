@@ -12,6 +12,7 @@ namespace MegaCinemaService
     public interface IFilmService
     {
         IEnumerable<Film> GetAll();
+        IEnumerable<Film> GetFilmListPaging(int page, int pageSize, out int totalRow);
         Film Add(Film film);
         void SaveChanges();
     }
@@ -43,5 +44,13 @@ namespace MegaCinemaService
         {
             return _filmRepository.GetAll();
         }
+        public IEnumerable<Film> GetFilmListPaging(int page, int pageSize, out int totalRow)
+        {
+            var query = _filmRepository.GetMulti(x => x.FilmStatus == "AC");
+            totalRow = query.Count();
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+
     }
 }

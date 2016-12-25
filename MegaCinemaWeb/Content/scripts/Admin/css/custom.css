@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 .left_col {
   background: #2A3F54; }
 
@@ -25,7 +25,7 @@
   margin-left: 70px;
   z-index: 2; }
 
-.nav-sm .navbar.nav_title {
+.nav-sm .navbar.nav_title
   width: 70px; }
 
 .nav-sm .navbar.nav_title a span {
@@ -633,7 +633,7 @@ a:hover, a:focus {
 
 .nav.child_menu > li > a {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 12px;
+  font-size: 14px;
   padding: 9px; }
 
 .panel_toolbox {

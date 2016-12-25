@@ -1,0 +1,101 @@
+/* jQuery Drawer ============================== */
+
+.drawer {
+	width: 100%;
+}
+
+.drawer-item {
+	padding-bottom: 16px;
+}
+
+.drawer-item h1{
+	text-transform: uppercase;
+}
+
+.drawer-item-active .drawer-header {
+	background: #ffd555;
+	transition: 0.25s;
+	color: #3e3e3e;
+}
+.drawer-item-active .drawer-header h1{
+	font-weight:bold;
+	text-transform: uppercase;
+}
+.drawer-item-active .drawer-header-icon {
+	color: #fff;
+}
+
+.drawer-header {
+	background: #828282;
+	color: #fff;
+	padding: 12px;
+	cursor: pointer;
+	min-height: 40px;
+	transition: 0.25s;
+	position:relative;
+}
+.drawer-header h1 {
+	font-size:16px;
+	font-weight: 400;
+	margin:0;
+	margin-left: 25px;
+	width: 100%;
+}
+
+.drawer-content {
+	display: none;
+	padding: 25px 15px;
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+}
+.drawer-content span {
+	font-size:14px;
+	font-weight:400;
+	color:#fff;
+	line-height: 1.5em;
+	text-align: justify;
+}
+.drawer-content p {
+	text-align: justify;
+	font-size:14px;
+	font-weight:400;
+}
+
+.drawer-content p:first-child {
+	margin-bottom: 5px;
+}
+.drawer-content p:nth-child(1) {
+	margin-bottom: 10px;
+}
+
+.drawer-header-icon {
+	float:left;
+	color: #3e3e3e;;
+	font-size: 20px;
+	position: relative;
+	top: -3px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	color: #fff;
+}
+.drawer-header-icon.drawer-header-icon-active {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	transform: rotate(0deg);
+	color: #000;
+}
+/* custom Tuyen Dung */
+.drawer-header .custom-h1{
+	margin-left: 0;
+	width: auto;
+	width:98%;
+}
+.drawer-header-icon.custom-header-icon{
+	position:absolute;
+	right:10px;
+	top:7px;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	transform: rotate(0deg);
+}

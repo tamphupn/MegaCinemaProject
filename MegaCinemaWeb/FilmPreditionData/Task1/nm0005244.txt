@@ -1,0 +1,38 @@
+tt0484740	nm0001565	Mike Newell	2007-11-16	$45000000	$31336389	$1924860
+tt1456606	nm0025241	Vicente Amorim	2014-09-11	0	0	0
+tt1456606	nm0037247	Guillermo Arriaga	2014-09-11	0	0	0
+tt0140888	nm0758574	Walter Salles	1998-04-03	$2900000	0	$35710
+tt0271383	nm0037136	Guel Arraes	2000-09-10	0	0	0
+tt0373747	nm0905343	Andrucha Waddington	2005-05-13	0	0	$31405
+tt0196811	nm0598173	Jayme Monjardim	2004-08-20	0	0	0
+tt0119815	nm0000853	Bruno Barreto	1997-05-01	0	0	$32017
+tt2986122	nm1189743	Carolina Jabor	2014-11-20	0	0	0
+tt0089297	nm0024013	Suzana Amaral	1985	0	0	0
+tt0328316	nm0868595	ClÃ¡udio Torres	2004-09-10	0	0	0
+tt2401711	nm0598173	Jayme Monjardim	2013-09-27	0	0	0
+tt0082317	nm0386706	Leon Hirszman	1981-09-05	0	0	0
+tt0402417	nm0077094	Marcos Bernstein	2006-05-31	0	0	0
+tt4954946	nm0210659	Domingos de Oliveira	2015-09-10	0	0	0
+tt0059163	nm0386706	Leon Hirszman	1968-06-14	0	0	0
+tt2181819	nm0519961	Victor Lopes	2012-01-06	0	0	0
+tt0186256	nm0225935	Carlos Diegues	1973	0	0	0
+tt0140053	nm0463099	Marcio Kogan	@none	0	0	0
+tt0140053	nm0918303	Isay Weinfeld	@none	0	0	0
+tt0247313	nm0692504	Paulo Porto	1971-07	0	0	0
+tt0166851	nm0284677	JosÃ© Henrique Fonseca	1998-11	0	0	0
+tt0166851	nm0285063	Arthur Fontes	1998-11	0	0	0
+tt0235449	nm0905343	Andrucha Waddington	1999-10-26	0	0	0
+tt1329100	nm0148044	Leonardo Celi	2006-02-19	0	0	0
+tt0188881	nm0332288	Luiz Fernando Goulart	@none	0	0	0
+tt0137119	nm0159741	Carlos Hugo Christensen	1958-10-22	0	0	0
+tt0185733	nm0413020	Arnaldo Jabor	1978	0	0	0
+tt0111599	nm0225935	Carlos Diegues	2005-04-20	0	0	0
+tt0260507	nm0716510	JosÃ© Regattieri	@none	0	0	0
+tt2245047	nm0433786	Gracindo JÃºnior	2009-05-01	0	0	0
+tt0188131	nm0267340	Miguel Faria Jr.	1970-11-13	0	0	0
+tt1665722	nm2308781	Nelson Hoineff	2010-01-08	0	0	0
+tt0201975	nm0895695	Zelito Viana	@none	0	0	0
+tt0260955	nm0142500	Vladimir Carvalho	@none	0	0	0
+tt0498067	nm2159386	Gabriela Greeb	2005	0	0	0
+tt0201775	nm0182080	Armando Costa	@none	0	0	0
+tt0201775	nm0895695	Zelito Viana	@none	0	0	0
