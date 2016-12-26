@@ -53,9 +53,18 @@
     <div class="form-group">
         @Html.LabelFor(model => model.FilmFinishPremiered, htmlAttributes: new { @class = "control-label" })
         @{
-            DateTime a = (DateTime)Model.FilmFinishPremiered;
+
+            if (Model.FilmFinishPremiered != null)
+            {
+                DateTime a = (DateTime)Model.FilmFinishPremiered;
+                @Html.EditorFor(model => model.FilmFinishPremiered, new {htmlAttributes = new {@class = "form-control", @Value = a.ToString("yyyy-MM-dd")}})
+
+            }
+            else
+            {
+                @Html.EditorFor(model => model.FilmFinishPremiered, new { htmlAttributes = new { @class = "form-control" } })
+            }
         }
-        @Html.EditorFor(model => model.FilmFinishPremiered, new { htmlAttributes = new { @class = "form-control", @Value = a.ToString("yyyy-MM-dd") } })
     </div>
 
     <div class="form-group">

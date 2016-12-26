@@ -264,8 +264,8 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 var listStatus = new List<SelectListItem>
                 {
                     new SelectListItem {Text = "Đang công chiếu", Value = "PEN"},
-                    new SelectListItem {Text = "Ngừng công chiếu", Value = "REL"},
-                    new SelectListItem {Text = "Chiếu lại", Value = "REW"},
+                    new SelectListItem {Text = "Sắp công chiếu", Value = "REL"},
+                    new SelectListItem {Text = "Suất chiếu đặc biệt", Value = "REW"},
                 };
 
                 foreach (var item in listStatus)
@@ -321,8 +321,8 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                             var listStatus = new List<SelectListItem>
                             {
                                 new SelectListItem {Text = "Đang công chiếu", Value = "PEN"},
-                                new SelectListItem {Text = "Ngừng công chiếu", Value = "REL"},
-                                new SelectListItem {Text = "Chiếu lại", Value = "REW"},
+                                new SelectListItem {Text = "Sắp công chiếu", Value = "REL"},
+                                new SelectListItem {Text = "Suất chiếu đặc biệt", Value = "REW"},
                             };
 
                             foreach (var item in listStatus)
@@ -350,8 +350,8 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                             var listStatus = new List<SelectListItem>
                             {
                                 new SelectListItem {Text = "Đang công chiếu", Value = "PEN"},
-                                new SelectListItem {Text = "Ngừng công chiếu", Value = "REL"},
-                                new SelectListItem {Text = "Chiếu lại", Value = "REW"},
+                                new SelectListItem {Text = "Sắp công chiếu", Value = "REL"},
+                                new SelectListItem {Text = "Suất chiếu đặc biệt", Value = "REW"},
                             };
 
                             foreach (var item in listStatus)
@@ -386,8 +386,8 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                     var listStatus = new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Đang công chiếu", Value = "PEN"},
-                        new SelectListItem {Text = "Ngừng công chiếu", Value = "REL"},
-                        new SelectListItem {Text = "Chiếu lại", Value = "REW"},
+                        new SelectListItem {Text = "Sắp công chiếu", Value = "REL"},
+                        new SelectListItem {Text = "Suất chiếu đặc biệt", Value = "REW"},
                     };
 
                     foreach (var item in listStatus)
@@ -421,8 +421,8 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             var listStatus1 = new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Đang công chiếu", Value = "PEN"},
-                        new SelectListItem {Text = "Ngừng công chiếu", Value = "REL"},
-                        new SelectListItem {Text = "Chiếu lại", Value = "REW"},
+                        new SelectListItem {Text = "Sắp công chiếu", Value = "REL"},
+                        new SelectListItem {Text = "Suất chiếu đặc biệt", Value = "REW"},
                     };
 
             foreach (var item in listStatus1)
