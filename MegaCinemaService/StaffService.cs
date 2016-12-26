@@ -27,7 +27,7 @@ namespace MegaCinemaService
 
         public IEnumerable<Staff> GetAll()
         {
-           return _staffRepository.GetAll();
+            return _staffRepository.GetAll();
         }
     }
 }

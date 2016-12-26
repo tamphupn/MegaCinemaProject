@@ -93,6 +93,7 @@
     <Compile Include="Infrastructures\RepositoryBase.cs" />
     <Compile Include="Infrastructures\UnitOfWork.cs" />
     <Compile Include="MegaCinemaDBContext.cs" />
+    <Compile Include="MegaCinemaDBContext.Views.cs" />
     <Compile Include="Migrations\201611091734560_InitialDB.cs" />
     <Compile Include="Migrations\201611091734560_InitialDB.Designer.cs">
       <DependentUpon>201611091734560_InitialDB.cs</DependentUpon>
@@ -169,22 +170,42 @@
     <Compile Include="Migrations\201611250226337_FinishFixStaff.Designer.cs">
       <DependentUpon>201611250226337_FinishFixStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612250814380_FilmCategoriesTableFIlm.cs" />
+    <Compile Include="Migrations\201612250814380_FilmCategoriesTableFIlm.Designer.cs">
+      <DependentUpon>201612250814380_FilmCategoriesTableFIlm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612250946015_ChangeLenghFilmContent.cs" />
+    <Compile Include="Migrations\201612250946015_ChangeLenghFilmContent.Designer.cs">
+      <DependentUpon>201612250946015_ChangeLenghFilmContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612250955155_UpdateFilmPosterLength.cs" />
+    <Compile Include="Migrations\201612250955155_UpdateFilmPosterLength.Designer.cs">
+      <DependentUpon>201612250955155_UpdateFilmPosterLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612260747185_UpdateDatabase.cs" />
+    <Compile Include="Migrations\201612260747185_UpdateDatabase.Designer.cs">
+      <DependentUpon>201612260747185_UpdateDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountTypeRepository.cs" />
+    <Compile Include="Repositories\AdsBannerRepository.cs" />
     <Compile Include="Repositories\BookingTicketRepository.cs" />
     <Compile Include="Repositories\CinemaFeatureRepository.cs" />
     <Compile Include="Repositories\CinemaRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\DetailCategoryRepository.cs" />
     <Compile Include="Repositories\DetailFormatRepository.cs" />
+    <Compile Include="Repositories\EventTopicRepository.cs" />
     <Compile Include="Repositories\FeatureDetailRepository.cs" />
     <Compile Include="Repositories\FilmCategoryRepository.cs" />
     <Compile Include="Repositories\FilmFormatRepository.cs" />
+    <Compile Include="Repositories\FilmRattingRepository.cs" />
     <Compile Include="Repositories\FilmRepository.cs" />
     <Compile Include="Repositories\FoodListRepository.cs" />
     <Compile Include="Repositories\PromotionCineRepository.cs" />
     <Compile Include="Repositories\PromotionRepository.cs" />
+    <Compile Include="Repositories\StaffRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="SampleData\SampleData.cs" />
   </ItemGroup>
@@ -259,6 +280,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611250226337_FinishFixStaff.resx">
       <DependentUpon>201611250226337_FinishFixStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612250814380_FilmCategoriesTableFIlm.resx">
+      <DependentUpon>201612250814380_FilmCategoriesTableFIlm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612250946015_ChangeLenghFilmContent.resx">
+      <DependentUpon>201612250946015_ChangeLenghFilmContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612250955155_UpdateFilmPosterLength.resx">
+      <DependentUpon>201612250955155_UpdateFilmPosterLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612260747185_UpdateDatabase.resx">
+      <DependentUpon>201612260747185_UpdateDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

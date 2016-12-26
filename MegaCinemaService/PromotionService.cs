@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MegaCinemaCommon.StatusCommon;
 using MegaCinemaData.Infrastructures;
 using MegaCinemaData.Repositories;
 using MegaCinemaModel.Models;
@@ -18,6 +19,7 @@ namespace MegaCinemaService
         Promotion Find(int id);
         void Update(Promotion promotion);
         Promotion Delete(Promotion promotion);
+        IEnumerable<Promotion> GetAll(int count);
     }
     public class PromotionService : IPromotionService
     {
@@ -43,6 +45,14 @@ namespace MegaCinemaService
         public Promotion Find(int id)
         {
             return _promotionRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<Promotion> GetAll(int count)
+        {
+            var result = _promotionRepository.GetAll();
+            if (result.Count() > count)
+                return result.Reverse().Take(count).Reverse();
+            return result;
         }
 
         public IEnumerable<Promotion> GetPromotionPaging(int page, int pageSize, out int totalRow)

@@ -45,6 +45,10 @@ namespace MegaCinemaData.SampleData
             context.Statuss.Add(new Status { StatusID = "ACT", StatusName = "Đã kích hoạt", CreatedDate = DateTime.Now });
             context.Statuss.Add(new Status { StatusID = "NAT", StatusName = "Chưa kích hoạt", CreatedDate = DateTime.Now });
             context.Statuss.Add(new Status { StatusID = "AC", StatusName = "Đang hoạt động", CreatedDate = DateTime.Now });
+
+            context.Statuss.Add(new Status { StatusID = "PEN", StatusName = "Đang công chiếu", CreatedDate = DateTime.Now });
+            context.Statuss.Add(new Status { StatusID = "REL", StatusName = "Sắp Công chiếu", CreatedDate = DateTime.Now });
+            context.Statuss.Add(new Status { StatusID = "REW", StatusName = "Suất chiếu đặc biệt", CreatedDate = DateTime.Now });
         }
 
         public static void GenerateAccountType(MegaCinemaDBContext context)
@@ -121,10 +125,94 @@ namespace MegaCinemaData.SampleData
 
         public static void GenerateFilm(MegaCinemaDBContext context)
         {
-            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "4 năm 2 chàng 1 tình yêu", FilmDuration = 100, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=H4nuLncR2i8", FilmPoster = "FLM1.png",FilmRatingID = 2, FilmStatus = "AC", CreatedDate = DateTime.Now});
-            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Yêu em từ cái nhìn đầu tiên", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=tI2IwWkp5ns", FilmPoster = "FLM2.png", FilmRatingID = 2, FilmStatus = "AC", CreatedDate = DateTime.Now });
-            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Xin lỗi anh chỉ là sát thủ", FilmDuration = 90, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=6f3tpfQo6Y4", FilmPoster = "FLM3.png", FilmRatingID = 2, FilmStatus = "AC", CreatedDate = DateTime.Now });
-            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Căn phòng ám ảnh", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM4.png", FilmRatingID = 2, FilmStatus = "AC", CreatedDate = DateTime.Now });
+            //context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "4 năm 2 chàng 1 tình yêu", FilmDuration = 100, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=H4nuLncR2i8", FilmPoster = "FLM1.png",FilmRatingID = 2, FilmStatus = "PEN", CreatedDate = DateTime.Now});
+            //context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Yêu em từ cái nhìn đầu tiên", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=tI2IwWkp5ns", FilmPoster = "FLM2.png", FilmRatingID = 2, FilmStatus = "PEN", CreatedDate = DateTime.Now });
+            //context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Xin lỗi anh chỉ là sát thủ", FilmDuration = 90, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=6f3tpfQo6Y4", FilmPoster = "FLM3.png", FilmRatingID = 2, FilmStatus = "PEN", CreatedDate = DateTime.Now });
+            //context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Căn phòng ám ảnh", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CJ", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM4.png", FilmRatingID = 2, FilmStatus = "REL", CreatedDate = DateTime.Now });
+
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Cho em gần anh thêm chút nữa", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM5.jpg", FilmRatingID = 2, FilmStatus = "REL", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước"});
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Chờ em đến ngày mai", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM6.jpg", FilmRatingID = 2, FilmStatus = "REL", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Bên nhau trọn đời", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM7.jpg", FilmRatingID = 2, FilmStatus = "REL", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "The avengers", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM8.jpg", FilmRatingID = 2, FilmStatus = "REL", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Avatar", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM9.jpg", FilmRatingID = 2, FilmStatus = "REW", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Quả tim máu", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM10.jpg", FilmRatingID = 2, FilmStatus = "REW", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Fan Cuồng", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM11.jpg", FilmRatingID = 2, FilmStatus = "REW", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Captain: Civil war", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM12.jpg", FilmRatingID = 2, FilmStatus = "REW", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Iron man", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM13.jpg", FilmRatingID = 2, FilmStatus = "PEN", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+            context.Films.Add(new Film { FilmPrefix = "FLM", FilmName = "Điều tuyệt vời nhất của chúng ta", FilmDuration = 120, FilmFirstPremiered = DateTime.Now, FilmLanguage = "Phụ đề tiếng việt", FilmContent = "a", FilmCompanyRelease = "CGV", FilmTrailer = "https://www.youtube.com/watch?v=jvAVqAEu8ZM", FilmPoster = "FLM14.jpg", FilmRatingID = 2, FilmStatus = "PEN", CreatedDate = DateTime.Now, FilmCategories = "Tình cảm, hài hước" });
+
+        }
+
+        public static void GenerateAdsBanner(MegaCinemaDBContext context)
+        {
+            context.AdsBanners.Add(new AdsBanner() {FilmId = 2, AdsDescription = "BNN1.png", CreatedDate = DateTime.Now});
+            context.AdsBanners.Add(new AdsBanner() { FilmId = 2, AdsDescription = "BNN2.jpg", CreatedDate = DateTime.Now });
+            context.AdsBanners.Add(new AdsBanner() { FilmId = 2, AdsDescription = "BNN3.png", CreatedDate = DateTime.Now });
+            context.AdsBanners.Add(new AdsBanner() { FilmId = 2, AdsDescription = "BNN4.jpg", CreatedDate = DateTime.Now });
+            context.AdsBanners.Add(new AdsBanner() { FilmId = 2, AdsDescription = "BNN5.png", CreatedDate = DateTime.Now });
+        }
+
+        public static void GenerateEventTopic(MegaCinemaDBContext context)
+        {
+            context.EventTopics.Add(new EventTopic() { EventTitle = "Cho em gần anh thêm chút nữa - phim ngôn tình", EventContent = "Bộ phim đạt doanh thu cao "});
+            context.EventTopics.Add(new EventTopic() { EventTitle = "Chờ em đến ngày mai", EventContent = "Bộ phim đạt doanh thu cao " });
+            context.EventTopics.Add(new EventTopic() { EventTitle = "Bên nhau trọn đời bản điện ảnh", EventContent = "Bộ phim đạt doanh thu cao " });
+            context.EventTopics.Add(new EventTopic() { EventTitle = "Cho em gần anh thêm chút nữa - phim ngôn tình", EventContent = "Bộ phim đạt doanh thu cao " });
+
+        }
+
+        public static void GeneratePromotion(MegaCinemaDBContext context)
+        {
+            context.Promotions.Add(new Promotion()
+            {
+                PromotionHeader = "Mega day - Giáng sinh 2016",
+                PromotionContent = "Nội dung ưu đãi",
+                PromotionDateFinish = DateTime.Now,
+                PromotionDateStart = DateTime.Now,
+                PromotionPoster = "PRO1.jpg",
+                PromotionStatusID = "AC"
+            });
+
+            context.Promotions.Add(new Promotion()
+            {
+                PromotionHeader = "Mega day - Black Friday",
+                PromotionContent = "Nội dung ưu đãi",
+                PromotionDateFinish = DateTime.Now,
+                PromotionDateStart = DateTime.Now,
+                PromotionPoster = "PRO2.jpg",
+                PromotionStatusID = "AC"
+            });
+
+            context.Promotions.Add(new Promotion()
+            {
+                PromotionHeader = "Mega day - Thứ 4 kỳ diệu",
+                PromotionContent = "Nội dung ưu đãi",
+                PromotionDateFinish = DateTime.Now,
+                PromotionDateStart = DateTime.Now,
+                PromotionPoster = "PRO3.png",
+                PromotionStatusID = "AC"
+            });
+
+            context.Promotions.Add(new Promotion()
+            {
+                PromotionHeader = "Mega day - Thứ 6 bạn bè",
+                PromotionContent = "Nội dung ưu đãi",
+                PromotionDateFinish = DateTime.Now,
+                PromotionDateStart = DateTime.Now,
+                PromotionPoster = "PRO4.jpg",
+                PromotionStatusID = "AC"
+            });
+
+            context.Promotions.Add(new Promotion()
+            {
+                PromotionHeader = "Mega day - Valentine cùng Mega",
+                PromotionContent = "Nội dung ưu đãi",
+                PromotionDateFinish = DateTime.Now,
+                PromotionDateStart = DateTime.Now,
+                PromotionPoster = "PRO5.png",
+                PromotionStatusID = "AC"
+            });
+
         }
 
         public static void GenerateData(MegaCinemaDBContext context)

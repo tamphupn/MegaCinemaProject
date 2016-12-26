@@ -146,7 +146,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không chính xác.");
                     return View(model);
             }
         }
@@ -165,7 +165,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         private IAuthenticationManager AuthenticationManager

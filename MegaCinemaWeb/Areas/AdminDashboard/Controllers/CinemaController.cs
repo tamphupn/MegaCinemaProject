@@ -13,6 +13,7 @@ using MegaCinemaWeb.Infrastructure.Core;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
+    [Authorize]
     public class CinemaController : BaseController
     {
         //TEST
@@ -26,6 +27,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             _statusService = statusService;
             //_staffService = staffService;
         }
+
         // GET: AdminDashboard/Cinema
         public ActionResult Index(int page = 0)
         {   //Show List Cinema in Database

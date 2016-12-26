@@ -8,6 +8,15 @@ namespace MegaCinemaCommon.StatusCommon
 {
     public static class StatusCommonConstrants
     {
-        public static string ACTIVE = "NOT";
+        //Trạng thái tổng quát
+        public static string NOT_ACTIVE = "NOT";
+        public static string ACTIVE = "AC";
+        public static string ACTIVED = "AC";
+        public static string NOT_ACTIVED = "AC";
+
+        //trạng thái một bộ phim
+        public static string PENDING = "PEN";
+        public static string RELEASE = "REL";
+        public static string RE_NEW = "REW";
     }
 }

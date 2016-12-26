@@ -94,7 +94,6 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 Promotion result = new Promotion();
                 result.UpdatePromotion(promotionVm);
                 var resultPromotion = _promotionService.Add(result);
-                _promotionService.SaveChanges();
                 if (resultPromotion == null) return RedirectToAction("Index", "Home");
                 else
                 {

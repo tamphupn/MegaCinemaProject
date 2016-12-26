@@ -1,0 +1,40 @@
+﻿@model MegaCinemaWeb.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MegaGS Cinema Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/scripts/css/style.css" rel="stylesheet"/>
+    <link href="~/scripts/css/font-awesome.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <script src="~/scripts/bootstrap.min.js"></script>
+</head>
+<body id="login">
+    <div class="login-logo">
+        <a href="#"><img src="~/Content/LoginAdmin/title.png" style="width:10%; height:10%" /></a>
+    </div>
+    <h2 class="form-heading">login</h2>
+    <div class="app-cam">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @type = "text", @Value = "E-mail address", @onfocus = "if (this.value == \"E-mail address\") {this.value = '';}", @onblur = "if (this.value == '') {this.value = 'E-mail address';}" } })
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @type = "password", @Value = "Password", @onfocus = "this.value = '';", @onblur = "if (this.value == '') {this.value = 'Password';}" } })
+            <div class="submit"><input type="submit" value="Login" /></div>
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+        }
+    </div>
+    <div class="copy_layout login">
+        MegaGS Dashboard <a href="https://www.facebook.com/groups/570466236321946/?fref=ts">Uboiz Project</a>
+    </div>
+</body>
+</html>

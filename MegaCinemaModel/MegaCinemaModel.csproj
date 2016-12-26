@@ -88,6 +88,7 @@
     <Compile Include="Abstracts\Auditable.cs" />
     <Compile Include="Abstracts\IAuditable.cs" />
     <Compile Include="Models\AccountType.cs" />
+    <Compile Include="Models\AdsBanner.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\BookingTicket.cs" />
     <Compile Include="Models\Cinema.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DetailCategory.cs" />
     <Compile Include="Models\DetailFormat.cs" />
+    <Compile Include="Models\EventTopic.cs" />
     <Compile Include="Models\FeatureDetail.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\FilmCalendarCreate.cs" />

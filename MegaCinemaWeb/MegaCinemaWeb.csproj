@@ -285,12 +285,28 @@
     <Content Include="Assets\images\uudai.png" />
     <Content Include="Assets\images\ve.png" />
     <Content Include="Assets\loading.gif" />
+    <Content Include="Content\AdsBanner\BNN1.png" />
+    <Content Include="Content\AdsBanner\BNN2.jpg" />
+    <Content Include="Content\AdsBanner\BNN3.png" />
+    <Content Include="Content\AdsBanner\BNN4.jpg" />
+    <Content Include="Content\AdsBanner\BNN5.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FilmPoster\8-Choemdenngaymai.jpg" />
     <Content Include="Content\FilmPoster\FLM1.jpg" />
+    <Content Include="Content\FilmPoster\FLM10.jpg" />
+    <Content Include="Content\FilmPoster\FLM11.jpg" />
+    <Content Include="Content\FilmPoster\FLM12.jpg" />
+    <Content Include="Content\FilmPoster\FLM13.jpg" />
+    <Content Include="Content\FilmPoster\FLM14.jpg" />
     <Content Include="Content\FilmPoster\FLM2.jpg" />
     <Content Include="Content\FilmPoster\FLM3.jpg" />
     <Content Include="Content\FilmPoster\FLM4.jpg" />
+    <Content Include="Content\FilmPoster\FLM5.jpg" />
+    <Content Include="Content\FilmPoster\FLM6.jpg" />
+    <Content Include="Content\FilmPoster\FLM7.jpg" />
+    <Content Include="Content\FilmPoster\FLM8.jpg" />
+    <Content Include="Content\FilmPoster\FLM9.jpg" />
     <Content Include="Content\FilmPoster\poster1.jpg" />
     <Content Include="Content\FoodList\404.png" />
     <Content Include="Content\FoodList\ajax_old.png" />
@@ -341,9 +357,18 @@
     <Content Include="Content\images\two-tickets.png" />
     <Content Include="Content\images\uudai.png" />
     <Content Include="Content\images\ve.png" />
+    <Content Include="Content\LoginAdmin\bg.jpg" />
+    <Content Include="Content\LoginAdmin\title.png" />
+    <Content Include="Content\Promotion\2_ticket.png" />
     <Content Include="Content\Promotion\404.png" />
     <Content Include="Content\Promotion\cocacola.jpg" />
     <Content Include="Content\Promotion\khoai_tay_chien.png" />
+    <Content Include="Content\Promotion\logocs.png" />
+    <Content Include="Content\Promotion\PRO1.jpg" />
+    <Content Include="Content\Promotion\PRO2.jpg" />
+    <Content Include="Content\Promotion\PRO3.png" />
+    <Content Include="Content\Promotion\PRO4.jpg" />
+    <Content Include="Content\Promotion\PRO5.png" />
     <Content Include="Content\Promotion\voucher %282%29.png" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -1686,6 +1711,14 @@
     <Content Include="Areas\AdminDashboard\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Film\Index.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Film\PreditionIndex.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Account\Login.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Shared\_ConfirmBox.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Promotion\Edit.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Promotion\Index.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Film\Edit.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Cinema\Edit.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Cinema\Index.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\css\bootstrap.min.css" />
     <Content Include="scripts\css\font-awesome.css" />
@@ -1694,12 +1727,14 @@
     <Content Include="scripts\css\jquery.drawer.css" />
     <Content Include="scripts\css\jquery.jscrollpane.css" />
     <Content Include="scripts\css\slick.css" />
+    <Content Include="scripts\css\style.css" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery.blockUI.js" />
     <Content Include="scripts\js\bootstrap.min.js" />
     <Content Include="scripts\js\index.js" />
     <Content Include="scripts\js\jquery-1.11.3.min.js" />
+    <Content Include="scripts\css\jquery-ui.min.css" />
     <Content Include="scripts\js\jquery.bxslider.js" />
     <Content Include="scripts\js\jquery.drawer.min.js" />
     <Content Include="scripts\js\jquery.jscrollpane.min.js" />
@@ -1723,6 +1758,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\AdminDashboard\AdminDashboardAreaRegistration.cs" />
+    <Compile Include="Areas\AdminDashboard\Authorized\AuthorizeCustom.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\AccountController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\BaseController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\CinemaController.cs" />
@@ -1734,6 +1770,7 @@
     <Compile Include="Areas\AdminDashboard\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\PromotionCineController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\PromotionController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\StaffController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\StatusController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -1760,7 +1797,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ConnectionStrings.config" />
     <Content Include="Areas\AdminDashboard\Views\web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1771,8 +1807,8 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_loginPartial.cshtml" />
     <Content Include="Views\Account\CustomerRegister.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1783,6 +1819,7 @@
   <ItemGroup>
     <Folder Include="Areas\AdminDashboard\Models\" />
     <Folder Include="Areas\AdminDashboard\Views\Base\" />
+    <Folder Include="Areas\AdminDashboard\Views\Staff\" />
     <Folder Include="Content\Avatars\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

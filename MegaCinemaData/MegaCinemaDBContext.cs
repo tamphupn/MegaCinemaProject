@@ -60,6 +60,8 @@ namespace MegaCinemaData
         public DbSet<PromotionCine> PromotionCines { get; set; }
         public DbSet<Parameter> Parameters { get; set; }
         public DbSet<FilmCalendarCreate> FilmCalendarCreates { get; set; }
+        public DbSet<AdsBanner> AdsBanners { get; set; }
+        public DbSet<EventTopic> EventTopics { get; set; }
 
         public static MegaCinemaDBContext Create()
         {
@@ -193,6 +195,12 @@ namespace MegaCinemaData
 
             modelBuilder.Entity<Film>()
                 .HasMany(e => e.BookingTickets)
+                .WithRequired(e => e.Film)
+                .WillCascadeOnDelete(false);
+
+
+            modelBuilder.Entity<Film>()
+                .HasMany(e => e.AdsBanners)
                 .WithRequired(e => e.Film)
                 .WillCascadeOnDelete(false);
 

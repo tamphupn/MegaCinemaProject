@@ -26,9 +26,32 @@ $(document).ready(function () {
     });
     $('#btn-predition-film-submit').click(function (event) {
         event.stopImmediatePropagation();
+        
         PreditionFilm($('#film-create-name').val());
     });
+
+    $('#deleteConfirm').click(function (event) {
+        event.stopImmediatePropagation();
+
+        window.location.href = $(this).attr('url');
+    });
 });
+
+function ModalConfirm(Url) {
+    $('#ConfirmModal').modal({
+        backdrop : 'static',
+        keyboard: false,
+    });
+    $('#deleteConfirm').attr('url',Url);
+}
+
+
+function ConvertDate(value) {
+    var pattern = /Date\(([^)]+)\)/;
+    var results = pattern.exec(value);
+    var dt = new Date(parseFloat(results[1]));
+    return dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+};
 
 function ConvertCurrency(nStr) {
     nStr += '';

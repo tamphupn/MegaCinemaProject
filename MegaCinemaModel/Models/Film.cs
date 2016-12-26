@@ -34,13 +34,16 @@ namespace MegaCinemaModel.Models
         [Required, DataType("nvarchar"), MaxLength(100)]
         public string FilmLanguage { get; set; }
 
-        [Required, DataType("nvarchar"), MaxLength(100)]
+        [Required, DataType("nvarchar"), MaxLength(2000)]
         public string FilmContent { get; set; }
 
         public DateTime? FilmFinishPremiered { get; set; }
 
-        [Required, DataType("nvarchar"), MaxLength(100)]
+        [Required, DataType("nvarchar")]
         public string FilmPoster { get; set; }
+
+        [DataType("nvarchar"), MaxLength(100)]
+        public string FilmCategories { get; set; }
 
         [Required, DataType("nvarchar"), MaxLength(100)]
         public string FilmCompanyRelease { get; set; }
@@ -65,5 +68,6 @@ namespace MegaCinemaModel.Models
         public virtual ICollection<FilmSession> FilmSessions { get; set; }
 
         public virtual ICollection<BookingTicket> BookingTickets { get; set; }
+        public virtual ICollection<AdsBanner> AdsBanners { get; set; }
     }
 }

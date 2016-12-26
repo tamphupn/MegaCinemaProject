@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlScriptCodeFirst\ScriptGenerate.cs" />
     <Compile Include="StatusCommon\CommonConstrants.cs" />
+    <Compile Include="StatusCommon\ParametersContrants.cs" />
     <Compile Include="StatusCommon\StatusCommonConstrants.cs" />
   </ItemGroup>
   <ItemGroup>

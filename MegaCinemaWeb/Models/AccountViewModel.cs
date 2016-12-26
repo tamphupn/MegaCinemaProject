@@ -115,11 +115,17 @@ namespace MegaCinemaWeb.Models
 
     public class RegisterCustomerViewModel
     {
+        [Display(Name = "Tên người sử dụng")]
+        [Required(ErrorMessage = "Tên người sử dụng không được để trống")]
         public string FirstName { set; get; }
+
+        [Display(Name = "Họ người sử dụng")]
+        [Required(ErrorMessage = "Họ người sử dụng không được để trống")]
         public string LastName { set; get; }
 
-        //[DisplayFormat(DataFormatString = "{0:dd/mm/yyy")]
-        //public DateTime Birthday { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/mm/yyy")]
+        public DateTime Birthday { get; set; }
+
         public bool Sex { get; set; }
 
         [Required(ErrorMessage = "Bạn cần nhập Mã CMND/passport")]

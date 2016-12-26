@@ -37,6 +37,7 @@ namespace MegaCinemaData.Migrations
             //    StaffRegencyID = 1,
             //    StaffStatus = "AC",
             //});
+            SampleData.GenerateFilm(context);
         }
     }
 }

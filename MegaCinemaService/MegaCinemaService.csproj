@@ -40,17 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CinemaFeatureSerive.cs" />
+    <Compile Include="AdsBannerService.cs" />
+    <Compile Include="CinemaFeatureService.cs" />
     <Compile Include="CinemaService.cs" />
     <Compile Include="DetailCategoryService.cs" />
     <Compile Include="DetailFormatService.cs" />
+    <Compile Include="EventTopicService.cs" />
     <Compile Include="FilmCategoryService.cs" />
     <Compile Include="FilmFormatService.cs" />
+    <Compile Include="FilmRattingService.cs" />
     <Compile Include="FilmService.cs" />
     <Compile Include="FoodListService.cs" />
     <Compile Include="PromotionCineService.cs" />
     <Compile Include="PromotionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaffService.cs" />
     <Compile Include="StatusService.cs" />
   </ItemGroup>
   <ItemGroup>

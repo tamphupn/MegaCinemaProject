@@ -20,6 +20,8 @@ namespace MegaCinemaService
         Cinema Delete(Cinema cinema);
         void Update(Cinema cinema);
         IEnumerable<Cinema> GetCinemaPaging(int page, int pageSize, out int totalRow);
+
+        Cinema FindLast();
     }
 
     public class CinemaService : ICinemaService
@@ -46,6 +48,11 @@ namespace MegaCinemaService
         public Cinema Find(int id)
         {
             return _cinemaRepository.GetSingleById(id);
+        }
+
+        public Cinema FindLast()
+        {
+            return _cinemaRepository.GetAll().Last();
         }
 
         public IEnumerable<Cinema> GetAll()

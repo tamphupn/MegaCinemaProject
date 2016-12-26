@@ -20,7 +20,7 @@ namespace MegaCinemaModel.Models
         [Required,DefaultValue(true)] //true: content - false: image
         public bool FeatureType { get; set; }
 
-        [Required, DataType("nvarchar"), MaxLength(100)]
+        [Required, DataType("nvarchar")]
         public string FeatureContent { get; set; }
 
         [DataType("nvarchar"), MaxLength(100)]

@@ -16,7 +16,7 @@
         <button type="submit" class="btn btn-primary search-button-component">Tìm kiếm</button>
     </div>
     <div class="col-md-4 col-lg-4">
-        <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
+        <a href="@Url.Action("Create","Film")" class="btn btn-primary pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Thêm phim mới</a>
     </div>
 </div><br />
 
@@ -26,7 +26,7 @@
         <thead>
             <tr>
                 <th>
-                    Mã phim
+                    STT
                 </th>
                 <th>
                     Tên phim
@@ -67,7 +67,7 @@
                             @item.FilmDuration
                         </td>
                         <td>
-                            @item.FilmFirstPremiered
+                            @item.FilmFirstPremiered.Day/@item.FilmFirstPremiered.Month/@item.FilmFirstPremiered.Year                  
                         </td>
                         <td>
                             @item.FilmLanguage
@@ -79,9 +79,8 @@
                             <img src="@Url.Content("~/Content/FilmPoster/"+@item.FilmPoster)" style="width:125px; height:150px"/>
                         </td>
                         <td>
-                            @Html.ActionLink("Sửa", "Edit", "Film", new { id = item.FilmID})
-                            |
-                            @Html.ActionLink("Xóa", "Delete", "Film", new { id = item.FilmID, @class = "btn btn primary" }, new {onclick = "return confirm('Bạn có chắc chắn xóa thể loại phim này không?');" })
+                            <a href="@Url.Action("Edit","Film", new {id = item.FilmID})" class = "btn btn-info"><i class="fa fa-pencil"></i> Sửa</a>
+                            <a href="javascript:ModalConfirm('@Url.Action("Delete","Film", new {id = item.FilmID})');" class = "btn btn-danger"><i class="fa fa-remove"></i> Xóa</a>
                         </td>
 
                     </tr>
@@ -135,8 +134,7 @@
     </nav>
                 }
 
-
+@Html.Partial("_ConfirmBox")
 @section Scripts {
-    <script src="@Url.Content("~/scripts/adminjs.js")"></script>
     <script src="@Url.Content("~/scripts/jquery.blockUI.js")"></script>
 }

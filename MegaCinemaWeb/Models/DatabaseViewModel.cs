@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using MegaCinemaModel.Models;
 
 namespace MegaCinemaWeb.Models
 {
@@ -102,12 +103,14 @@ namespace MegaCinemaWeb.Models
         //[Required(ErrorMessage = "Poster phim không được để trống")]
         public string FilmPoster { get; set; }
 
+        [DisplayName("Thể loại phim")]
+        public string FilmCategories { get; set; }
+
         [DisplayName("Công ty sản xuất phim")]
         [Required(ErrorMessage = "Công ty sản xuất không được để trống")]
         public string FilmCompanyRelease { get; set; }
 
         [DisplayName("Link trailer (youtube)")]
-        [Required(ErrorMessage = "Link trailer (youtube) không được để trống")]
         public string FilmTrailer { get; set; }
 
         [DisplayName("Đánh giá")]
@@ -115,7 +118,6 @@ namespace MegaCinemaWeb.Models
         public int FilmRatingID { get; set; }
 
         [DisplayName("Trạng thái phim")]
-        [Required(ErrorMessage = "Trạng thái phim không được để trống")]
         public string FilmStatus { get; set; }
 
         //Add
@@ -319,4 +321,32 @@ namespace MegaCinemaWeb.Models
         public string MetaDescription { set; get; }
     }
     #endregion
+
+    #region Tamphu.pn
+    public class AdsBannerViewModel
+    {
+        public int AdsId { get; set; }
+        public int FilmId { get; set; }
+        public string AdsDescription { get; set; }
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
+
+    public class EventTopicViewModel
+    {
+        public int EventId { get; set; }
+        public string EventTitle { get; set; }
+        public string EventContent { get; set; }
+        public DateTime? CreatedDate { set; get; }
+        public string CreatedBy { set; get; }
+        public DateTime? UpdatedDate { set; get; }
+        public string UpdatedBy { set; get; }
+        public string MetaKeyword { set; get; }
+        public string MetaDescription { set; get; }
+    }
+    #endregion 
 }

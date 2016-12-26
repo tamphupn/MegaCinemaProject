@@ -1,0 +1,122 @@
+﻿@model MegaCinemaWeb.Models.FilmViewModel
+
+@{
+    ViewBag.Title = ViewBag.FeatureTitle = "Chỉnh sửa thông tin phim";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm("Edit", "Film", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, null, new { @class = "alert alert-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmName, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FilmName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmDuration, htmlAttributes: new { @class = "control-label", @type = "number" })
+        @Html.EditorFor(model => model.FilmDuration, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmFirstPremiered, htmlAttributes: new { @class = "control-label" })
+        @{
+            if (DateTime.Now == Model.FilmFirstPremiered)
+            {
+                @Html.EditorFor(model => model.FilmFirstPremiered, new {htmlAttributes = new {@class = "form-control", @readonly = true, @Value = @Model.FilmFirstPremiered.ToString("yyyy-MM-dd") } })
+            }
+            else
+            {
+                @Html.EditorFor(model => model.FilmFirstPremiered, new { htmlAttributes = new { @class = "form-control", @Value = @Model.FilmFirstPremiered.ToString("yyyy-MM-dd") } })
+            }
+        }
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmLanguage, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FilmLanguage, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmCategories, "Thể loại phim", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FilmCategories, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmContent, htmlAttributes: new { @class = "control-label" })
+        @Html.TextAreaFor(model => model.FilmContent, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmFinishPremiered, htmlAttributes: new { @class = "control-label" })
+        @{
+            DateTime a = (DateTime)Model.FilmFinishPremiered;
+        }
+        @Html.EditorFor(model => model.FilmFinishPremiered, new { htmlAttributes = new { @class = "form-control", @Value = a.ToString("yyyy-MM-dd") } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmCompanyRelease, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FilmCompanyRelease, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmRatingID, "Đánh giá phim", htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.FilmRatingID, (SelectList)ViewBag.FilmRattingID, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmStatus, "Trạng thái phim", htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.FilmStatus, (SelectList)ViewBag.FilmStatusID, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmTrailer, "Link trailer phim", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.FilmTrailer, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div>
+        <script type="text/javascript">
+            function showHideUpImgButton() {
+                var disabled = document.getElementById("file-upload").disabled = !(document.getElementById("file-upload").disabled);
+                if (disabled) {
+                    document.getElementById("file-upload-display").style.backgroundColor = "gray";
+                }
+                else {
+                    document.getElementById("file-upload-display").style.backgroundColor = "#2980b9";
+                }
+            }
+        </script>
+        <label><input name="checkEditPoster" type="checkbox" checked="checked" value="true" onclick="showHideUpImgButton()">Sửa ảnh poster</label>
+    </div>
+
+    <div class="form-group">
+        <label id="file-upload-display" for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Upload ảnh
+        </label>
+        <input id="file-upload" name="fileUpload" type="file" />
+        <label id="custome-file-upload"></label>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            @*<a href="@Url.Action("Edit","Film", new{id = Model.FilmID})" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Lưu lại</a>*@
+            <input type="submit" value="Lưu" class="btn btn-primary pull-right"/>
+        </div>
+    </div>
+
+
+}
+
+<div>
+    <a href="@Url.Action("Index","Film")" class="btn btn-primary pull-left"><i class="fa fa-arrow-left" aria-hidden="true"></i> Trở về danh sách</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="@Url.Content("~/scripts/jquery.blockUI.js")"></script>
+}
+

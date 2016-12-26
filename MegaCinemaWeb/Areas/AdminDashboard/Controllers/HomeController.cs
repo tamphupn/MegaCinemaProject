@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: AdminDashboard/Home
         public ActionResult Index()

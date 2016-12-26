@@ -66,7 +66,8 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             filmM.FilmFirstPremiered = filmVM.FilmFirstPremiered;
             filmM.FilmLanguage = filmVM.FilmLanguage;
             filmM.FilmContent = filmVM.FilmContent;
-            filmM.FilmPoster = filmVM.FilmContent;
+            filmM.FilmPoster = filmVM.FilmPoster;
+            filmM.FilmCategories = filmVM.FilmCategories;
             filmM.FilmCompanyRelease = filmVM.FilmCompanyRelease;
             filmM.FilmTrailer = filmVM.FilmTrailer;
             filmM.FilmRatingID = filmVM.FilmRatingID;

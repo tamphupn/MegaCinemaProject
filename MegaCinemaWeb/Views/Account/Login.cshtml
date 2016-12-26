@@ -1,53 +1,105 @@
-﻿@model MegaCinemaWeb.Models.LoginViewModel
+﻿@model MegaCinemaWeb.Models.RegisterCustomerViewModel
 
 @{
-    ViewBag.Title = "Login";
-    ViewBag.FeatureTitle = "Đăng nhập hệ thống";
+    ViewBag.Title = "Đăng ký tài khoản";
+    ViewBag.FeatureTitle = "Đăng ký";
 }
 
 <div class="col-md-5 col-lg-5">
     <img class="img-responsive img-login-custom" src="../../Content/images/img-login.png" />
 </div>
 
-<div class="col-md-7 col-lg-7 login-form-area">
+<div class="col-md-7 col-lg-7 register-form-area">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
         <div class="form-horizontal">
-            <h4>Bạn đã là <span>Thành viên?</span></h4>
-            <p>Vui lòng nhập email và mật khẩu của bạn để đăng nhập.</p>
+            <h3>Thông tin đăng nhập</h3>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 <div class="col-md-10">
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger text-alert-custom" })
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control",@placeHolder = "Email đăng nhập" }})
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Email" } })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger text-alert-custom" })
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Password" } })
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Mật khẩu" } })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    <div class="checkbox col-md-offset-2">
-                        @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
-                        @Html.EditorFor(model => model.RememberMe)<span> Remember me?</span>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Nhập lại mật khẩu" } })
+                </div>
+            </div>
+
+            <h3 class="register-form-area-title">Thông tin cá nhân</h3>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Tên" } })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Họ" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger text-alert-custom" })
+                        @Html.EditorFor(model => model.Sex, "", new { @type = "checkbox" })<span>Nam</span>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    <button type="submit" class="btn btn-default btn-register-custom">Đăng nhập</button>
-                    <div class="link-action-confirm">
-                        <a href="#">Quên mật khẩu?</a><br/>
-                        <a href="#" class="send-link">Gởi lại link kích hoạt</a>
-                    </div>                    
+                    @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.SSN, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Số thẻ có ảnh nhận diện - CMND/Passport" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Địa chỉ" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Số điện thoại (bắt đầu bằng số 0)" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Quận" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger text-alert-custom" })
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @placeHolder = "Thành phố" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-default btn-register-custom">Đăng ký</button>
                 </div>
             </div>
         </div>
