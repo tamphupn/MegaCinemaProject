@@ -1,0 +1,239 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tuyển dụng | Hệ thống bán vé rạp chiếu phim Megastar</title>
+    <link rel="icon" href="images/cinema_icon.ico" type="image/ico" size="16x16" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1">
+    <meta name="keywords" content="Hệ thống bán vé online, Hệ thống rạp lớn nhất việt nam, hệ thống bán vé nhanh nhất việt nam" />
+    <link rel="stylesheet" href="~/scripts/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/scripts/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/scripts/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="~/scripts/css/index-css.css">
+    <!--Add-->
+    <link href="css/slick.css" rel="stylesheet" />
+    <link href="css/jquery.jscrollpane.css" rel="stylesheet" />
+    <link href="css/jquery.drawer.css" rel="stylesheet" />
+    <!--END-Add-->
+
+</head>
+
+<body>
+    <!--Main-wrapper-->
+    <div id="main-wrapper">
+        <!--Header-->
+        <div id="mega-header">
+            <!--Topbar -->
+            <div class="topbar">
+                <div class="topbar-content">
+                    <!--LEFT - Top menu-->
+                    <div class="topbar-left">
+                        <div class="menu-item">
+                            <ul class="clearfix" id="topbar-nav">
+                                <li class="res-toggle"><a href="javascript:void(0);" onclick="toggleClick()" class="tog-button"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                                <li>
+                                    <a class="img-home" href="#"></a>
+                                </li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Sự kiện</a></li>
+                                <li><a href="#">Dịch vụ</a></li>
+                                <li><a href="#">Tuyển dụng</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--LEFT - Top menu-->
+                    <!--RIGHT - User area-->
+                    <div class="topbar-right">
+                        <div class="user-area">
+                            <ul>
+                                <li><a class="img-youtube" href="#"></a></li>
+                                <li><a class="img-facebook" href="#"></a></li>
+                                <li><a href="#" id="user-login-area"><i class="fa fa-users" aria-hidden="true"></i>  Đăng nhập</a></li>
+                                <li><a href="#" id="user-register-area"><i class="fa fa-bell-o" aria-hidden="true"></i>  Đăng ký</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--RIGHT - User area-->
+                </div>
+            </div>
+            <!--END Topbar -->
+
+            <div style="clear:both"></div>
+
+            <!--Navigation-->
+            <div id="header-content">
+                <div class="header-group cleafix-navigation">
+                    <div class="header-left">
+                        <a href="#"><img class="img-responsive" alt="Hệ thống đặt vé rạp chiếu phim Megastar" src="~/Assets/images/logo.png"></a>
+                    </div>
+
+                    <div class="header-right">
+                        <ul>
+                            <li id="A1"><a href="#"><i class="item-phim"></i> PHIM</a></li>
+                            <li id="A2"><a href="#"><i class="item-lich"></i> LỊCH CHIẾU</a></li>
+                            <li id="A3"><a href="#"><i class="item-rap"></i> RẠP & GIÁ VÉ</a></li>
+                            <li id="A4"><a href="#"><i class="item-uudai"></i> ƯU ĐÃI</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--END Navigation-->
+        </div>
+        <!--END Header-->
+        <!--Page direction-->
+        <div id="bg-all-title">
+            <div class="text-titles">
+                <div class="titles-span shar">
+                    <a href="/">Trang chủ</a> >
+                    Giới thiệu
+                </div>
+                <div class="share-all">
+                    <!-- <div class="fb-share-button" style="display: block" data-layout="button_count"></div> -->
+                    <!--<iframe src="/ShareFacebook.aspx?link=https://www.megagscinemas.vn/" scrolling="no" framespacing="0" frameborder="no" width="100px" height="22px" scrolling="no"></iframe>-->
+                </div>
+            </div>
+        </div>
+        <!--END page direction-->
+        <!--Content-->
+        <div id="wrapper">
+            <div class="container">
+                <div class="row mega-content">
+                    <!--LEFT-->
+                    <div class="col-lg-3">
+                        <div class="introduce-menu">
+                            <ul>
+                                <li id="Mn1"><a href="/gioi-thieu/">GIỚI THIỆU</a></li>
+                                <li id="Mn2"><a href="/faqs/">FAQs</a></li>
+                                <li id="Mn3"><a href="/tuyen-dung/">TUYỂN DỤNG</a></li>
+                                <li id="Mn4"><a href="/lien-he/">LIÊN HỆ</a></li>
+                                <li id="Mn5"><a href="/dieu-khoan-chung/">ĐIỀU KHOẢN CHUNG</a></li>
+                                <li id="Mn6"><a href="/chinh-sach-thanh-toan-ve-truc-tuyen/">CHÍNH SÁCH THANH TOÁN VÉ TRỰC TUYẾN</a></li>
+                                <li id="Mn7"><a href="/MegaPlus/">Mega +</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--END LEFT-->
+                    <!--RIGHT-->
+                    <div class="col-lg-9">
+                        <!--Title-->
+                        <div class="view-title-repeat">
+                            <div class="title-center">
+                                <img src="~/Assets/images/film.png" />
+                                <span>FAQs</span>
+                            </div>
+                        </div>
+                        <!--END Title-->
+
+
+
+                        <div class="faqs-content">
+                            <div class="drawer">
+                                <!-- First Item -->
+                                <div class="drawer-item">
+                                    <div class="drawer-header">
+                                        <h1 class="custom-h1">PART-TIME JOB</h1>
+                                        <div class="drawer-header-icon custom-header-icon"></div>
+                                    </div>
+                                    <div class="drawer-content">
+                                        <p><strong>Nơi làm việc:</strong> Mega GS Cao Thắng</p>
+                                        <p><strong>Yêu cầu:</strong></p>
+                                        <ul>
+                                            <li><span>Tính tình trung thực, vui vẻ và luôn giữ bình tĩnh.</span></li>
+                                            <li><span>Thích làm việc với khách hàng, thích làm việc trong ngành dịch vụ.</span></li>
+                                            <li><span>Sẵn sàng làm việc vào thứ 7, chủ nhật và ngày lễ.</span></li>
+                                        </ul>
+                                        <p><span>Bạn nào có hứng thú với công việc này thì hãy điền thông tin vào mẫu tuyển dụng và nộp tại quầy thông tin lầu 7 rạp Mega GS - 19 Cao Thắng Q3 nhé :)</span></p>
+                                        <p><span style="font-family: arial,helvetica,sans-serif;">Link mẫu tuyển dụng:   <a data-id="1446" href="https://cms.megagscinemas.vn//media/1240/megags-formtuyendungparttime.pdf" target="_blank" title="MegaGS-FormTuyenDungPartTime.pdf">tải </a></span></p>
+                                        <p>Nộp kèm:</p>
+                                        <ul>
+                                            <li><span style="font-size: 12pt;">Sơ yếu lý lịch.</span></li>
+                                            <li><span style="font-size: 12pt;">CMND</span></li>
+                                            <li><span style="font-size: 12pt;">Hộ Khẩu</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Bo Phan Tuyen Dung -->
+                            <div class="depart-td">
+                                <div class="depart-content">
+                                    <h1>BỘ PHẬN TUYỂN DỤNG</h1>
+                                    <p>Công ty CP Truyền thông Giải trí Mega GS Phòng Nhân sự</p>
+                                    <p><span>Lầu 7, Tòa nhà 19 Cao Thắng, Phường 2, Quận 3, TP.HCM Email: HR@megags.vn</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                    <!--RIGHT-->
+                </div>
+            </div>
+        </div>
+        <!--END Content-->
+        <!--Footer-->
+        <div id="mega-footer">
+            <div id="container">
+                <div id="star-left">
+                    <img src="~/Assets/images/bg-footer.png">
+                </div>
+
+                <div id="footer-content">
+                    <div class="footer-left">
+                        <h3>Hotline hỗ trợ</h3>
+                        <div class="phone-number">
+                            <span class="icon-phone">
+                                <i class="icons"></i>
+                            </span>
+                            <span class="number-phone">08 2649 911</span>
+                        </div>
+                    </div>
+
+                    <div class="copyright">
+                        <div class="group-copy">
+                            <div class="copy-left">
+                                <h6>Công ty cổ phần Truyền Thông Giải Trí Mega GS</h6>
+                                <p>
+                                    Địa chỉ: 01 Lý Tự Trọng - Phường Bến Nghé - Quận 1 - TP. HCM / Email: cskh@megags.vn / Hotline hỗ trợ: +84 08 62649911
+                                </p>
+                                <p>
+                                    Số ĐKKD: 0312667335 - Ngày cấp: 22/6/2015 (Đăng ký thay đổi lần 6) / Nơi cấp: Sở kế hoạch và đầu tư thành phố Hồ Chí Minh
+                                </p>
+                                <p>
+                                    Copyright ©2016 Mega GS Cinemas. All rights reserved - Uboiz Team
+                                </p>
+                            </div>
+                            <div class="copy-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END Footer-->
+    </div>
+    <!--END Main-wraper-->
+    <!--js-->
+    <script type="text/javascript" src="~/scripts/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/index.js"></script>
+
+    <script type="text/javascript" src="~/scripts/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="~/scripts/js/slick.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/jquery.drawer.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/jquery.drawer.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/jquery.twbsPagination.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/layout.js"></script>
+</body>
+</html>
