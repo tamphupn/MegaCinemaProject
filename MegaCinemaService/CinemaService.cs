@@ -62,7 +62,8 @@ namespace MegaCinemaService
 
         public IEnumerable<Cinema> GetCinemaPaging(int page, int pageSize, out int totalRow)
         {
-            var query = _cinemaRepository.GetMulti(x => x.CinemaStatus == "AC");
+            //var query = _cinemaRepository.GetMulti(x => x.CinemaStatus == "ACT");
+            var query = _cinemaRepository.GetAll();
             totalRow = query.Count();
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }

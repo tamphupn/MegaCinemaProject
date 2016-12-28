@@ -13,19 +13,21 @@ using MegaCinemaWeb.Infrastructure.Core;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    [Authorize]
-    public class CinemaController : BaseController
+    //[Authorize]
+    public class CinemaController : Controller
     {
         //TEST
         ICinemaService _cinemaService;
         IStatusService _statusService;
-        //IStaffService _staffService;
+       
+        IStaffService _staffService;
 
-        public CinemaController(ICinemaService cinemaService, IStatusService statusService)
+
+        public CinemaController(ICinemaService cinemaService, IStatusService statusService, IStaffService staffService)
         {
             _cinemaService = cinemaService;
             _statusService = statusService;
-            //_staffService = staffService;
+            _staffService = staffService;
         }
 
         // GET: AdminDashboard/Cinema
@@ -33,6 +35,9 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         {   //Show List Cinema in Database
             int pageSize = CommonConstrants.PAGE_SIZE;
             int totalRow = 0;
+
+            int count = _cinemaService.GetAll().OfType<Cinema>().Count();
+
             var result = _cinemaService.GetCinemaPaging(page, pageSize, out totalRow);
             var resultVm = Mapper.Map<IEnumerable<Cinema>, IEnumerable<CinemaViewModel>>(result);
 
@@ -54,7 +59,10 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         public ActionResult Create()
         {
             ViewBag.CinemaStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName");
-            //ViewBag.StaffId = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
+            List<Staff> listStaff = (List<Staff>)_staffService.GetAll().Where(x => x.StaffStatus == "AC").ToList();
+
+   
+            ViewBag.CinemaManagerID = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode");
             return View();
         }
 
@@ -72,8 +80,9 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 {
                     _cinemaService.Add(cinema);
                     _cinemaService.SaveChanges();
+
                     //Redirect To Index Action
-                    SetAlert("Thêm rạp chiếu phim thành công!", CommonConstrants.SUCCESS_ALERT);
+                    //SetAlert("Thêm rạp chiếu phim thành công!", CommonConstrants.SUCCESS_ALERT);
                     return RedirectToAction("Index");
                 }
             }
@@ -104,10 +113,17 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             if (id != null)
             {
                 Cinema cinema  = _cinemaService.Find((int)id);
+                cinema.CinemaID = (int)id;
                 cinemaViewModel = Mapper.Map<Cinema, CinemaViewModel>(cinema);
             }
+
             if (cinemaViewModel != null)
+            {
+                ViewBag.CinemaManagerID = new SelectList(_staffService.GetAll(), "StaffID", "StaffCode", cinemaViewModel.CinemaManagerID);
+                ViewBag.CinemaStatus = new SelectList(_statusService.GetAll(), "StatusID", "StatusName", cinemaViewModel.CinemaStatus);
                 return View(cinemaViewModel);
+            }
+               
             return RedirectToAction("Index");
         }
 
@@ -118,9 +134,10 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             Cinema cinema = new Cinema();
             viewModel.UpdatedDate = DateTime.Now;
             cinema.UpdateCinema(viewModel);
+
             _cinemaService.Update(cinema);
             _cinemaService.SaveChanges();
-            System.Diagnostics.Debug.WriteLine("dajflkdsajfsdaf");
+         
             return RedirectToAction("Index");
         }
     }

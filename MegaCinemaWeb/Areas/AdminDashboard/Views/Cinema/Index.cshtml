@@ -68,7 +68,7 @@
                             @item.CinemaPrefix
                         </td>
                         <td>
-                            @item.CinemaFullName
+                            <span style="font-weight: bold">@item.CinemaFullName</span>
                         </td>
                         <td>
                             @item.CinemaPhone
@@ -88,14 +88,16 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = @item.CinemaID })
-                            @Html.ActionLink("Delete", "Delete", new { id = @item.CinemaID})
+                            @Html.ActionLink("Edit", "Edit", new { id = @item.CinemaID }, htmlAttributes: new { @style= "font-weight: bold" })
+                            |
+                            @Html.ActionLink("Delete", "Delete", new { id = @item.CinemaID}, htmlAttributes: new { @style = "font-weight: bold" })
                         </td>
                     </tr>
                 }
 
                 <div style="clear:both"></div>
             }
+
             else
             {
                 <tr>Không có sản phẩm hiển thị</tr>

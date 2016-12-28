@@ -115,7 +115,8 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
 
         public static void UpdateCinema(this Cinema cinema, CinemaViewModel cinemaViewModel)
         {
-            //cinema.CinemaID = cinemaViewModel.CinemaID;
+            cinema.CinemaID = cinemaViewModel.CinemaID;
+            
             cinema.CinemaPrefix = cinemaViewModel.CinemaPrefix;
             cinema.CinemaFullName = cinemaViewModel.CinemaFullName;
             cinema.CinemaAddress = cinemaViewModel.CinemaAddress;
@@ -123,6 +124,7 @@ namespace MegaCinemaWeb.Infrastructure.Extensions
             cinema.CinemaEmail = cinemaViewModel.CinemaEmail;
             cinema.CinemaManagerID = cinemaViewModel.CinemaManagerID;
             cinema.CinemaStatus = cinemaViewModel.CinemaStatus;
+            cinema.CinemaCode = cinemaViewModel.CinemaCode;
 
             cinema.CreatedDate = cinemaViewModel.CreatedDate;
             cinema.CreatedBy = cinemaViewModel.CreatedBy;

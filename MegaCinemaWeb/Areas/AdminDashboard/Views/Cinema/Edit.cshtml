@@ -12,7 +12,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(x => x.CinemaPrefix, htmlAttributes: new { @class = "control-label" })
+        @Html.LabelFor(x => x.CinemaPrefix, htmlAttributes: new { @class = "control-label", disabled="true" })
         @Html.EditorFor(x => x.CinemaPrefix, new { htmlAttributes = new { @class = "form-control" } })
     </div>
 
@@ -32,35 +32,30 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(x => x.CinemaManagerID, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(x => x.CinemaManagerID, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(x => x.CinemaEmail, htmlAttributes: new { @class = "control-label" })
         @Html.EditorFor(x => x.CinemaEmail, new { htmlAttributes = new { @class = "form-control" } })
     </div>
 
-    <div class="form-control">
+    <div class="form-group">
         @Html.LabelFor(x => x.CinemaPhone, htmlAttributes: new { @class = "control-label" })
         @Html.EditorFor(x => x.CinemaPhone, new { htmlAttributes = new { @class = "form-control" } })
     </div>
 
-    <div class="form-control">
-        @Html.HiddenFor(x => x.CreatedDate)
-    </div>
-
-    <div class="form-control">
-        @Html.HiddenFor(x => x.CinemaStatus)
-    </div>
-
-
-    <div class="form-control">
-        @Html.HiddenFor(x => x.CinemaCode)
+    <div class="form-group">
+        @Html.LabelFor(model => model.CinemaManagerID, htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.CinemaManagerID, (SelectList)ViewBag.StaffID, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-default" />
+        @Html.LabelFor(model => model.CinemaStatus, htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.CinemaStatus, (SelectList)ViewBag.CinemaStatus, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <div class="row">
+            <input type="submit" value="Lưu" class="btn btn-primary pull-right" />
+        </div>
     </div>
 
 
