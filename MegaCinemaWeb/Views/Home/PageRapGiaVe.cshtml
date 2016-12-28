@@ -1,0 +1,158 @@
+﻿@using MegaCinemaWeb.Models;
+
+@{
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+    ViewBag.Title = "Giá vé | Hệ thống bán vé rạp chiếu phim Megastar";
+    ViewBag.FeatureTitle = "Rạp & Giá vé";
+}
+
+@{
+    CinemaViewModel lastCinema = ViewData["LastCinema"] as CinemaViewModel;
+    IList<PromotionViewModel> listTopPromotion = ViewData["ListTopPromotion"] as List<PromotionViewModel>;
+
+    string cinemaName = lastCinema.CinemaFullName;
+    string cinemaAddress = lastCinema.CinemaAddress;
+    string cinemaPhonenumber = lastCinema.CinemaPhone;
+    string cinemaEmail = lastCinema.CinemaEmail;
+}
+
+<div id="wrapper">
+    <div class="container">
+        <!-- ROW 1 -->
+        <div class="row mega-content">
+            <!--Title-->
+            <div class="view-title-repeat" style="margin-left: 20px; margin-right: 10px;">
+                <div class="title-center">
+                    <img src="~/Assets/images/item-fare.png" height="32" />
+                    <span>Rạp & giá vé</span>
+                </div>
+            </div>
+            <!--END Title-->
+
+            <div class="rap-gv-select" style="margin-left: 20px; margin-right: 10px;">
+                <div class="ud-select-group clearfix">
+                    <div class="text-title">
+                        <label>Rạp:</label>
+                    </div>
+                    <div class="content-title">
+                        <div class="ud-Select-all">
+                            <span style="color:#ffd555;font-weight: bold;display: inline-block;font-family:Open Sans Condensed, sans-serif;font-size: 18px;text-transform: capitalize;">@cinemaName</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mega-content">
+            <div class="rap-gv-slider clearfix">
+                <div class="col-lg-9" style="margin-right: -29px;">
+                    <!-- <div class="slider-left"> -->
+                    <div class="bxslider_rgv" style="width: auto; position: relative;">
+
+                        @*<a href="#"><img src="https://cms.megagscinemas.vn//media/75313/box-l7_2.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75318/con-l7.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75321/lobby-7_1.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75315/cinema-3-pepsi.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75316/cinema-6-oppo.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75317/cinema-6_2.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75319/guest-service.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75320/l6a.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75314/box-l7_3.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75312/1459914677337_6660381.jpg?width=802&height=333" /></a>
+                            <a href="#"><img src="https://cms.megagscinemas.vn//media/75311/145991468142_1913758.jpg?width=802&height=333" /></a>*@
+
+                        <a href="#"><img src="~/Content/cinemaBanner/box-l7_2.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/con-l7.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/lobby-7_1.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/cinema-3-pepsi.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/cinema-6-oppo.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/cinema-6_2.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/guest-service.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/l6a.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/box-l7_3.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/1459914677337_6660381.jpg" width="802" height="333" /></a>
+                        <a href="#"><img src="~/Content/cinemaBanner/145991468142_1913758.jpg" width="802" height="333" /></a>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-lg-3" style=" ">
+                    <div class="notes-right">
+                        <h4>@cinemaName</h4>
+                        <p><i class="fa fa-home"></i>@cinemaAddress</p>
+                        <p><i class="fa fa-phone"></i>@cinemaPhonenumber</p>
+                        <p><i class="fa fa-envelope-o"></i>@cinemaEmail<a class="popup-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5521394433435!2d106.68072251532072!3d10.76895816227496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f220559d037%3A0x6d815550960170a1!2sMega+CS+Cao+Th%E1%BA%AFng!5e0!3m2!1sen!2s!4v1447226198635" href="jquery:;"><span class="span-map"><i class="icon-map"></i>Bản đồ</span></a></p>
+                        <div class="icon-fil"><span class="lef">2D</span><span class="lef"><i class="icon-rgv-all"></i>3D</span><span class="lef-1"></span></div>
+                        <div class="icon-fil-1"><i class="poss-1"></i><i class="poss-2"></i><i class="poss-3"></i></div>
+                        <div class="xem-lc"><a href="/lich-chieu/MCT-MEGA GS CAO THẮNG"><span> Xem lịch chiếu</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mega-content">
+            <div class="price-list-group clearfix " style="display:block;">
+                <!-- <div class="col-lg-9" style="margin-right: -15px;"> -->
+                <div class="img-fares col-lg-9" style="margin-right: -29px;">
+                    <img src="~/Content/GiaVe/ve-2d-62016-lcd.png" /><img src="~/Content/GiaVe/ve-3d-42016-lcd.png" /><img src="~/Content/GiaVe/holiday-price.png" />
+                </div>
+                <!-- </div> -->
+
+                <div class="info-deal col-lg-3" style="margin-left: 15px; margin-right: -15px;">
+                    <div class="title-deal">
+                        <p>ưu đãi</p>
+                        <div class="vien-deal"></div>
+                    </div>
+
+                    <!-- Danh sach uu dai -->
+                    @{
+                        foreach (PromotionViewModel itemPromotion in listTopPromotion)
+                        {
+                            <div class="img-deal-href" style="position: relative;">
+                                <a href="/uu-dai/mega-day-thu-4-hang-tuan/">
+                                    <img src="~/Content/Promotion/@itemPromotion.PromotionPoster?width=313&height=202" />
+                                    <p>@itemPromotion.PromotionHeader</p>
+                                </a>
+                            </div>
+                        }
+                    }
+
+                    @*<div class="img-deal-href" style="position: relative;">
+                            <a href="/uu-dai/mega-day-thu-4-hang-tuan/">
+                                <img src="https://cms.megagscinemas.vn//media/1169/mega-day.jpg?width=313&height=202" />
+                                <p>Mega Day - Thứ 4 hàng tuần</p>
+                            </a>
+                        </div>
+                        <div class="img-deal-href" style="position: relative;">
+                            <a href="/uu-dai/xem-phim-dong-gia-truoc-11-00/">
+                                <img src="https://cms.megagscinemas.vn//media/50559/suat-som-web.png?width=313&height=202" />
+                                <p>XEM PHIM ĐỒNG GIÁ - Trước 11:00</p>
+                            </a>
+                        </div>
+                        <div class="img-deal-href" style="position: relative;">
+                            <a href="/uu-dai/xem-phim-khuya-chang-lo-ve-gia/">
+                                <img src="https://cms.megagscinemas.vn//media/74944/suat-khuya-webz.png?width=313&height=202" />
+                                <p>XEM PHIM KHUYA CHẲNG LO VỀ GIÁ</p>
+                            </a>
+                        </div>
+                        <div class="img-deal-href" style="position: relative;">
+                            <a href="/uu-dai/ngay-hoi-thanh-vien/">
+                                <img src="https://cms.megagscinemas.vn//media/50531/members-day-c-web.jpg?width=313&height=202" />
+                                <p>NGÀY HỘI THÀNH VIÊN</p>
+                            </a>
+                        </div>
+                        <div class="img-deal-href" style="position: relative;">
+                            <a href="/uu-dai/uu-dai-the-thanh-vien/">
+                                <img src="https://cms.megagscinemas.vn//media/75337/member-card-c.png?width=313&height=202" />
+                                <p>ƯU ĐÃI THẺ THÀNH VIÊN</p>
+                            </a>
+                        </div>*@
+                    <!-- END Danh sach uu dai-->
+
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!-- END - ROW 1 -->
+
+
+</div>

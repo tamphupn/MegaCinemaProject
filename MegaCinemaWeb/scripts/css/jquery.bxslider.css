@@ -106,13 +106,13 @@
 
 .bx-wrapper .bx-prev {
   left: 10px;
-  background: url("../images/home/controls.png") no-repeat 0 -44px;
+  background: url("../../Assets/images/home/controls.png") no-repeat 0 -44px;
 }
 
 .bx-wrapper .bx-next {
   /*right: 304px;*/
     right:10px;
-  background: url("../images/home/controls.png") no-repeat -45px -45px;
+  background: url("../../Assets/images/home/controls.png") no-repeat -45px -45px;
 }
 
 .bx-wrapper .bx-prev:hover {

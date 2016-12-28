@@ -146,11 +146,12 @@ namespace MegaCinemaWeb.Controllers
         {
             //get rạp chiếu phim mới nhất 
             var result = _cinemaService.FindLast();
-            var resultVm = Mapper.Map<IEnumerable<CinemaViewModel>>(result);
+            var resultVm = Mapper.Map<MegaCinemaModel.Models.Cinema, CinemaViewModel>(result);
+            ViewData["LastCinema"] = resultVm;
 
             var promotion = _promotionService.GetAll(ParametersContrants.CONTENT_GET);
             var promotionVm = Mapper.Map<IEnumerable<PromotionViewModel>>(promotion);
-            ViewData["PromotionBanner"] = promotionVm;
+            ViewData["ListTopPromotion"] = promotionVm;
 
             return View(resultVm);
         }

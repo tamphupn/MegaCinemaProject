@@ -3687,7 +3687,7 @@ float: right;*/
 
 .rap-gv-slider .notes-right .icon-map {
 	padding-left: 20px;
-	background: url("../images/home/icon-rap-gv.png")no-repeat;
+	background: url("../../Assets/images/home/icon-rap-gv.png")no-repeat;
 	background-position: -45px -5px;
 	width: 44px;
 	height: 31px;
@@ -3716,7 +3716,7 @@ float: right;*/
 }
 
 .rap-gv-slider .notes-right .icon-fil .icon-rgv-all {
-	background: url("../images/home/icon-rap-gv.png")no-repeat;
+	background: url("../../Assets/images/home/icon-rap-gv.png")no-repeat;
 	background-position: -6px -18px;
 	width: 31px;
 	height: 17px;
@@ -3727,7 +3727,7 @@ float: right;*/
 }
 
 .rap-gv-slider .notes-right .icon-fil .lef-1 {
-	background: url("../images/home/icon-rap-gv.png")no-repeat;
+	background: url("../../Assets/images/home/icon-rap-gv.png")no-repeat;
 	background-position: -96px -14px;
 	width: 96px;
 	height: 25px;
@@ -3739,7 +3739,7 @@ float: right;*/
 }
 
 .rap-gv-slider .notes-right .icon-fil-1 > i {
-	background: url("../images/home/icon-rap-gv.png")no-repeat;
+	background: url("../../Assets/images/home/icon-rap-gv.png")no-repeat;
 	width: 30px;
 	height: 25px;
 	display: inline-block;
@@ -3812,14 +3812,14 @@ float: right;*/
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
-    background: url("../images/home/item-deal.png")no-repeat;
+    background: url("../../Assets/images/home/item-deal.png")no-repeat;
     margin: 0;
     line-height: 35px;
     padding-left: 37px;
     background-size: 30px;
 }
 .price-list-group .title-deal .vien-deal {
-    background: url("../images/home/item-vien-lc.png") repeat-x;
+    background: url("../../Assets/images/home/item-vien-lc.png") repeat-x;
     margin-left: 15px;
     height: 10px;
     margin-top: -5px;
