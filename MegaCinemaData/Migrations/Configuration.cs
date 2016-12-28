@@ -28,6 +28,8 @@ namespace MegaCinemaData.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            SampleData.GenerateAdsBanner(context);
             //SampleData.GenerateData(context);
             //SampleData.GenerateRegency(context);
             //SampleData.GenerateStaff(context);
@@ -37,7 +39,7 @@ namespace MegaCinemaData.Migrations
             //    StaffRegencyID = 1,
             //    StaffStatus = "AC",
             //});
-            SampleData.GenerateFilm(context);
+            //SampleData.GenerateFilm(context);
         }
     }
 }
