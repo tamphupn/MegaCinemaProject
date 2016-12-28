@@ -22,6 +22,7 @@ namespace MegaCinemaWeb.Mappings
 			Mapper.CreateMap<Promotion, PromotionViewModel>();
             Mapper.CreateMap<EventTopic, EventTopicViewModel>();
             Mapper.CreateMap<AdsBanner, AdsBannerViewModel>();
+            Mapper.CreateMap<PromotionCine, PromotionCineViewModel>();
         }
     }
 }

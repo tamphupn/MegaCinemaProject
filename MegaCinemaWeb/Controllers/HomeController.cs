@@ -17,7 +17,7 @@ namespace MegaCinemaWeb.Controllers
         private IEventTopicService _eventTopicService;
         private ICinemaService _cinemaService;
         private IPromotionService _promotionService;
-        public HomeController(IStatusService statusService, IFilmService filmService, IAdsBannerService adsBannerService, IEventTopicService eventTopicService, ICinemaService cinemaService, IPromotionService promotionService)
+        public HomeController(IStatusService statusService, IFilmService filmService, IAdsBannerService adsBannerService, IEventTopicService eventTopicService, ICinemaService cinemaService, IPromotionService promotionService, IPromotionCineService promotionCineService)
         {
             _statusService = statusService;
             _filmService = filmService;
@@ -25,6 +25,7 @@ namespace MegaCinemaWeb.Controllers
             _eventTopicService = eventTopicService;
             _cinemaService = cinemaService;
             _promotionService = promotionService;
+            _promotionCineService = promotionCineService;
         }
 
         // GET: Home
@@ -119,12 +120,42 @@ namespace MegaCinemaWeb.Controllers
 
             return View(resultVm);
         }
-
+        
+        private IPromotionCineService _promotionCineService;
         public ActionResult PageUuDai()
         {
             var promotion = _promotionService.GetAll(ParametersContrants.CONTENT_GET);
             var promotionVm = Mapper.Map<IEnumerable<PromotionViewModel>>(promotion);
             ViewData["PromotionBanner"] = promotionVm;
+            
+            var promotionCine = _promotionCineService.GetAll();
+            var promotionCineVm = Mapper.Map<IEnumerable<PromotionCineViewModel>>(promotionCine);
+            IList<PromotionCineViewModel> allPromotionCine = promotionCineVm as IList<PromotionCineViewModel>;
+            IList<PromotionCineViewModel> listPromotionCine = new List<PromotionCineViewModel>();
+            foreach (var itemPromotion in promotionVm as IList<PromotionViewModel>)
+            {
+                for(int i = 0; i < allPromotionCine.Count; i++)
+                {
+                    if (allPromotionCine[i].PromotionID == itemPromotion.PromotionID)
+                        listPromotionCine.Add(allPromotionCine[i]);
+                }
+                //System.Diagnostics.Debug.WriteLine(itemPromotion.PromotionHeader);
+            }
+            ViewData["PromotionCineList"] = listPromotionCine;
+
+            var cinema = _cinemaService.GetAll();
+            var cinemaVm = Mapper.Map<IEnumerable<CinemaViewModel>>(cinema);
+            IList<CinemaViewModel> allCinema = cinemaVm as IList<CinemaViewModel>;
+            IList<CinemaViewModel> listCinema = new List<CinemaViewModel>();
+            foreach (var itemCinema in allCinema)
+            {
+                for (int i = 0; i < listPromotionCine.Count; i++)
+                {
+                    if (listPromotionCine[i].CinemaID == itemCinema.CinemaID)
+                        if (listCinema.Contains(itemCinema) == false) listCinema.Add(itemCinema);
+                }
+            }
+            ViewData["CinemaList"] = listCinema;
 
             return View(promotionVm);
         }

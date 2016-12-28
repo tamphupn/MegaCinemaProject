@@ -1,0 +1,246 @@
+﻿@using MegaCinemaWeb.Models;
+@using System.Globalization;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ưu đãi | Hệ thống bán vé rạp chiếu phim Megastar</title>
+    <link rel="icon" href="images/cinema_icon.ico" type="image/ico" size="16x16" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1">
+    <meta name="keywords" content="Hệ thống bán vé online, Hệ thống rạp lớn nhất việt nam, hệ thống bán vé nhanh nhất việt nam" />
+    <link rel="stylesheet" href="~/scripts/css/bootstrap.min.css" type="text/css">
+    @*<link rel="stylesheet" href="~/scripts/css/font-awesome.css" type="text/css">*@
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/scripts/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="~/scripts/css/index-css.css">
+    <!--Add-->
+    <link href="~/scripts/css/slick.css" rel="stylesheet" />
+    <link href="~/scripts/css/jquery.jscrollpane.css" rel="stylesheet" />
+    <link href="~/scripts/css/jquery.drawer.css" rel="stylesheet" />
+    <!--END-Add-->
+
+</head>
+
+<body>
+    <!--Main-wrapper-->
+    <div id="main-wrapper">
+        <!--Header-->
+        <div id="mega-header">
+            <!--Topbar -->
+            <div class="topbar">
+                <div class="topbar-content">
+                    <!--LEFT - Top menu-->
+                    <div class="topbar-left">
+                        <div class="menu-item">
+                            <ul class="clearfix" id="topbar-nav">
+                                <li class="res-toggle"><a href="javascript:void(0);" onclick="toggleClick()" class="tog-button"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                                <li>
+                                    <a class="img-home" href="#"></a>
+                                </li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Sự kiện</a></li>
+                                <li><a href="#">Dịch vụ</a></li>
+                                <li><a href="#">Tuyển dụng</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--LEFT - Top menu-->
+                    <!--RIGHT - User area-->
+                    <div class="topbar-right">
+                        <div class="user-area">
+                            <ul>
+                                <li><a class="img-youtube" href="#"></a></li>
+                                <li><a class="img-facebook" href="#"></a></li>
+                                <li><a href="#" id="user-login-area"><i class="fa fa-users" aria-hidden="true"></i>  Đăng nhập</a></li>
+                                <li><a href="#" id="user-register-area"><i class="fa fa-bell-o" aria-hidden="true"></i>  Đăng ký</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--RIGHT - User area-->
+                </div>
+            </div>
+            <!--END Topbar -->
+
+            <div style="clear:both"></div>
+
+            <!--Navigation-->
+            <div id="header-content">
+                <div class="header-group cleafix-navigation">
+                    <div class="header-left">
+                        <a href="#"><img class="img-responsive" alt="Hệ thống đặt vé rạp chiếu phim Megastar" src="~/Assets/images/logo.png"></a>
+                    </div>
+
+                    <div class="header-right">
+                        <ul>
+                            <li id="A1"><a href="#"><i class="item-phim"></i> PHIM</a></li>
+                            <li id="A2"><a href="#"><i class="item-lich"></i> LỊCH CHIẾU</a></li>
+                            <li id="A3"><a href="#"><i class="item-rap"></i> RẠP & GIÁ VÉ</a></li>
+                            <li id="A4"><a href="#"><i class="item-uudai"></i> ƯU ĐÃI</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--END Navigation-->
+        </div>
+        <!--END Header-->
+        <!--Page direction-->
+        <div id="bg-all-title">
+            <div class="text-titles">
+                <div class="titles-span shar">
+                    <a href="/">Trang chủ</a> >
+                    Ưu đãi
+                </div>
+                <div class="share-all">
+                    <!-- <div class="fb-share-button" style="display: block" data-layout="button_count"></div> -->
+                    <!--<iframe src="/ShareFacebook.aspx?link=https://www.megagscinemas.vn/" scrolling="no" framespacing='0' frameborder='no' width="100px" height="22px" scrolling='no'></iframe>-->
+                </div>
+            </div>
+        </div>
+        <!--END page direction-->
+        <!--Content-->
+        <div id="wrapper">
+            <div class="container">
+                <!-- ROW -->
+                <div class="row mega-content">
+                    <!--Title-->
+                    <div class="view-title-repeat" style="margin-left: 20px; margin-right: 10px;">
+                        <div class="title-center">
+                            <img src="~/Assets/images/item-deal.png" height="32" />
+                            <span>Ưu đãi</span>
+                        </div>
+                    </div>
+                    <!--END Title-->
+                    @{
+                        IList<PromotionCineViewModel> listPromotionCine = ViewData["PromotionCineList"] as IList<PromotionCineViewModel>;
+                        foreach (var itemCinema in ViewData["CinemaList"] as IList<CinemaViewModel>)
+                        {
+                            <div class="rap-gv-select" style="display:block; margin-left: 20px;">
+                                <div class="ud-select-group clearfix">
+                                    <div class="text-title">
+                                        <label>Ưu đãi tại:</label>
+                                    </div>
+                                    <div class="content-title">
+                                        <div class="ud-Select-all">
+                                            <span style='color:#ffd555;font-weight: bold;display: inline-block;font-family:Open Sans Condensed, sans-serif;font-size: 18px;text-transform: capitalize;'>@itemCinema.CinemaFullName</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <!-- LIST SERVICES -->
+                            string promotionPosterUrl;
+                            string promotionHeader;
+                            string promotionDateStart;
+                            string promotionDateFinish;
+
+                            foreach (var itemPromotion in ViewData["PromotionBanner"] as IList<PromotionViewModel>)
+                            {
+                                foreach (var itemPromotionCine in listPromotionCine)
+                                {
+                                    if (itemPromotion.PromotionID == itemPromotionCine.PromotionID && itemCinema.CinemaID == itemPromotionCine.CinemaID)
+                                    {
+
+                                        promotionPosterUrl = @"/Content/Promotion/" + itemPromotion.PromotionPoster + "?width=345&height=256";
+                                        promotionHeader = itemPromotion.PromotionHeader;
+                                        promotionDateStart = itemPromotion.PromotionDateStart.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+                                        promotionDateFinish = itemPromotion.PromotionDateFinish.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+
+                                        <div class="col-lg-4 ud-list-all">
+                                            <div class="ud-group">
+                                                <a href="#">
+                                                    <div class="img-ud"><img alt="@promotionHeader - từ @promotionDateStart đến @promotionDateFinish" src="@promotionPosterUrl"></div>
+                                                    <p>@promotionHeader - từ @promotionDateStart đến @promotionDateFinish</p><span></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
+                            <div style="clear:both"></div>
+                        }
+                    <!-- END - LIST SERVICES -->
+                    }
+                </div><!-- END - ROW -->
+
+            </div>
+        </div>
+        <!--END Content-->
+        <!--Footer-->
+        <div id="mega-footer">
+            <div id="container">
+                <div id="star-left">
+                    <img src="~/Assets/images/bg-footer.png">
+                </div>
+
+                <div id="footer-content">
+                    <div class="footer-left">
+                        <h3>Hotline hỗ trợ</h3>
+                        <div class="phone-number">
+                            <span class="icon-phone">
+                                <i class="icons"></i>
+                            </span>
+                            <span class="number-phone">08 2649 911</span>
+                        </div>
+                    </div>
+
+                    <div class="copyright">
+                        <div class="group-copy">
+                            <div class="copy-left">
+                                <h6>Công ty cổ phần Truyền Thông Giải Trí Mega GS</h6>
+                                <p>
+                                    Địa chỉ: 01 Lý Tự Trọng - Phường Bến Nghé - Quận 1 - TP. HCM / Email: cskh@megags.vn / Hotline hỗ trợ: +84 08 62649911
+                                </p>
+                                <p>
+                                    Số ĐKKD: 0312667335 - Ngày cấp: 22/6/2015 (Đăng ký thay đổi lần 6) / Nơi cấp: Sở kế hoạch và đầu tư thành phố Hồ Chí Minh
+                                </p>
+                                <p>
+                                    Copyright ©2016 Mega GS Cinemas. All rights reserved - Uboiz Team
+                                </p>
+                            </div>
+                            <div class="copy-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END Footer-->
+    </div>
+    <!--END Main-wraper-->
+    <!--js-->
+    <script type="text/javascript" src="~/scripts/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/scripts/js/index.js"></script>
+    <script type="text/javascript" src="~/scripts/js/jquery.bxslider.js"></script>
+</body>
+</html>
+
+@*@{
+        string promotionPosterUrl;
+        string promotionHeader;
+        string promotionDateStart;
+        string promotionDateFinish;
+
+        foreach (var item in ViewData["PromotionBanner"] as IList<PromotionViewModel>)
+        {
+            promotionPosterUrl = @"/Content/Promotion/" + @item.PromotionPoster + "?width=345&height=256";
+            promotionHeader = @item.PromotionHeader;
+            promotionDateStart = @item.PromotionDateStart.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+            promotionDateFinish = @item.PromotionDateFinish.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+
+            <div class="col-lg-4 ud-list-all">
+                <div class="ud-group">
+                    <a href="#">
+                        <div class="img-ud"><img alt=">@promotionHeader - từ @promotionDateStart đến @promotionDateFinish" src="@promotionPosterUrl"></div>
+                        <p>@promotionHeader - từ @promotionDateStart đến @promotionDateFinish</p><span></span>
+                    </a>
+                </div>
+            </div>
+        }
+    }*@
