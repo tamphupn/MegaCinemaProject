@@ -131,21 +131,22 @@ $(document).ready(function(){
 	
 	/* == popup Detail Iframe == */
 	var deleted_iframe = $('.iframe-trailer').remove();
-	$('.open-popup').click(function(){
+	$('.open-popup').click(function () {
 	    // Append
 	    var srcTL = $(this).attr('data-youtube-id');
-	    var str = "https://www.youtube.com/embed/" + srcTL + "?autoplay=1";
+	    var youtubeID = youtube_parser(srcTL);
+	    var str = "https://www.youtube.com/embed/" + youtubeID + "?autoplay=1";
 	    $(deleted_iframe).find("iframe").attr('src', str);
-		$('.show-content').append(deleted_iframe);
-		// Popup Display: block
-		$('.popup-main').fadeIn(500);
-		$('.popup-opacity').css('display', 'block');
-		// Close popup.
-		$('.popup-content .close-popup i').click(function(){
-			$('.popup-main').fadeOut(0);
-			$('.popup-opacity').css('display', 'none');
-			$('.iframe-trailer').remove();
-		});
+	    $('.show-content').append(deleted_iframe);
+	    // Popup Display: block
+	    $('.popup-main').fadeIn(500);
+	    $('.popup-opacity').css('display', 'block');
+	    // Close popup.
+	    $('.popup-content .close-popup i').click(function () {
+	        $('.popup-main').fadeOut(0);
+	        $('.popup-opacity').css('display', 'none');
+	        $('.iframe-trailer').remove();
+	    });
 	});
 	
 	/* == popup Detail Image == */
@@ -289,4 +290,18 @@ function enableSelectBoxes() {
         }
     });
 
+}
+
+// hwang myung
+function youtube_parser(url) {
+    var ID = url;
+    url = url.replace(/(>|<)/gi, '').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    if (url[2] !== undefined) {
+        ID = url[2].split(/[^0-9a-z_\-]/i);
+        ID = ID[0];
+    }
+    else {
+        ID = url;
+    }
+    return ID;
 }

@@ -9,5 +9,6 @@ namespace MegaCinemaCommon.StatusCommon
     public static class ParametersContrants
     {
         public static int CONTENT_GET = 7;
+        public static int NUMBER_TICKET = 5;
     }
 }

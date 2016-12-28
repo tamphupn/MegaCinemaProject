@@ -320,8 +320,8 @@ namespace MegaCinemaData
 
             //Film session
             modelBuilder.Entity<FilmSession>()
-                .HasRequired(e => e.FilmCalendarCreate)
-                .WithRequiredDependent(e => e.FilmSession)
+                .HasMany(e => e.FilmCalendarCreate)
+                .WithRequired(e => e.FilmSession)
                 .WillCascadeOnDelete(false);
 
             //Ticket Categories

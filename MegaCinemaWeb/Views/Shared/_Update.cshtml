@@ -1,0 +1,98 @@
+﻿@using MegaCinemaCommon.BookingTicket
+@model MegaCinemaWeb.Models.TimeSessionViewModel
+
+<table id="seat-state-board-area">
+    <tbody>
+    @{
+        var resultState = BookingTimeHelpers.ConvertJsontoBookingTime(Model.SeatTableState);
+        var resultDefault = BookingTimeHelpers.ConvertJsontoBookingTime(Model.SeatTableDefault);
+        var width = resultState.Width;
+        var height = resultState.Height;
+        var state = resultState.LstSeatStates;
+        var stateDefault = resultDefault.LstSeatStates;
+        int count = 0;
+        for (int i = 0; i < height; i++)
+        {
+            <tr>
+                @{
+                    for (int j = 0; j < width; j++)
+                    {
+                        if (state[count].StateSeat == 0)
+                        {
+                            if (stateDefault[count].StateSeat == 1)
+                            {
+                                <td>
+                                    <div>
+                                        <p class="ticket booked-ticket normal-ticket ticket-booking-seat" yLocation=@i xLocation=@j onclick="AddTicketToCart($(this))" idSeat=@state[count].ID>@state[count].Name</p>
+                                        <img src="~/Content/RoomFilm/seatbooked.png" />
+                                    </div>
+                                </td>
+                            }
+                            if (stateDefault[count].StateSeat == 2)
+                            {
+                                <td>
+                                    <div>
+                                        <p class="ticket booked-ticket hot-ticket ticket-booking-seat" yLocation=@i xLocation=@j onclick="AddTicketToCart($(this))" idSeat=@state[count].ID>@state[count].Name</p>
+                                        <img src="~/Content/RoomFilm/seatbooked.png" />
+                                    </div>
+                                </td>
+                            }
+                        }
+                        if (state[count].StateSeat == 1)
+                        {
+                            <td style="margin-left: 5px;margin-bottom:5px">
+                                <div>
+                                    <p class="ticket normal-ticket ticket-booking-seat" yLocation=@i xLocation=@j onclick="AddTicketToCart($(this))" idSeat=@state[count].ID>@state[count].Name</p>
+                                    <img src="~/Content/RoomFilm/seatnone.png" />
+                                </div>
+                            </td>
+                        }
+                        if (state[count].StateSeat == 2)
+                        {
+                            <td>
+                                <div>
+                                    <p class="ticket hot-ticket ticket-booking-seat" yLocation=@i xLocation=@j onclick="AddTicketToCart($(this))" idSeat=@state[count].ID>@state[count].Name</p>
+                                    <img src="~/Content/RoomFilm/seatvip.png" />
+                                </div>
+                            </td>
+                        }
+                        if (state[count].StateSeat == 4)
+                        {
+                            <td>
+                                <div>
+                                    <p class="ticket none-ticket ticket-booking-seat" yLocation=@i xLocation=@j>@state[count].Name</p> 
+                                </div>
+                            </td>
+                        }
+                        count++;
+                    }
+                }
+
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+  
+<script type="text/javascript">
+    $(document).ready(function() {
+        ReDrawQueueObject();
+        ReDrawQueueActiveObject();
+    });
+</script>
+              
+<style>
+
+    .seat-state-board-area{
+       
+    }
+
+    table.seat-state-board-area tbody tr td p {
+        z-index: 1;
+        font-size: 11px;
+        display: inline-block;
+        font-size: 1.6em;
+        color: white;
+    }
+
+</style>

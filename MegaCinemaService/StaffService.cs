@@ -12,6 +12,7 @@ namespace MegaCinemaService
     public interface IStaffService
     {
         IEnumerable<Staff> GetAll();
+        ApplicationUser Find(int i);
     }
 
     public class StaffService : IStaffService
@@ -23,6 +24,11 @@ namespace MegaCinemaService
         {
             _staffRepository = staffRepository;
             _unitOfWork = unitOfWork;
+        }
+
+        public ApplicationUser Find(int i)
+        {
+            return _staffRepository.FindStaff(i);
         }
 
         public IEnumerable<Staff> GetAll()

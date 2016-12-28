@@ -123,6 +123,8 @@ namespace MegaCinemaWeb.Models
         [Required(ErrorMessage = "Họ người sử dụng không được để trống")]
         public string LastName { set; get; }
 
+        [Display(Name = "Ngày sinh")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/mm/yyy")]
         public DateTime Birthday { get; set; }
 

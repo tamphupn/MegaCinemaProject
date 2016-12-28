@@ -14,33 +14,6 @@
     <link href="~/scripts/css/slick.css" rel="stylesheet" />
     <link href="~/scripts/css/jquery.jscrollpane.css" rel="stylesheet" />
     <link href="~/scripts/css/jquery.drawer.css" rel="stylesheet" />
-
-    <script>
-    function openyoutube(link){
-        var video_id = window.location.search.split('v=')[1];
-        var ampersandPosition = video_id.indexOf('&');
-        if(ampersandPosition != -1) {
-          video_id = video_id.substring(0, ampersandPosition);
-        }
-
-        var srcTL = link;
-        var str = "https://www.youtube.com/embed/" + srcTL + "?autoplay=1";
-        var iframe = '<div class="iframe-trailer">'+
-        '<iframe src="'+ str +'" allowfullscreen></iframe>'+
-        '</div>';
-        $('.show-content').append(iframe);
-        // Popup Display: block
-        $('.popup-main').fadeIn(500);
-        $('.popup-opacity').css('display', 'block');
-        // Close popup.
-        $('.popup-content .close-popup i').click(function () {
-            $('.popup-main').fadeOut(0);
-            $('.popup-opacity').css('display', 'none');
-            $('.iframe-trailer').remove();
-        });
-    }
-    </script>
-
 </head>
 
 <body>

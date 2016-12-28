@@ -113,6 +113,14 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -292,6 +300,17 @@
     <Content Include="Content\AdsBanner\BNN5.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cinemaBanner\1459914677337_6660381.jpg" />
+    <Content Include="Content\cinemaBanner\145991468142_1913758.jpg" />
+    <Content Include="Content\cinemaBanner\box-l7_2.jpg" />
+    <Content Include="Content\cinemaBanner\box-l7_3.jpg" />
+    <Content Include="Content\cinemaBanner\cinema-3-pepsi.jpg" />
+    <Content Include="Content\cinemaBanner\cinema-6-oppo.jpg" />
+    <Content Include="Content\cinemaBanner\cinema-6_2.jpg" />
+    <Content Include="Content\cinemaBanner\con-l7.jpg" />
+    <Content Include="Content\cinemaBanner\guest-service.jpg" />
+    <Content Include="Content\cinemaBanner\l6a.jpg" />
+    <Content Include="Content\cinemaBanner\lobby-7_1.jpg" />
     <Content Include="Content\FilmPoster\8-Choemdenngaymai.jpg" />
     <Content Include="Content\FilmPoster\FLM1.jpg" />
     <Content Include="Content\FilmPoster\FLM10.jpg" />
@@ -337,6 +356,9 @@
     <Content Include="Content\FoodList\tich-luy-50.png" />
     <Content Include="Content\FoodList\title.jpg" />
     <Content Include="Content\FoodList\wallsicecream.png" />
+    <Content Include="Content\GiaVe\holiday-price.png" />
+    <Content Include="Content\GiaVe\ve-2d-62016-lcd.png" />
+    <Content Include="Content\GiaVe\ve-3d-42016-lcd.png" />
     <Content Include="Content\images\background.png" />
     <Content Include="Content\images\bg-footer.png" />
     <Content Include="Content\images\cinema_icon.ico" />
@@ -369,7 +391,14 @@
     <Content Include="Content\Promotion\PRO3.png" />
     <Content Include="Content\Promotion\PRO4.jpg" />
     <Content Include="Content\Promotion\PRO5.png" />
+    <Content Include="Content\Promotion\valentine.png" />
     <Content Include="Content\Promotion\voucher %282%29.png" />
+    <Content Include="Content\RoomFilm\coupleseat.png" />
+    <Content Include="Content\RoomFilm\seatbooked.png" />
+    <Content Include="Content\RoomFilm\seatnone.png" />
+    <Content Include="Content\RoomFilm\SeatScreen.png" />
+    <Content Include="Content\RoomFilm\seatvip.png" />
+    <Content Include="Content\RoomFilm\selectedseat.png" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\scripts\Admin\css\bootstrap\dist\css\bootstrap.css" />
@@ -414,6 +443,7 @@
     <Content Include="Content\scripts\Admin\images\prod-5.jpg" />
     <Content Include="Content\scripts\Admin\images\user.png" />
     <Content Include="Content\scripts\Admin\images\visa.png" />
+    <Content Include="Content\scripts\Admin\js\createSeatTable.js" />
     <Content Include="Content\scripts\Admin\js\custom.js" />
     <Content Include="Content\scripts\Admin\js\custom.min.js" />
     <Content Include="Content\scripts\Admin\js\jquery\AUTHORS.txt" />
@@ -519,6 +549,7 @@
     <Content Include="Content\scripts\Admin\js\jquery\src\var\support.js" />
     <Content Include="Content\scripts\Admin\js\jquery\src\var\toString.js" />
     <Content Include="Content\scripts\Admin\js\jquery\src\wrap.js" />
+    <Content Include="Content\scripts\Client\js\bookingTicket.js" />
     <Content Include="Content\scripts\Client\css\bootstrap.min.css" />
     <Content Include="Content\scripts\Client\css\font-awesome.css" />
     <Content Include="Content\scripts\Client\css\index-css.css" />
@@ -1719,6 +1750,11 @@
     <Content Include="Areas\AdminDashboard\Views\Film\Edit.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Cinema\Edit.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Cinema\Index.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\RoomFilm\Index.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\RoomFilm\CreateRoomDetail.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\RoomFilm\SeatTableDetail.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\Shared\_bookingAlert.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\FilmCategory\Edit.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\css\bootstrap.min.css" />
     <Content Include="scripts\css\font-awesome.css" />
@@ -1731,15 +1767,19 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery.blockUI.js" />
+    <Content Include="scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="scripts\js\bootstrap.min.js" />
     <Content Include="scripts\js\index.js" />
     <Content Include="scripts\js\jquery-1.11.3.min.js" />
     <Content Include="scripts\css\jquery-ui.min.css" />
+    <Content Include="scripts\js\jquery-1.6.4.min.js" />
     <Content Include="scripts\js\jquery.bxslider.js" />
     <Content Include="scripts\js\jquery.drawer.min.js" />
     <Content Include="scripts\js\jquery.jscrollpane.min.js" />
     <Content Include="scripts\js\jquery.min.js" />
     <Content Include="scripts\js\jquery.mousewheel.js" />
+    <Content Include="scripts\js\jquery.signalR-2.2.1.min.js" />
     <Content Include="scripts\js\jquery.twbsPagination.min.js" />
     <Content Include="scripts\js\layout.js" />
     <Content Include="scripts\js\ShowTime.js" />
@@ -1770,10 +1810,12 @@
     <Compile Include="Areas\AdminDashboard\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\PromotionCineController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\PromotionController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\RoomFilmController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\StaffController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\StatusController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataCrawler\IMDBModel.cs" />
     <Compile Include="DataCrawler\IMDBModelHelper.cs" />
@@ -1787,7 +1829,9 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\DatabaseViewModel.cs" />
     <Compile Include="Models\IMDBViewModel.cs" />
+    <Compile Include="Models\TicketDetailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeatRoomStateFilmHub.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -1809,6 +1853,19 @@
     <Content Include="Views\Account\CustomerRegister.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_Update.cshtml" />
+    <Content Include="Views\Booking\FilmSessionDetail.cshtml" />
+    <Content Include="Views\Booking\TicketBookingView.cshtml" />
+    <Content Include="Views\Shared\_AlertBox.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Home\FrequentlyAskedQuestions.cshtml" />
+    <Content Include="Views\Home\Hire.cshtml" />
+    <Content Include="Views\Home\Introduce.cshtml" />
+    <Content Include="Views\Home\PagePhim.cshtml" />
+    <Content Include="Views\Home\PageRapGiaVe.cshtml" />
+    <Content Include="Views\Home\PageUuDai.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

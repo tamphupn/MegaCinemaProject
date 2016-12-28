@@ -20,6 +20,11 @@ namespace MegaCinemaModel.Models
         [Required, DataType("nvarchar"), MaxLength(100)]
         public string TimeDetail { get; set; }
 
+        [DataType("nvarchar")]
+        public string SeatTableState { get; set; }
+        [DataType("nvarchar")]
+        public string SeatTableDefault { get; set; }
+
         [Required, DataType("nvarchar"), MaxLength(3)]
         public string TimeStatus { get; set; }
 

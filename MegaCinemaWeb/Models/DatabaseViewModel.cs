@@ -348,5 +348,56 @@ namespace MegaCinemaWeb.Models
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
     }
+
+    public class FilmCalendarCreateViewModel
+    {
+        public int FilmCalendarCreateID { get; set; }
+        public int FilmSessionID { get; set; }
+        public int StaffID { get; set; }
+        public string FilmCalendarContent { get; set; }
+        public string FilmCalendarDescription { get; set; }
+        public string StatusID { get; set; }
+    }
+
+    public class TimeSessionViewModel
+    {
+        public int TimeSessionID { get; set; }
+        public string TimeDetail { get; set; }
+        public string SeatTableState { get; set; }
+        public string SeatTableDefault { get; set; }
+    }
+    public class RoomFilmDetailViewModel
+    {
+        [DisplayName("Tên phòng chiếu")]
+        [Required(ErrorMessage = "Tên phòng chiếu không được để trống")]
+        public string RoomName { get; set; }
+
+        public string RoomSeatPosition { get; set; }
+
+        [DisplayName("Mô tả sơ qua phòng chiếu")]
+        public string RoomCinemaDescription { get; set; }
+
+        public string RoomPoster { get; set; }
+
+        [DisplayName("Rạp chiếu phim")]
+        [Required(ErrorMessage = "Rạp chiếu phim không được để trống")]
+        public int RoomCinemaID { get; set; }
+
+        [DisplayName("Trạng thái cho phòng chiếu")]
+        public string RoomStatusID { get; set; }
+
+        [DisplayName("Diện tích ghế - số ghế chiều ngang")]
+        [Required(ErrorMessage = "Diện tích ghế - số ghế chiều ngang không được để trống")]
+        public int Width { get; set; }
+
+        [DisplayName("Diện tích ghế - số ghế chiều dọc")]
+        [Required(ErrorMessage = "Diện tích ghế - số ghế chiều dọc không được để trống")]
+        public int Height { get; set; }
+
+        [DisplayName("Số lượng ghế Vip")]
+        [Required(ErrorMessage = "Số lượng ghế vip không được để trống")]
+        public int VipTicket { get; set; }
+        public int SimpleTicket { get; set; }
+    }
     #endregion 
 }

@@ -199,7 +199,7 @@
                                     <!-- Detail link-->
                                     <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
                                     <!-- tickets link-->
-                                    <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
+                                    <div class="tickets-link" style="display: block"><a href="@Url.Action("FilmSessionDetail","Booking",new {id = @item.FilmID})"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
                                 </div>
                             </div>
                         }
