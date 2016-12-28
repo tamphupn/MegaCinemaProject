@@ -6,6 +6,7 @@ using MegaCinemaService;
 using AutoMapper;
 using MegaCinemaCommon.StatusCommon;
 using MegaCinemaWeb.Models;
+using System;
 
 namespace MegaCinemaWeb.Controllers
 {
@@ -88,7 +89,10 @@ namespace MegaCinemaWeb.Controllers
             var resultVm = Mapper.Map<IEnumerable<FilmViewModel>>(filmSlider);
 
             //get list film pending, plan, and special 
-            var filmDangChieu = resultVm.Where(n => n.FilmStatus == "PEN");
+            var filmDangChieu = resultVm.Where(n => n.FilmStatus == "PEN").Select(n => n);
+            int count = filmDangChieu.ToList().Count;
+
+
             ViewData["FilmDangChieu"] = (filmDangChieu.Count() > 5)
                 ? (filmDangChieu.Reverse().Take(5).Reverse())
                 : (filmDangChieu);
@@ -103,6 +107,36 @@ namespace MegaCinemaWeb.Controllers
                 ? (filmSuatChieuDacBiet.Reverse().Take(5).Reverse())
                 : (filmSuatChieuDacBiet);
 
+            return View();
+        }
+
+        public ActionResult Introduce()
+        {
+            return View();
+        }
+
+
+        public ActionResult Events()
+        {
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            return View();
+        }
+        public ActionResult Hire()
+        {
+            return View();
+        }
+
+        public ActionResult FrequentlyAskedQuestions()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
             return View();
         }
         #endregion

@@ -1,0 +1,710 @@
+﻿@using MegaCinemaWeb.Models;
+@model IEnumerable<FilmViewModel>
+
+@{
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+    //ViewBag.Title = "Phim | Hệ thống bán vé rạp chiếu phim Megastar";
+    ViewBag.Title = "Nghia";
+}
+
+
+
+<!--Content-->
+
+<div class="movie-title clearfix">
+    <div class="movie-repeat">
+        <!-- Tab Movies -->
+        <div class="tab-movie">
+            <ul class="tab-movie-item nav nav-tabs">
+                <li class="active">
+                    <!-- Edited: thêm class "active"-->
+                    <a class="movie-custom-tab li-pdc" data-toggle="tab" href="#movie-dc-all">
+                        <img class="als" src="~/Assets/images/home/item-pdc-all.png" />
+                        <span class="span-tab-all">Phim Đang Chiếu</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="movie-custom-tab li-psc" data-toggle="tab" href="#movie-sc-all">
+                        <img class="als" src="~/Assets/images/home/item-psc-all.png" />
+                        <span class="span-tab-all">Phim Sắp Chiếu</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a class="movie-custom-tab li-scdb" data-toggle="tab" href="#movie-scdb-all">
+                        <img class="als" src="~/Assets/images/home/item-scdb-all.png" />
+                        <span class="span-tab-all">Suất Chiếu Đặc Biệt</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Tab Contents Movies -->
+            <div class="tab-content tab-content-custom">
+
+                <!-- Phim đang chiếu /*Edited: thêm class: in active*/-->
+                <div id="movie-dc-all" class="tab-pane fade in active" style="min-height: 218px">
+                    <!-- Phim Hot -->
+                    <div id="movie-dc-all-hot" style="display: block">
+                        <div class="movie-hot clearfix">
+                            @{
+                                foreach (var item in (IEnumerable<FilmViewModel>)ViewData["FilmDangChieu"])
+                                {
+                                    <div class="list-items">
+                                        <div class="item-left">
+                                            <div class="episode-all" style="display: block">
+                                                <p>@DateTime.Now.Day</p>
+                                                <p class="custom-p">@DateTime.Now.Month</p>
+                                            </div>
+                                            <a href="/phim/cho-em-gan-anh-them-chut-nua/">
+                                                <div class="item-hot">
+                                                    <img src="~/Assets/images/home/item-hot.png" />
+                                                </div>
+
+                                                <img class="" src="@Url.Content("~/Content/FilmPoster/")@item.FilmPoster" width="248px" height="356px" />
+                                            </a>
+                                            <!-- Link Product -->
+                                            <div class="links-produce">
+                                                <!-- Detail link-->
+                                                <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
+                                                <!-- tickets link-->
+                                                <div class="tickets-link"><a href="#"><i class="icon-p fa fa-ticket"><span>Mua vé</span></i></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-right">
+                                            <a href="/phim/cho-em-gan-anh-them-chut-nua/">
+                                                <h4>@item.FilmName</h4>
+                                            </a>
+                                            <p class="icon-clock">Thời lượng: <span>@item.FilmDuration Phút</span></p>
+                                            <p class="icon-type">Thể loại: <span>@item.FilmCategories</span></p>
+                                            <p class="icon-calendar">Khởi chiếu: <span>@item.FilmFirstPremiered </span></p>
+                                            <div class="movie-2d">
+                                                <a href='#'><span>2D</span></a>
+                                            </div>
+                                            <p>Đạo diễn: <span>Văn Công Viễn </span></p>
+                                            <p>Diễn viên: <span>Jun Vũ, Đình Hiếu, Quang Minh, Hồng Đào </span></p>
+                                            <p>Ngôn ngữ: <span>@item.FilmLanguage </span></p>
+                                            <div class="movie-tool">
+                                                @*<div class="imdb">
+                                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                                        <span>IMDB</span>
+                                                    </div>*@
+                                                <div class="trailer">
+                                                    <a class="open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY">
+                                                        <div><i class="fa fa-play"></i></div>
+                                                        <div>Trailer</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="like-face" style="z-index: 999;">
+                                                <div class="fb-like">
+                                                    <div class="fb-like" data-href="https://www.megagscinemas.vn/phim/cho-em-gan-anh-them-chut-nua/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Phim Khac -->
+                    <div class="movie-related clearfix" style="display: block">
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>23</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/dau-truong-am-nhac/">
+
+                                    <img class="bg-new-only cust_border" src="https://cms.megagscinemas.vn//media/75301/sing.jpg?width=159&height=234" width="159px" height="234px" />
+                                    <div class="img-new-only cust_resize_width">
+                                        <img class="resize-width" src="..images/home/img-new-only.png" />
+                                    </div>
+
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/dau-truong-am-nhac/">
+                                    <h4>ĐẤU TRƯỜNG ÂM NHẠC</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>90 phút</p>
+                                <p><i class="icon-type-wh"></i>Hoạt hình</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="LhuLj5FWeFY">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>09</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/nha-mo-nc16/">
+
+                                </a>
+
+                                <a href="/phim/nha-mo-nc16/">
+                                    <img src="https://cms.megagscinemas.vn//media/75303/poster-official-nhà-mồ.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/nha-mo-nc16/">
+                                    <h4>NHÀ MỒ [NC16]</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>90 phút</p>
+                                <p><i class="icon-type-wh"></i>Kinh dị</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a><a href='#'><span>NC16</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="VCGmcOYhx8g">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>09</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/than-kiem-nc16/">
+
+                                </a>
+
+                                <a href="/phim/than-kiem-nc16/">
+                                    <img src="https://cms.megagscinemas.vn//media/75335/than.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/than-kiem-nc16/">
+                                    <h4>THẦN KIẾM [NC16]</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>108 phút</p>
+                                <p><i class="icon-type-wh"></i>Hành động,Võ thuật</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a><a href='#'><span>NC16</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="7vVb9CqVyWM">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>02</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/ve-sy-tieu-thu-va-thang-kho-nc16/">
+
+                                </a>
+
+                                <a href="/phim/ve-sy-tieu-thu-va-thang-kho-nc16/">
+                                    <img src="https://cms.megagscinemas.vn//media/75295/vs-tt-tk-payoff-poster.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/ve-sy-tieu-thu-va-thang-kho-nc16/">
+                                    <h4>VỆ SỸ, TIỂU THƯ VÀ THẰNG KHỜ [NC16]</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>90 phút</p>
+                                <p><i class="icon-type-wh"></i>Hài hước,Lãng mạn</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a><a href='#'><span>NC16</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="zUyUUQg52iY">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>02</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/quy-am-nc16/">
+
+                                </a>
+
+                                <a href="/phim/quy-am-nc16/">
+                                    <img src="https://cms.megagscinemas.vn//media/75296/incarnate2.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/quy-am-nc16/">
+                                    <h4>QUỶ ÁM [NC16]</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>95 phút</p>
+                                <p><i class="icon-type-wh"></i>Kinh dị</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="TfaD-zPOJ1Q">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>18</p>
+                                    <p class="custom-p">11</p>
+                                </div>
+                                <a href="/phim/sinh-vat-huyen-bi-va-noi-tim-ra-chung/">
+
+                                </a>
+
+                                <a href="/phim/sinh-vat-huyen-bi-va-noi-tim-ra-chung/">
+                                    <img src="https://cms.megagscinemas.vn//media/50506/sinhvat.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/sinh-vat-huyen-bi-va-noi-tim-ra-chung/">
+                                    <h4>SINH VẬT HUYỀN BÍ và NƠI TÌM RA CHÚNG</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>100 phút</p>
+                                <p><i class="icon-type-wh"></i>Viễn tưởng,Phiêu lưu</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a><a href='#'><span>G</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb="tt3183660"></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="-eQK5CNagTQ">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>25</p>
+                                    <p class="custom-p">11</p>
+                                </div>
+                                <a href="/phim/sut/">
+
+                                </a>
+
+                                <a href="/phim/sut/">
+                                    <img src="https://cms.megagscinemas.vn//media/75228/sut2.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/sut/">
+                                    <h4>SÚT</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>98 phút</p>
+                                <p><i class="icon-type-wh"></i>Thể thao</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="hx83FidNuvE">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>04</p>
+                                    <p class="custom-p">11</p>
+                                </div>
+                                <a href="/phim/4-nam-2-chang-1-tinh-yeu/">
+
+                                </a>
+
+                                <a href="/phim/4-nam-2-chang-1-tinh-yeu/">
+                                    <img src="https://cms.megagscinemas.vn//media/75191/4-nam.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/4-nam-2-chang-1-tinh-yeu/">
+                                    <h4>4 NĂM, 2 CHÀNG, 1 TÌNH YÊU</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>90 phút</p>
+                                <p><i class="icon-type-wh"></i>Hài hước,Lãng mạn</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="vyPFokJQPaQ">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Phim sắp chiếu -->
+                <div id="movie-sc-all" class="tab-pane fade " style="min-height: 218px">
+                    <!-- Phim Hot -->
+                    <div id="movie-dc-all-hot" style="display: block">
+                        <div class="movie-hot clearfix">
+                            @{
+                                foreach (var item in (IEnumerable<FilmViewModel>)ViewData["FilmSapChieu"])
+                                {
+                                            <div class="list-items">
+                                                <div class="item-left">
+                                                    <div class="episode-all" style="display: block">
+                                                        <p>@DateTime.Now.Day</p>
+                                                        <p class="custom-p">@DateTime.Now.Month</p>
+                                                    </div>
+                                                    <a href="/phim/cho-em-gan-anh-them-chut-nua/">
+                                                        <div class="item-hot">
+                                                            <img src="~/Assets/images/home/item-hot.png" />
+                                                        </div>
+
+                                                        <img class="" src="@Url.Content("~/Content/FilmPoster/")@item.FilmPoster" width="248px" height="356px" />
+                                                    </a>
+                                                    <!-- Link Product -->
+                                                    <div class="links-produce">
+                                                        <!-- Detail link-->
+                                                        <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
+                                                        <!-- tickets link-->
+                                                        <div class="tickets-link"><a href="#"><i class="icon-p fa fa-ticket">Mua Vé</i></a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-right">
+                                                    <a href="/phim/cho-em-gan-anh-them-chut-nua/">
+                                                        <h4>@item.FilmName</h4>
+                                                    </a>
+                                                    <p class="icon-clock">Thời lượng: <span>@item.FilmDuration Phút</span></p>
+                                                    <p class="icon-type">Thể loại: <span>@item.FilmCategories</span></p>
+                                                    <p class="icon-calendar">Khởi chiếu: <span>@item.FilmFirstPremiered </span></p>
+                                                    <div class="movie-2d">
+                                                        <a href='#'><span>2D</span></a>
+                                                    </div>
+                                                    <p>Đạo diễn: <span>Văn Công Viễn </span></p>
+                                                    <p>Diễn viên: <span>Jun Vũ, Đình Hiếu, Quang Minh, Hồng Đào </span></p>
+                                                    <p>Ngôn ngữ: <span>@item.FilmLanguage </span></p>
+                                                    <div class="movie-tool">
+                                                        <div class="imdb">
+                                                            <div data-imdb-id="1133" class="score" imdb=""></div>
+                                                            <span>IMDB</span>
+                                                        </div>
+                                                        <div class="trailer">
+                                                            <a class="open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY">
+                                                                <div><i class="fa fa-play"></i></div>
+                                                                <div>Trailer</div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="like-face" style="z-index: 999;">
+                                                        <div class="fb-like">
+                                                            <div class="fb-like" data-href="https://www.megagscinemas.vn/phim/cho-em-gan-anh-them-chut-nua/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                }
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Phim Khac -->
+                    <div class="movie-related clearfix" style="display: block">
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>16</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/nhung-ke-kho-mong-mo/">
+
+                                </a>
+
+                                <a href="/phim/nhung-ke-kho-mong-mo/">
+                                    <img src="https://cms.megagscinemas.vn//media/75326/la-la-land.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/nhung-ke-kho-mong-mo/">
+                                    <h4>NHỮNG KẺ KHỜ MỘNG MƠ</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>128 phút</p>
+                                <p><i class="icon-type-wh"></i>Lãng mạn,Tâm lý</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="7vMKD6J8ITQ">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>16</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/biet-thu-quy-am-nc16/">
+
+                                </a>
+
+                                <a href="/phim/biet-thu-quy-am-nc16/">
+                                    <img src="https://cms.megagscinemas.vn//media/75306/haven-hurts.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/biet-thu-quy-am-nc16/">
+                                    <h4>BIỆT THỰ QUỶ ÁM [NC16]</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>80 phút</p>
+                                <p><i class="icon-type-wh"></i>Kinh dị</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a><a href='#'><span>NC16</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="gUaqlinfstc">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>23</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/benh-vien-ma-quai-nc16/">
+
+                                </a>
+
+                                <a href="/phim/benh-vien-ma-quai-nc16/">
+                                    <img src="https://cms.megagscinemas.vn//media/75308/eloise.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/benh-vien-ma-quai-nc16/">
+                                    <h4>BỆNH VIỆN MA QUÁI [NC16]</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>90 phút</p>
+                                <p><i class="icon-type-wh"></i>Kinh dị</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a><a href='#'><span>NC16</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="vEBc3EyRRfU">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="related-item">
+                            <div class="related-left">
+                                <div class="episode-all" style="display: block">
+                                    <p>30</p>
+                                    <p class="custom-p">12</p>
+                                </div>
+                                <a href="/phim/shin-godzilla/">
+
+                                </a>
+
+                                <a href="/phim/shin-godzilla/">
+                                    <img src="https://cms.megagscinemas.vn//media/75309/gozilla.jpg?width=159&height=234" width="159px" height="234px" />
+                                </a>
+
+                            </div>
+                            <div class="related-right">
+                                <a href="/phim/shin-godzilla/">
+                                    <h4>SHIN GODZILLA</h4>
+                                </a>
+                                <p><i class="icon-clock-wh"></i>90 phút</p>
+                                <p><i class="icon-type-wh"></i>Viễn tưởng</p>
+                                <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                <div class="movie-tool">
+                                    <div class="imdb" style="display: block">
+                                        <div data-imdb-id="1133" class="score" imdb=""></div>
+                                        <span>IMDB</span>
+                                    </div>
+                                    <div class="trailer">
+                                        <a class="open-popup" href="javascript:void(0)" data-youtube-id="vhpA8Mgc7O8">
+                                            <div><i class="fa fa-play"></i></div>
+                                            <div>Trailer</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Suất chiếu đặc biệt -->
+                <div id="movie-scdb-all" class="tab-pane fade " style="min-height: 218px">
+                    <!-- Phim Hot -->
+                    <div id="movie-dc-all-hot" style="display: none">
+                        <div class="movie-hot clearfix">
+
+                        </div>
+                    </div>
+
+                    <!-- Phim Khac -->
+                    <div class="movie-related clearfix" style="display: block">
+
+                        @{
+                            foreach (var item in (IEnumerable<FilmViewModel>)ViewData["FilmSuatChieuDacBiet"])
+                            {
+                                <div class="related-item">
+                                    <div class="related-left">
+                                        <div class="episode-all" style="display: block">
+                                            <p>@DateTime.Now.Day</p>
+                                            <p class="custom-p">@DateTime.Now.Month</p>
+                                        </div>
+                                        <a href="/phim/dau-truong-am-nhac/">
+
+                                            <img class="bg-new-only cust_border" src="@Url.Content("~/Content/FilmPoster/")@item.FilmPoster" width="159px" height="234px" />
+                                            <div class="img-new-only cust_resize_width">
+                                                <img class="resize-width" src="~/Assets/images/home/img-new-only.png" />
+                                            </div>
+
+                                        </a>
+
+                                    </div>
+                                    <div class="related-right">
+                                        <a href="/phim/dau-truong-am-nhac/">
+                                            <h4>@item.FilmName</h4>
+                                        </a>
+                                        <p><i class="icon-clock-wh"></i>@item.FilmDuration Phút</p>
+                                        <p><i class="icon-type-wh"></i>@item.FilmCategories</p>
+                                        <div class="movie-2d"><a href='#'><span>2D</span></a></div>
+
+                                        <div class="movie-tool">
+                                            <div class="imdb" style="display: block">
+                                                <div data-imdb-id="1133" class="score" imdb=""></div>
+                                                <span>IMDB</span>
+                                            </div>
+                                            <div class="trailer">
+                                                <a class="open-popup" href="javascript:void(0)" data-youtube-id="LhuLj5FWeFY">
+                                                    <div><i class="fa fa-play"></i></div>
+                                                    <div>Trailer</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+
+
+
+
+                    </div>
+                </div>
+            </div><!-- END - Tab Contents Movies -->
+        </div><!-- END - Tab Movies -->
+    </div>
+</div>
+
+<!--END Content-->

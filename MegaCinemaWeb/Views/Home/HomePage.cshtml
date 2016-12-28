@@ -77,7 +77,7 @@
                     </div>
                     <div class="header-right">
                         <ul>
-                            <li id="A1"><a href="#"><i class="item-phim"></i> PHIM</a></li>
+                            <li id="A1"><a href="~/Home/PagePhim"><i class="item-phim"></i> PHIM</a></li>
                             <li id="A2"><a href="#"><i class="item-lich"></i> LỊCH CHIẾU</a></li>
                             <li id="A3"><a href="#"><i class="item-rap"></i> RẠP & GIÁ VÉ</a></li>
                             <li id="A4"><a href="#"><i class="item-uudai"></i> ƯU ĐÃI</a></li>
@@ -109,114 +109,30 @@
                     <!--LEFT-->
                     <div class="col-lg-9" style="margin-right: -29px;">
                         <div class="bxslider" style="width: auto; position: relative;">
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-sneakshow-cho-em.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <a class="product-zoom open-popup" data-youtube-id="Sk5-eC0CZrY" href="javascript:void(0)" title=""></a>
-                                    <div class="digital-group">
-                                        <div class='digital-item'><span class='dt-xd'>2D</span><span class='dt-cus'>digital</span></div>
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết</span></a>
-                                        <a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA">
-                                            <span>Mua Vé</span>
+
+                            @{
+                                foreach (var item in (IEnumerable<AdsBannerViewModel>)ViewData["AdsBanner"])
+                                {
+                                    <div>
+                                        <a href="#">
+                                            <img src="@Url.Content("~/Content/AdsBanner/")@item.AdsDescription" />
                                         </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-under.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <a class="product-zoom open-popup" data-youtube-id="6loeTdm3ks4" href="javascript:void(0)" title=""></a>
-                                    <div class="digital-group">
-                                        <div class='digital-item'><span class='dt-xd'>2D</span><span class='dt-cus'>digital</span></div>
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/the-gioi-ngam-tran-chien-dam-mau-nc16/"><span>Chi tiết</span></a>
-                                        <a href="/ShowTime.aspx?strName_Mv=UNDERWORLD%3a+BLOOD+WARS+%5bNC16%5d">
-                                            <span>Mua Vé</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-ve-si.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <div class="digital-group">
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/ve-si-tieu-tho-va-chang-kho/"><span>Chi tiết</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-quyam.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <div class="digital-group">
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/quy-am-nc16/"><span>Chi tiết</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-vung-xac-song2.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <div class="digital-group">
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/vung-xac-song-nc16/"><span>Chi tiết</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-fb.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <div class="digital-group">
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/sinh-vat-huyen-bi-va-noi-tim-ra-chung/"><span>Chi tiết</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <img src="~/Assets/images/home/banner-moana.png" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <div class="digital-group">
-                                    </div>
-                                    <div class="detail-tickets-link">
-                                        <a href="/phim/hanh-trinh-cua-moana/"><span>Chi tiết</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a>
-                                    <img alt="" src="images/home/members-day-c-banner.jpg?width=845&height=333" />
-                                </a>
-                                <div class="links-produce-slide">
-                                    <div class="detail-tickets-link">
-                                        <div class="slide-text">
-                                            <a href="https://www.megagscinemas.vn/uu-dai/ngay-hoi-thanh-vien/">
-                                                Chi tiết
-                                            </a>
+                                        <div class="links-produce-slide">
+                                            <a class="product-zoom open-popup" data-youtube-id="Sk5-eC0CZrY" href="javascript:void(0)" title=""></a>
+                                            <div class="digital-group">
+                                                <div class='digital-item'><span class='dt-xd'>2D</span><span class='dt-cus'>digital</span></div>
+                                            </div>
+                                            <div class="detail-tickets-link">
+                                                <a href="/phim/cho-em-gan-anh-them-chut-nua/"><span> Chi tiết</span></a>
+                                                <a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA">
+                                                    <span> Mua Vé</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                }
+                            }
+
                         </div>
                     </div><!--END LEFT-->
                     <!--RIGHT-->
@@ -391,387 +307,82 @@
                             <div id="movie-sc" class="tab-pane fade">
                                 <!-- Product Item -->
                                 <div class="autoplay">
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
+
+                                    @{
+                                        foreach (var item in (IEnumerable<FilmViewModel>)ViewData["FilmSapChieu"])
+                                        {
+                                            <div class="product-items">
+                                                <a href="javascript:;">
+                                                    <div class="icon-hot" style="display: block">
+                                                        <img src="~/Assets/images/home/item-hot.png" />
+                                                    </div>
+                                                    <div class="episode-all" style="display: block">
+                                                        <p>09</p>
+                                                        <p class="custom-p">12</p>
+                                                    </div>
+                                                    <img alt="@item.FilmName" src="~/Content/FilmPoster/@item.FilmPoster" style="width: 240px; height: 355px" />
+                                                </a>
+                                                <!-- Link Product -->
+                                                <div class="links-produce">
+                                                    <!-- zoom image-->
+                                                    <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
+                                                    <!-- Title product item-->
+                                                    <div class="title-product-item">
+                                                        <span>@item.FilmName</span>
+                                                        <br />
+                                                        <span style="font-size: 11px;">
+                                                            @item.FilmName
+                                                        </span>
+                                                    </div>
+                                                    <!-- Detail link-->
+                                                    <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
+                                                </div>
                                             </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>09</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img alt="H&#204;NH NH&#194;N [NC16]" src="https://cms.megagscinemas.vn//media/75300/hinh-nhan.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="OzyGtNqFS50" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>HÌNH NHÂN [NC16]</span>
-                                                <br />
-                                                <span style="font-size: 11px;"></span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/hinh-nhan-nc16/"><span>Chi tiết >></span></a></div>
-                                        </div>
-                                    </div>
+                                        }
+                                    }
                                 </div><!-- END - Product Item -->
                                 <!-- View All Detail tabs -->
                             </div>
+
                             <!-- SUẤT CHIẾU ĐẶC BIỆT -->
                             <div id="movie-scdb" class="tab-pane fade ">
                                 <!-- Product Item -->
                                 <div class="autoplay">
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
+                                    @{
+                                        foreach (var item in (IEnumerable<FilmViewModel>)ViewData["FilmSuatChieuDacBiet"])
+                                        {
+                                            <div class="product-items">
+                                                <a href="javascript:;">
+                                                    <div class="icon-hot" style="display: block">
+                                                        <img src="~/Assets/images/home/item-hot.png" />
+                                                    </div>
+                                                    <div class="episode-all" style="display: block">
+                                                        <p>02</p>
+                                                        <p class="custom-p">12</p>
+                                                    </div>
+                                                    <img class=" bg-new-only" alt="@item.FilmName" src="~/Content/FilmPoster/@item.FilmPoster" style="width: 240px; height: 355px" />
+                                                </a>
+                                                <!-- Link Product -->
+                                                <div class="links-produce">
+                                                    <!-- zoom image-->
+                                                    <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
+                                                    <!-- Title product item-->
+                                                    <div class="title-product-item">
+                                                        <span>@item.FilmName</span>
+                                                        <br />
+                                                        <span style="font-size: 11px;">
+                                                            @item.FilmName
+                                                        </span>
+                                                    </div>
+                                                    <!-- Detail link-->
+                                                    <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
+                                                    <!-- tickets link-->
+                                                    <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
+                                                </div>
                                             </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>02</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img class=" bg-new-only" alt="CHO EM GẦN ANH TH&#202;M CH&#218;T NỮA" src="https://cms.megagscinemas.vn//media/75279/choem.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>CHO EM GẦN ANH THÊM CHÚT NỮA</span>
-                                                <br />
-                                                <span style="font-size: 11px;">
-                                                    CHO EM GẦN ANH THÊM CHÚT NỮA
-                                                </span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
-                                            <!-- tickets link-->
-                                            <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>02</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img class=" bg-new-only" alt="CHO EM GẦN ANH TH&#202;M CH&#218;T NỮA" src="https://cms.megagscinemas.vn//media/75279/choem.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>CHO EM GẦN ANH THÊM CHÚT NỮA</span>
-                                                <br />
-                                                <span style="font-size: 11px;">
-                                                    CHO EM GẦN ANH THÊM CHÚT NỮA
-                                                </span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
-                                            <!-- tickets link-->
-                                            <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>02</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img class=" bg-new-only" alt="CHO EM GẦN ANH TH&#202;M CH&#218;T NỮA" src="https://cms.megagscinemas.vn//media/75279/choem.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>CHO EM GẦN ANH THÊM CHÚT NỮA</span>
-                                                <br />
-                                                <span style="font-size: 11px;">
-                                                    CHO EM GẦN ANH THÊM CHÚT NỮA
-                                                </span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
-                                            <!-- tickets link-->
-                                            <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>02</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img class=" bg-new-only" alt="CHO EM GẦN ANH TH&#202;M CH&#218;T NỮA" src="https://cms.megagscinemas.vn//media/75279/choem.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>CHO EM GẦN ANH THÊM CHÚT NỮA</span>
-                                                <br />
-                                                <span style="font-size: 11px;">
-                                                    CHO EM GẦN ANH THÊM CHÚT NỮA
-                                                </span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
-                                            <!-- tickets link-->
-                                            <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>02</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img class=" bg-new-only" alt="CHO EM GẦN ANH TH&#202;M CH&#218;T NỮA" src="https://cms.megagscinemas.vn//media/75279/choem.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>CHO EM GẦN ANH THÊM CHÚT NỮA</span>
-                                                <br />
-                                                <span style="font-size: 11px;">
-                                                    CHO EM GẦN ANH THÊM CHÚT NỮA
-                                                </span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
-                                            <!-- tickets link-->
-                                            <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-items">
-                                        <a href="javascript:;">
-                                            <div class="icon-hot" style="display: block">
-                                                <img src="~/Assets/images/home/item-hot.png" />
-                                            </div>
-                                            <div class="episode-all" style="display: block">
-                                                <p>02</p>
-                                                <p class="custom-p">12</p>
-                                            </div>
-                                            <img class=" bg-new-only" alt="CHO EM GẦN ANH TH&#202;M CH&#218;T NỮA" src="https://cms.megagscinemas.vn//media/75279/choem.jpg?width=240&height=355" style="width: 240px; height: 355px" />
-                                        </a>
-                                        <!-- Link Product -->
-                                        <div class="links-produce">
-                                            <!-- zoom image-->
-                                            <a class="product-zoom open-popup" href="javascript:void(0)" data-youtube-id="Sk5-eC0CZrY" title=""></a>
-                                            <!-- Title product item-->
-                                            <div class="title-product-item">
-                                                <span>CHO EM GẦN ANH THÊM CHÚT NỮA</span>
-                                                <br />
-                                                <span style="font-size: 11px;">
-                                                    CHO EM GẦN ANH THÊM CHÚT NỮA
-                                                </span>
-                                            </div>
-                                            <!-- Detail link-->
-                                            <div class="detail-link"><a href="/phim/cho-em-gan-anh-them-chut-nua/"><span>Chi tiết >></span></a></div>
-                                            <!-- tickets link-->
-                                            <div class="tickets-link" style="display: block"><a href="/ShowTime.aspx?strName_Mv=CHO+EM+GAN+ANH+THEM+CHUT+NUA"><span><i class="icon-p fa fa-ticket"></i>Mua Vé</span></a></div>
-                                        </div>
-                                    </div>
+                                        }
+                                    }
+
                                 </div>
                                 <!-- View All Detail tabs -->
                             </div>
@@ -798,26 +409,17 @@
                         <!-- Slide Special Offer -->
                         <div class="special-offer">
                             <div class="spec">
-                                <div class='special-item'>
-                                    <a href='/uu-dai/mega-day-thu-4-hang-tuan/'><img alt='Mega Day - Thứ 4 h&#224;ng tuần' src='https://cms.megagscinemas.vn//media/1169/mega-day.jpg?width=320&height=240' style='width:320px;height:240px' /></a>
-                                    <a class='detail-spec' href='/uu-dai/mega-day-thu-4-hang-tuan/'><span>Chi tiết >></span></a>
-                                </div>
-                                <div class='special-item'>
-                                    <a href='/uu-dai/xem-phim-dong-gia-truoc-11-00/'><img alt='XEM PHIM ĐỒNG GI&#193; -  Trước 11:00' src='https://cms.megagscinemas.vn//media/50559/suat-som-web.png?width=320&height=240' style='width:320px;height:240px' /></a>
-                                    <a class='detail-spec' href='/uu-dai/xem-phim-dong-gia-truoc-11-00/'><span>Chi tiết >></span></a>
-                                </div>
-                                <div class='special-item'>
-                                    <a href='/uu-dai/xem-phim-khuya-chang-lo-ve-gia/'><img alt='XEM PHIM KHUYA CHẲNG LO VỀ GI&#193;' src='https://cms.megagscinemas.vn//media/74944/suat-khuya-webz.png?width=320&height=240' style='width:320px;height:240px' /></a>
-                                    <a class='detail-spec' href='/uu-dai/xem-phim-khuya-chang-lo-ve-gia/'><span>Chi tiết >></span></a>
-                                </div>
-                                <div class='special-item'>
-                                    <a href='/uu-dai/ngay-hoi-thanh-vien/'><img alt='NG&#192;Y HỘI TH&#192;NH VI&#202;N' src='https://cms.megagscinemas.vn//media/50531/members-day-c-web.jpg?width=320&height=240' style='width:320px;height:240px' /></a>
-                                    <a class='detail-spec' href='/uu-dai/ngay-hoi-thanh-vien/'><span>Chi tiết >></span></a>
-                                </div>
-                                <div class='special-item'>
-                                    <a href='/uu-dai/combo-kung-fu-panda-3/'><img alt='COMBO KUNG FU PANDA 3' src='https://cms.megagscinemas.vn//media/1230/combo-panda-web.png?width=320&height=240' style='width:320px;height:240px' /></a>
-                                    <a class='detail-spec' href='/uu-dai/combo-kung-fu-panda-3/'><span>Chi tiết >></span></a>
-                                </div>
+
+                                @{
+                                    foreach (var item in (IEnumerable<PromotionViewModel>)ViewData["PromotionBanner"])
+                                    {
+                                        <div class='special-item'>
+                                            <a href='#'><img alt='@item.PromotionHeader' src='~/Content/Promotion/@item.PromotionPoster' style='width:320px;height:240px' /></a>
+                                            <a class='detail-spec' href='#'><span>Chi tiết >></span></a>
+                                        </div>
+                                    }
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -840,56 +442,24 @@
                                 </div>
                                 <!-- Events contents-->
                                 <div class="contents-event row">
-                                    <div class="col-lg-6">
-                                        <div class='event-item'>
-                                            <div class='item-left'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'><img alt='Chi D&#226;n tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS' src='https://cms.megagscinemas.vn//media/75294/1.jpg?width=134' style='width:134px;'></a>
-                                            </div>
-                                            <div class='item-right'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'>
-                                                    <p>Chi Dân tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS</p>
-                                                </a><span>Địa điểm: Rạp MEGA GS Cinemas.<br /> Ngày 11/11/2016.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class='event-item'>
-                                            <div class='item-left'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'><img alt='Chi D&#226;n tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS' src='https://cms.megagscinemas.vn//media/75294/1.jpg?width=134' style='width:134px;'></a>
-                                            </div>
-                                            <div class='item-right'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'>
-                                                    <p>Chi Dân tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS</p>
-                                                </a><span>Địa điểm: Rạp MEGA GS Cinemas.<br /> Ngày 11/11/2016.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class='event-item'>
-                                            <div class='item-left'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'><img alt='Chi D&#226;n tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS' src='https://cms.megagscinemas.vn//media/75294/1.jpg?width=134' style='width:134px;'></a>
-                                            </div>
-                                            <div class='item-right'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'>
-                                                    <p>Chi Dân tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS</p>
-                                                </a><span>Địa điểm: Rạp MEGA GS Cinemas.<br /> Ngày 11/11/2016.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class='event-item'>
-                                            <div class='item-left'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'><img alt='Chi D&#226;n tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS' src='https://cms.megagscinemas.vn//media/75294/1.jpg?width=134' style='width:134px;'></a>
-                                            </div>
-                                            <div class='item-right'>
-                                                <a href='/su-kien/chi-dan-tung-mv-sau-khi-dieu-anh-biet-dat-30-trieu-view-tai-mega-gs/'>
-                                                    <p>Chi Dân tung MV sau khi Điều Anh biết đạt 30 triệu view tại Mega GS</p>
-                                                </a><span>Địa điểm: Rạp MEGA GS Cinemas.<br /> Ngày 11/11/2016.</span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-
+                                    @{
+                                        foreach (var item in (IEnumerable<EventTopicViewModel>)ViewData["EventTopic"])
+                                        {
+                                            <div class="col-lg-6">
+                                                <div class='event-item'>
+                                                    <div class='item-left'>
+                                                        <a href='#'><img alt='@item.EventTitle' src='https://cms.megagscinemas.vn//media/75294/1.jpg?width=134' style='width:134px;'></a>
+                                                    </div>
+                                                    <div class='item-right'>
+                                                        <a href='#'>
+                                                            <p>@item.EventTitle</p>
+                                                        </a><span>Địa điểm: Rạp MEGA GS Cinemas.<br /> Ngày 11/11/2016.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
 
                                 </div>
                             </div>
