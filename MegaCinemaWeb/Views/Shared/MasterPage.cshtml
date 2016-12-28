@@ -11,12 +11,35 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/scripts/css/index-css.css" rel="stylesheet" />
     <link href="~/scripts/css/jquery.bxslider.css" rel="stylesheet" />
-
-    <!--Add-->
     <link href="~/scripts/css/slick.css" rel="stylesheet" />
     <link href="~/scripts/css/jquery.jscrollpane.css" rel="stylesheet" />
     <link href="~/scripts/css/jquery.drawer.css" rel="stylesheet" />
-    <!--END-Add-->
+
+    <script>
+    function openyoutube(link){
+        var video_id = window.location.search.split('v=')[1];
+        var ampersandPosition = video_id.indexOf('&');
+        if(ampersandPosition != -1) {
+          video_id = video_id.substring(0, ampersandPosition);
+        }
+
+        var srcTL = link;
+        var str = "https://www.youtube.com/embed/" + srcTL + "?autoplay=1";
+        var iframe = '<div class="iframe-trailer">'+
+        '<iframe src="'+ str +'" allowfullscreen></iframe>'+
+        '</div>';
+        $('.show-content').append(iframe);
+        // Popup Display: block
+        $('.popup-main').fadeIn(500);
+        $('.popup-opacity').css('display', 'block');
+        // Close popup.
+        $('.popup-content .close-popup i').click(function () {
+            $('.popup-main').fadeOut(0);
+            $('.popup-opacity').css('display', 'none');
+            $('.iframe-trailer').remove();
+        });
+    }
+    </script>
 
 </head>
 
@@ -108,6 +131,23 @@
         </div>
         <!--END Content-->
 
+        <!--Popup trailer-->
+        <div class="popup-opacity"></div>
+        <div class="popup-main">
+            <div class="popup-content">
+                <div class="close-popup"><i></i></div>
+                <div class="show-content">
+                    <div class="iframe-trailer">
+                        <iframe allowfullscreen></iframe>
+                    </div>
+                    <div class="img-trailer">
+                        <img alt="" src="/web/20161022222229im_/https://www.megagscinemas.vn/images/movie-detail/detail-item/detail-01-1.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END - Popup trailer-->
+
         <!--Footer-->
         <div id="mega-footer">
             <div class="star-left"><img alt="" src="~/Assets/images/bg-footer.png" /></div>
@@ -171,11 +211,11 @@
     <!--END Main-wraper-->
 
     <!--js-->
-    <script src="js/ShowTimeHome.js"></script>
-    <script src="js/ShowTimeDetailHome.js"></script>
+    <script src="~/scripts/js/ShowTimeHome.js"></script>
+    <script src="~/scripts/js/ShowTimeDetailHome.js"></script>
 
     <script type="text/javascript" src="~/scripts/js/jquery.min.js"></script>
-    <script type="text/javascript" src="~/scriptsjs/index.js"></script>
+    <script type="text/javascript" src="~/scripts/js/index.js"></script>
 
     <script type="text/javascript" src="~/scripts/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/scripts/js/jquery.bxslider.js"></script>
