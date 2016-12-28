@@ -300,6 +300,17 @@
     <Content Include="Content\AdsBanner\BNN5.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cinemaBanner\1459914677337_6660381.jpg" />
+    <Content Include="Content\cinemaBanner\145991468142_1913758.jpg" />
+    <Content Include="Content\cinemaBanner\box-l7_2.jpg" />
+    <Content Include="Content\cinemaBanner\box-l7_3.jpg" />
+    <Content Include="Content\cinemaBanner\cinema-3-pepsi.jpg" />
+    <Content Include="Content\cinemaBanner\cinema-6-oppo.jpg" />
+    <Content Include="Content\cinemaBanner\cinema-6_2.jpg" />
+    <Content Include="Content\cinemaBanner\con-l7.jpg" />
+    <Content Include="Content\cinemaBanner\guest-service.jpg" />
+    <Content Include="Content\cinemaBanner\l6a.jpg" />
+    <Content Include="Content\cinemaBanner\lobby-7_1.jpg" />
     <Content Include="Content\FilmPoster\8-Choemdenngaymai.jpg" />
     <Content Include="Content\FilmPoster\FLM1.jpg" />
     <Content Include="Content\FilmPoster\FLM10.jpg" />
@@ -345,6 +356,9 @@
     <Content Include="Content\FoodList\tich-luy-50.png" />
     <Content Include="Content\FoodList\title.jpg" />
     <Content Include="Content\FoodList\wallsicecream.png" />
+    <Content Include="Content\GiaVe\holiday-price.png" />
+    <Content Include="Content\GiaVe\ve-2d-62016-lcd.png" />
+    <Content Include="Content\GiaVe\ve-3d-42016-lcd.png" />
     <Content Include="Content\images\background.png" />
     <Content Include="Content\images\bg-footer.png" />
     <Content Include="Content\images\cinema_icon.ico" />
@@ -377,6 +391,7 @@
     <Content Include="Content\Promotion\PRO3.png" />
     <Content Include="Content\Promotion\PRO4.jpg" />
     <Content Include="Content\Promotion\PRO5.png" />
+    <Content Include="Content\Promotion\valentine.png" />
     <Content Include="Content\Promotion\voucher %282%29.png" />
     <Content Include="Content\RoomFilm\coupleseat.png" />
     <Content Include="Content\RoomFilm\seatbooked.png" />
@@ -1842,6 +1857,15 @@
     <Content Include="Views\Booking\FilmSessionDetail.cshtml" />
     <Content Include="Views\Booking\TicketBookingView.cshtml" />
     <Content Include="Views\Shared\_AlertBox.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Home\FrequentlyAskedQuestions.cshtml" />
+    <Content Include="Views\Home\Hire.cshtml" />
+    <Content Include="Views\Home\Introduce.cshtml" />
+    <Content Include="Views\Home\PagePhim.cshtml" />
+    <Content Include="Views\Home\PageRapGiaVe.cshtml" />
+    <Content Include="Views\Home\PageUuDai.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

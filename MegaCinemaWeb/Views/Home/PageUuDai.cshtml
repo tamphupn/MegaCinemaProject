@@ -1,0 +1,79 @@
+﻿@using MegaCinemaWeb.Models;
+@using System.Globalization;
+
+@{
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+    ViewBag.Title = "Ưu đãi | Hệ thống bán vé rạp chiếu phim Megastar";
+    ViewBag.FeatureTitle = "Ưu đãi";
+}
+
+
+
+<!--Content-->
+<div id="wrapper">
+    <div class="container">
+        <!-- ROW -->
+        <div class="row mega-content">
+            <!--Title-->
+            <div class="view-title-repeat" style="margin-left: 20px; margin-right: 10px;">
+                <div class="title-center">
+                    <img src="~/Assets/images/item-deal.png" height="32" />
+                    <span>Ưu đãi</span>
+                </div>
+            </div>
+            <!--END Title-->
+            @{
+                IList<PromotionCineViewModel> listPromotionCine = ViewData["PromotionCineList"] as IList<PromotionCineViewModel>;
+                foreach (var itemCinema in ViewData["CinemaList"] as IList<CinemaViewModel>)
+                {
+                    <div class="rap-gv-select" style="display:block; margin-left: 20px;">
+                        <div class="ud-select-group clearfix">
+                            <div class="text-title">
+                                <label>Ưu đãi tại:</label>
+                            </div>
+                            <div class="content-title">
+                                <div class="ud-Select-all">
+                                    <span style='color:#ffd555;font-weight: bold;display: inline-block;font-family:Open Sans Condensed, sans-serif;font-size: 18px;text-transform: capitalize;'>@itemCinema.CinemaFullName</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LIST SERVICES -->
+                    string promotionPosterUrl;
+                    string promotionHeader;
+                    string promotionDateStart;
+                    string promotionDateFinish;
+
+                    foreach (var itemPromotion in ViewData["PromotionBanner"] as IList<PromotionViewModel>)
+                    {
+                        foreach (var itemPromotionCine in listPromotionCine)
+                        {
+                            if (itemPromotion.PromotionID == itemPromotionCine.PromotionID && itemCinema.CinemaID == itemPromotionCine.CinemaID)
+                            {
+
+                                promotionPosterUrl = @"/Content/Promotion/" + itemPromotion.PromotionPoster + "?width=345&height=256";
+                                promotionHeader = itemPromotion.PromotionHeader;
+                                promotionDateStart = itemPromotion.PromotionDateStart.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+                                promotionDateFinish = itemPromotion.PromotionDateFinish.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+
+                                <div class="col-lg-4 ud-list-all">
+                                    <div class="ud-group">
+                                        <a href="#">
+                                            <div class="img-ud"><img alt="@promotionHeader - từ @promotionDateStart đến @promotionDateFinish" src="@promotionPosterUrl"></div>
+                                            <p>@promotionHeader - từ @promotionDateStart đến @promotionDateFinish</p><span></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                    <div style="clear:both"></div>
+                }
+                    <!-- END - LIST SERVICES -->
+            }
+        </div><!-- END - ROW -->
+
+    </div>
+</div>
+<!--END Content-->

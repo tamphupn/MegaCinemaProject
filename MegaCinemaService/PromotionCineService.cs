@@ -16,6 +16,7 @@ namespace MegaCinemaService
         IEnumerable<Promotion> GetAllPromotionHeader();
         //triển khai các phương thức của service
         void SaveChanges();
+        IEnumerable<PromotionCine> GetAll();
     }
     public class PromotionCineService : IPromotionCineService
     {
@@ -50,6 +51,12 @@ namespace MegaCinemaService
         public IEnumerable<Promotion> GetAllPromotionHeader()
         {
             return _promotionRepository.GetAll();
+        }
+
+        public IEnumerable<PromotionCine> GetAll()
+        {
+            var result = _promotionCineRepository.GetAll();
+            return result;
         }
     }
 }
