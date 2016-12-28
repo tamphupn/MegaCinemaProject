@@ -50,7 +50,7 @@ namespace MegaCinemaModel.Models
         [ForeignKey("StaffID")]
         public virtual Staff Staff { get; set; }
 
-        public virtual FilmCalendarCreate FilmCalendarCreate { get; set; }
+        public virtual ICollection<FilmCalendarCreate> FilmCalendarCreate { get; set; }
 
     }
 }

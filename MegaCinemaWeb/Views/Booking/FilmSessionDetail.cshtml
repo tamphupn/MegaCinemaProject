@@ -1,0 +1,28 @@
+﻿@using MegaCinemaWeb.Models;
+@model IEnumerable<MegaCinemaWeb.Models.FilmCalendarCreateViewModel>
+
+@{
+    ViewBag.Title = ViewBag.FeatureTitle = "Thông tin chi tiết phim";
+    ViewBag.PageDirection = "Thông tin chi tiết phim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var modelPhim = (FilmViewModel)ViewData["FilmDetailSession"];
+}
+<div class="film-area">
+    <p>Tên phim: @modelPhim.FilmName</p>
+</div>
+
+<div class="row">
+    <input type="text" class="form-control adult" placeholder="Số lượng vé thường người lớn..." />
+    <br />
+    <input type="text" class="form-control adult-vip" placeholder="Số lượng vé thường người lớn vip..." />
+    <br/>
+</div>
+
+<div class="time-session-detail-area">
+    <div><input type="button" sessionFilm=1 class="btn btn-primary session-film-booking" value="9h30" onclick="AddDetailBooking($(this))" /></div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Content/scripts/Client/js/bookingTicket.js"></script>

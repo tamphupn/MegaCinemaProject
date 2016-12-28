@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using MegaCinemaService;
 using AutoMapper;
 using MegaCinemaCommon.StatusCommon;
+using MegaCinemaData.SampleData;
 using MegaCinemaWeb.Models;
 
 namespace MegaCinemaWeb.Controllers
@@ -39,6 +40,7 @@ namespace MegaCinemaWeb.Controllers
         #region Minh: site Home page
         public ActionResult HomePage()
         {
+            var result = SampleData.GenerateSeatState();
             //get Film banner site + banner + event topic 
             var filmSlider = _filmService.GetAll();
             var resultVm = Mapper.Map<IEnumerable<FilmViewModel>>(filmSlider);

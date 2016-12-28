@@ -65,6 +65,8 @@ namespace MegaCinemaWeb.App_Start
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            app.MapSignalR();
         }
     }
 }

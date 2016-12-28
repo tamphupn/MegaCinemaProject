@@ -7,25 +7,85 @@ using System.Web.Script.Serialization;
 
 namespace MegaCinemaCommon.BookingTicket
 {
-    interface IBookingTimeHelpers
+
+    public static class BookingTimeHelpers
     {
-        //BookingPlan GenerateSampleData();
-        string ConvertBookingTimeToJson(BookingPlan bookingPLan);
-        BookingPlan ConvertJsonToBookingTime(string jBookingPlan);
-    }
-    public class BookingTimeHelpers : IBookingTimeHelpers
-    {
-        public string ConvertBookingTimeToJson(BookingPlan bookingPLan)
+        public static string ConvertBookingPlanToJson(BookingPlan bookingPLan)
         {
             var temp = new JavaScriptSerializer().Serialize(bookingPLan);
             return temp;
         }
 
-        public BookingPlan ConvertJsonToBookingTime(string jBookingPlan)
+        public static BookingPlan ConvertJsonToBookingPlan(string jBookingPlan)
         {
             var temp = new JavaScriptSerializer().Deserialize<BookingPlan>(jBookingPlan);
             return temp;
         }
+
+
+        public static string ConvertBookingTimeToJson(BookingPlan bookingPLan)
+        {
+            var temp = new JavaScriptSerializer().Serialize(bookingPLan);
+            return temp;
+        }
+
+        public static BookingPlan ConvertJsonToBookingTime(string jBookingPlan)
+        {
+            var temp = new JavaScriptSerializer().Deserialize<BookingPlan>(jBookingPlan);
+            return temp;
+        }
+
+        public static string ConvertCalendarToJson(BookingPlanTime time)
+        {
+            var temp = new JavaScriptSerializer().Serialize(time);
+            return temp;
+        }
+
+        public static BookingPlanTime ConvertJsonToCalendar(string json)
+        {
+            var temp = new JavaScriptSerializer().Deserialize<BookingPlanTime>(json);
+            return temp;
+        }
+
+
+        public static string ConvertBookingSessionToJson(SeatState seatState)
+        {
+            var temp = new JavaScriptSerializer().Serialize(seatState);
+            return temp;
+        }
+
+        public static SeatState ConvertJsontoBookingTime(string jBookingPlan)
+        {
+            var temp = new JavaScriptSerializer().Deserialize<SeatState>(jBookingPlan);
+            return temp;
+        }
+
+        public static SeatState ChangeStateSeat(int? xLocation, int? yLocation, int? type, SeatState seatState)
+        {
+            int? indexSelect = seatState.Width * yLocation + xLocation;
+            seatState.LstSeatStates[(int)indexSelect].StateSeat = (int)type;
+            return seatState;
+        }
+
+        public static int[][] GenerateSeatState(SeatState seatState)
+        {
+            int[][] result = new int[seatState.Height][];
+            for (int i = 0; i < seatState.Height; i++)
+            {
+                result[i] = new int[seatState.Width];
+            }
+
+            int count = 0;
+            for (int i = 0; i < seatState.Height; i++)
+                for (int j = 0; j < seatState.Width; j++)
+                {
+                    result[i][j] = seatState.LstSeatStates[count].StateSeat;
+                    count++;
+                }
+
+            return result;
+        }
+
         //public BookingPlan GenerateSampleDataVersonSecond()
         //{
         //    BookingPlan value = new BookingPlan();

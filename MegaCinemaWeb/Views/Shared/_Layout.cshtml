@@ -4,13 +4,12 @@
     <title>Hệ thống bán vé rạp chiếu phim Megastar</title>
     <link rel="icon" href="../../Content/images/cinema_icon.ico" type="image/ico" size="16x16" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devide-width, initial-scale=1">
     <meta name="keywords" content="Hệ thống bán vé online, Hệ thống rạp lớn nhất việt nam, hệ thống bán vé nhanh nhất việt nam" />
     <!--Bootstrap core css-->
     <link rel="stylesheet" href="~/Content/scripts/Client/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/scripts/Client/css/font-awesome.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="~/Content/scripts/Client/css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/scripts/Client/css/index-css.css">
+    <link href="~/scripts/css/index-css.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -97,7 +96,7 @@
         <!--page direction-->
         <div class="text-titles">
             <div class="title-span">
-                <a href="#">Trang chủ</a> > Page
+                <a href="#">Trang chủ</a> > @ViewBag.PageDirection
             </div>
         </div>
         <!--end of page direction--->
@@ -179,10 +178,9 @@
     </div>
 
     <!--js-->
-    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryClient")
-    @*<script type="text/javascript" src="~/Content/scripts/Client/js/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Content/scripts/Client/js/index.js"></script>
-    <script type="text/javascript" src="~/Content/scripts/Client/js/jquery.bxslider.js"></script>*@
+    @*<script src="~/scripts/js/jquery-1.6.4.min.js"></script>*@
+    <script src="~/scripts/js/index.js"></script>
+    <script src="~/scripts/js/jquery.bxslider.js"></script>
     @RenderSection("scriptData",false)
 </body>
 
