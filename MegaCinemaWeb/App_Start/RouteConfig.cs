@@ -14,6 +14,13 @@ namespace MegaCinemaWeb
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "DatVe",
+                url: "dat-ve/Session=",
+                defaults: new { controller = "Booking", action = "FilmSessionDetail", id = UrlParameter.Optional },
+                namespaces: new[] { "MegaCinemaWeb.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "TrangChu",
                 url: "TrangChu",
                 defaults: new { controller = "Home", action = "HomePage", id = UrlParameter.Optional },

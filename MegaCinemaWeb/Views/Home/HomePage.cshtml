@@ -12,7 +12,6 @@
     <!--LEFT-->
     <div class="col-lg-9" style="margin-right: -29px;">
         <div class="bxslider" style="width: auto; position: relative;">
-
             @{
                 foreach (var item in (IEnumerable<AdsBannerViewModel>)ViewData["AdsBanner"])
                 {
@@ -52,11 +51,12 @@
                                 <span class="selected">MEGA GS CAO THẮNG</span>
                                 <div class="selectOptions" style="display: none">
                                     <div class="bg-opacity">
-                                        <span class="selectOption">MEGA GS CAO THẮNG</span>
-                                        <span class="selectOption">MEGA GS Quận 8</span>
-                                        <span class="selectOption">MEGA GS Phú Yên</span>
-                                        <span class="selectOption">MEGA GS Quảng Bình</span>
-                                        <span class="selectOption">MEGA GS Bình Thuận</span>
+                                        @{
+                                            foreach (var item in (IEnumerable<CinemaViewModel>)ViewData["CinemaID"])
+                                            {
+                                                <span class="selectOption">@item.CinemaFullName</span>
+                                            }
+                                        }
                                     </div>
                                 </div>
                                 <i class="icon-down"></i>
@@ -65,12 +65,13 @@
                                 <span class="selected" strmv="">Chọn phim</span>
                                 <div class="selectOptions" style="display: none">
                                     <div class="bg-opacity">
+                                        @{
+                                            foreach (var item in (IEnumerable<FilmViewModel>)ViewData["FilmSapChieu"])
+                                            {
+                                                <span class="selectOption">@item.FilmName</span>
+                                            }
+                                        }
                                         <!-- <div class="group_lists"></div> -->
-                                        <span class="selectOption">Cô giáo thảo 18+</span>
-                                        <span class="selectOption">Ni cô chải tóc bên bờ suối</span>
-                                        <span class="selectOption">Những cô gái tầng 11</span>
-                                        <span class="selectOption">Cao ốc ảo diệu</span>
-                                        <span class="selectOption">Số phận diệu kỳ</span>
                                     </div>
                                 </div>
                                 <i class="icon-down"></i>
@@ -81,9 +82,6 @@
                                 <div class="selectOptions" style="display: none">
                                     <div class="bg-opacity">
                                         <p class="title">SINH VẬT HUYỀN BÍ VÀ NƠI TÌM RA CHÚNG - 2D SUB/ PHỤ ĐỀ</p>
-                                        <div class="date-item">
-                                            <p>Hôm nay: Đéo chiếu!!!</p>
-                                        </div>
                                         <div class="date-item">
                                             <p>Ngày mai (2-12)</p>
                                             <div class="cust_padd_left">
@@ -179,8 +177,8 @@
                                         <img src="~/Assets/images/home/item-hot.png" />
                                     </div>
                                     <div class="episode-all" style="display: block">
-                                        <p>16</p>
-                                        <p class="custom-p">12</p>
+                                        <p>@item.CreatedDate.Value.Day</p>
+                                        <p class="custom-p">@item.CreatedDate.Value.Month</p>
                                     </div>
                                     <img class="bg-new-only" alt="@item.FilmName" src="~/Content/FilmPoster/@item.FilmPoster" style="width: 240px; height: 355px" />
                                 </a>

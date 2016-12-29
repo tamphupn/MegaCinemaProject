@@ -397,7 +397,24 @@ namespace MegaCinemaWeb.Models
         [DisplayName("Số lượng ghế Vip")]
         [Required(ErrorMessage = "Số lượng ghế vip không được để trống")]
         public int VipTicket { get; set; }
+
+        [DisplayName("Số lượng ghế thường")]
+        [Required(ErrorMessage = "Số lượng ghế thường không được để trống")]
         public int SimpleTicket { get; set; }
+    }
+
+    public class BookingTicketViewModel
+    {
+        public int BookingTicketID { get; set; }
+        public string BookingTicketPrefix { get; set; }
+        public string BookingTicketCode { get; set; }
+        public int BookingTicketFilmID { get; set; }
+        public int BookingTicketRoomID { get; set; }
+        public string BookingTicketTimeDetail { get; set; }
+        public decimal BookingTicketPrice { get; set; }
+        public DateTime BookingPaymentDate { get; set; }
+        public int? CustomerID { get; set; }
+        public string BookingTicketStatusID { get; set; }
     }
     #endregion 
 }

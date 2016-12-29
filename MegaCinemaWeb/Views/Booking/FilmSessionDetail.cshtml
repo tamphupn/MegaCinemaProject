@@ -13,15 +13,36 @@
     <p>Tên phim: @modelPhim.FilmName</p>
 </div>
 
-<div class="row">
-    <input type="text" class="form-control adult" placeholder="Số lượng vé thường người lớn..." />
+<div class="row" style="margin-bottom:5px">
+    <input type="number" class="form-control adult" placeholder="Số lượng vé thường người lớn..." />
     <br />
-    <input type="text" class="form-control adult-vip" placeholder="Số lượng vé thường người lớn vip..." />
+    <input type="number" class="form-control adult-vip" placeholder="Số lượng vé thường người lớn vip..." />
     <br/>
 </div>
 
-<div class="time-session-detail-area">
-    <div><input type="button" sessionFilm=1 class="btn btn-primary session-film-booking" value="9h30" onclick="AddDetailBooking($(this))" /></div>
+<div class="time-session-detail-area" style="margin-bottom: 20px">
+    <div class="row">
+        <div class="col-md-2">
+            <input type="button" sessionFilm=1 class="btn btn-primary session-film-booking" value="9h30" onclick="AddDetailBooking($(this))" style="margin-bottom: 5px" />
+
+        </div>
+        <div class="col-md-2">
+            <input type="button" sessionFilm=2 class="btn btn-primary session-film-booking" value="11h30" onclick="AddDetailBooking($(this))" style="margin-bottom: 5px" />
+        </div>
+        <div class="col-md-2">
+            <input type="button" sessionFilm=3 class="btn btn-primary session-film-booking" value="1h30" onclick="AddDetailBooking($(this))" style="margin-bottom: 5px" />
+        </div>
+        <div class="col-md-2">
+            <input type="button" sessionFilm=4 class="btn btn-primary session-film-booking" value="3h30" onclick="AddDetailBooking($(this))" style="margin-bottom: 5px" />
+        </div>
+        <div class="col-md-2">
+            <input type="button" sessionFilm=5 class="btn btn-primary session-film-booking" value="5h30" onclick="AddDetailBooking($(this))" style="margin-bottom: 5px" />
+        </div>
+        <div class="col-md-2">
+            <input type="button" sessionFilm=6 class="btn btn-primary session-film-booking" value="8h30" onclick="AddDetailBooking($(this))" style="margin-bottom: 5px" />
+        </div>
+    </div>
+
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>

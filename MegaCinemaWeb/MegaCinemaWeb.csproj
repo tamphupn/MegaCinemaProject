@@ -1755,6 +1755,7 @@
     <Content Include="Areas\AdminDashboard\Views\RoomFilm\SeatTableDetail.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\Shared\_bookingAlert.cshtml" />
     <Content Include="Areas\AdminDashboard\Views\FilmCategory\Edit.cshtml" />
+    <Content Include="Areas\AdminDashboard\Views\BookingTicket\Index.cshtml" />
     <None Include="scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="scripts\css\bootstrap.min.css" />
     <Content Include="scripts\css\font-awesome.css" />
@@ -1801,6 +1802,7 @@
     <Compile Include="Areas\AdminDashboard\Authorized\AuthorizeCustom.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\AccountController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\BaseController.cs" />
+    <Compile Include="Areas\AdminDashboard\Controllers\BookingTicketController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\CinemaController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\CinemaFeatureController.cs" />
     <Compile Include="Areas\AdminDashboard\Controllers\FilmCategoryController.cs" />
@@ -1852,7 +1854,6 @@
     <Content Include="Views\Shared\_loginPartial.cshtml" />
     <Content Include="Views\Account\CustomerRegister.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_Update.cshtml" />
     <Content Include="Views\Booking\FilmSessionDetail.cshtml" />
     <Content Include="Views\Booking\TicketBookingView.cshtml" />
@@ -1866,6 +1867,8 @@
     <Content Include="Views\Home\PageRapGiaVe.cshtml" />
     <Content Include="Views\Home\PageUuDai.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Shared\MasterPage.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

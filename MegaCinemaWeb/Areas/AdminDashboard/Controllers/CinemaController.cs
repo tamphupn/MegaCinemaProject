@@ -14,7 +14,7 @@ using MegaCinemaWeb.Infrastructure.Core;
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
     //[Authorize]
-    public class CinemaController : Controller
+    public class CinemaController : BaseController
     {
         //TEST
         ICinemaService _cinemaService;

@@ -78,6 +78,11 @@ namespace MegaCinemaWeb.Controllers
             var promotion = _promotionService.GetAll(ParametersContrants.CONTENT_GET);
             var promotionVm = Mapper.Map<IEnumerable<PromotionViewModel>>(promotion);
             ViewData["PromotionBanner"] = promotionVm;
+
+            //cinema 
+            var cinemas = _cinemaService.GetAll();
+            var cinemasVm = Mapper.Map<IEnumerable<CinemaViewModel>>(cinemas);
+            ViewData["CinemaID"] = cinemasVm;
             return View(resultVm);
         }
 
@@ -112,7 +117,7 @@ namespace MegaCinemaWeb.Controllers
             return View();
         }
 
-        public ActionResult Introduce()
+        public ActionResult ContactIntroduce()
         {
             return View();
         }

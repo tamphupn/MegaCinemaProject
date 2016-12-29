@@ -136,6 +136,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             var user = await UserManager.FindByEmailAsync(model.Email);
             var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
 
+            if (user.Customer != null) return RedirectToAction("Login", "Account");
             switch (result)
             {
                 case SignInStatus.Success:
@@ -214,6 +215,7 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
                 try
                 {
                     var result = await UserManager.CreateAsync(user, model.Password);
+                    
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

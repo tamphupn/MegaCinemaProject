@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdsBannerService.cs" />
+    <Compile Include="BookingTicketService.cs" />
     <Compile Include="CinemaFeatureService.cs" />
     <Compile Include="CinemaService.cs" />
+    <Compile Include="CustomerService.cs" />
     <Compile Include="DetailCategoryService.cs" />
     <Compile Include="DetailFormatService.cs" />
     <Compile Include="EventTopicService.cs" />

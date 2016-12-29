@@ -46,6 +46,11 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.SimpleTicket, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.SimpleTicket, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
         <div class="Row">
             <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-floppy-o" aria-hidden="true"></i> Tạo phòng chiếu</button>
         </div>

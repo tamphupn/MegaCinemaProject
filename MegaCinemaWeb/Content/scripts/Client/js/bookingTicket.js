@@ -181,10 +181,16 @@ function Update(item) {
         },
         dataType: 'json',
         success: function (respone) {
-            if (respone.status) {
+            if (respone.status == "OK") {
                 alert('đặt vé thành công');
-                //window.location.href = '/Home/PaymentTicket';
+                setTimeout(function() {
+                    window.location.href = '/Home/HomePage';
+                },2000);            
             }
+            else if (respone.status == "KO") {
+                alert('đặt vé thất bại');
+            }
+
         },
         error: function (xhr) {
             console.log('failed');

@@ -13,6 +13,7 @@ namespace MegaCinemaService
     {
         IEnumerable<Staff> GetAll();
         ApplicationUser Find(int i);
+        ApplicationUser FindApplicationUser(string id);
     }
 
     public class StaffService : IStaffService
@@ -29,6 +30,11 @@ namespace MegaCinemaService
         public ApplicationUser Find(int i)
         {
             return _staffRepository.FindStaff(i);
+        }
+
+        public ApplicationUser FindApplicationUser(string id)
+        {
+            return _staffRepository.FindApplicationUser(id);
         }
 
         public IEnumerable<Staff> GetAll()

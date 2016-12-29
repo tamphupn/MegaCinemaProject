@@ -16,10 +16,11 @@
 @{
     var ticketDetail = (TicketDetailViewModel)ViewData["detailSessionTicket"];
 }
-<div class="row">
+<div class="row" style="margin-bottom:10px">
     <div class="ticket-user-detail">
         <input type="hidden" class="ticket-room-session" value=@ViewData["InfoTimeSession"] />
-        <input type="text" class="ticket-room-time" value=@Model.TimeSessionID />
+        <input type="hidden" class="ticket-room-time" value=@Model.TimeSessionID />
+        <h3></h3>
         <ul>
             <li>
                 <p>
@@ -154,11 +155,38 @@
     }
 </script>
 
-<div class="row">
-    <h4>Khu vực chọn vé của hệ thống</h4>
-    <div class="tables-seat-area" style=" background-color: white">
-        @Html.Action("UpdateSeatState", "Booking")
+
+<div id="seat-table-create-map">
+    <div id="divLegend" style="text-align: center">
+        <span class="case-simple-detail" style="cursor: pointer">
+            <img id="imgEmpty" class="ImageAppletExample" src="~/Content/RoomFilm/coupleseat.png" />
+            <span id="lblEmpty" class="Legend">Khu vực Standard</span>
+        </span>
+        <span class="case-vip-detail" style="cursor: pointer">
+            <img id="imgSold" class="ImageAppletExample" src="~/Content/RoomFilm/seatvip.png" />
+            <span id="lblSold" class="Legend">Khu vực Vip</span>
+        </span>
+        <span>
+            <img id="imgSold" class="ImageAppletExample" src="~/Content/RoomFilm/seatnone.png" />
+            <span id="lblSold" class="Legend">Khu vực không sử dụng</span>
+        </span>
+        <div class="Seating-Screen">
+            <img src="~/Content/RoomFilm/SeatScreen.png" style="width: 270px;height:25px" />
+        </div>
     </div>
+    
+</div>
+
+<div class="row" style="margin-bottom:10px">
+    <h4>Khu vực chọn vé của hệ thống</h4>
+    <div class="col-md-4"></div>
+    <div class="tables-seat-area col-md-4" style="background-color: white; margin-left:15px">
+        @Html.Action("UpdateSeatState", "Booking")
+       
+    </div>
+    <div class="col-md-4"></div>
+
+    
 </div>
 
 <div class="row control-booking-area">

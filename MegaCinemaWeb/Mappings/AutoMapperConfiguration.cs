@@ -25,6 +25,7 @@ namespace MegaCinemaWeb.Mappings
             Mapper.CreateMap<FilmCalendarCreate, FilmCalendarCreateViewModel>();
             Mapper.CreateMap<TimeSession, TimeSessionViewModel>();
             Mapper.CreateMap<PromotionCine, PromotionCineViewModel>();
+            Mapper.CreateMap<BookingTicket, BookingTicketViewModel>();
         }
     }
 }

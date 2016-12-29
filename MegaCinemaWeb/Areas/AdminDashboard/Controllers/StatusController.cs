@@ -8,7 +8,7 @@ using MegaCinemaWeb.Models;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
-    public class StatusController : Controller
+    public class StatusController : BaseController
     {
         // GET: AdminDashboard/Status
         public ActionResult Index()

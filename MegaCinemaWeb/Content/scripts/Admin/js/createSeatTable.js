@@ -11,36 +11,88 @@
 };
 
 var numberVipTicket = 0;
+var numberSimpleTicket = 0;
 var seatTableState = [];
+var typeTicket = -1;
+var rows = 0;
+var columns = 0;
+//0 - simple 
+//1 - vip
+//-1 - none
 
 $(document).ready(function () {
     numberVipTicket = parseInt($('.vip-ticket-detail').text());
+    numberSimpleTicket = parseInt($('.simple-ticket-detail').text());
+    rows = parseInt($('#seat-table-height').val());
+    columns = parseInt($('#seat-table-width').val());
     init();
     $('#seat-table-create-event').click(function (event) {
         event.stopImmediatePropagation();
-
+        CollectSeatTable();
     });
 
+    //asssign event for ticket
+    $('.case-vip-detail')
+        .click(function(event) {
+            event.stopImmediatePropagation();
+            typeTicket = 1;
+            $('.case-vip-detail').attr('style', 'color:red');
+            $('.case-simple-detail').attr('style', 'color:black');
+        });
+
+    $('.case-simple-detail')
+       .click(function (event) {
+           event.stopImmediatePropagation();
+           typeTicket = 0;
+           $('.case-vip-detail').attr('style', 'color:black');
+           $('.case-simple-detail').attr('style', 'color:red');
+       });
+
     $('.' + settings.seatCss).click(function () {
-        if ($(this).hasClass('seat-clicked')) {
-            numberVipTicket = numberVipTicket + 1;
-            $(this).removeClass(settings.selectingSeatCss);
-            $(this).removeClass('seat-clicked');
-            seatTableState[$(this).attr('title')].Value = 0;
-            console.log($(this).attr('title'));
-            $(this).attr('value', "");
+        if (typeTicket == 1) {
+            if ($(this).hasClass('seat-clicked')) {
+                numberVipTicket = numberVipTicket + 1;
+                $(this).removeClass(settings.selectingSeatCss);
+                $(this).removeClass('seat-clicked');
+                seatTableState[$(this).attr('title')].Value = 4;
+                console.log($(this).attr('title'));
+                $(this).attr('value', "");
+            }
+            else {
+                if (numberVipTicket == 0) {
+                    ModalConfirm();
+                } else {
+                    $(this).toggleClass(settings.selectingSeatCss);
+                    $(this).addClass('seat-clicked');
+                    $(this).attr('value', 2);
+
+                    seatTableState[$(this).attr('title')].Value = 2;
+                    console.log(seatTableState[$(this).attr('title')].Value);
+                    numberVipTicket = numberVipTicket - 1;
+                }
+            }
         }
-        else {
-            if (numberVipTicket == 0) {
-                ModalConfirm();
-            } else {
-                $(this).toggleClass(settings.selectingSeatCss);
-                $(this).addClass('seat-clicked');
-                $(this).attr('value', 1);
-                
-                seatTableState[$(this).attr('title')].Value = 1;
-                console.log(seatTableState[$(this).attr('title')].Value);
-                numberVipTicket = numberVipTicket - 1;
+        else if (typeTicket == 0) {
+            if ($(this).hasClass('seat-clicked')) {
+                numberSimpleTicket = numberSimpleTicket + 1;
+                $(this).removeClass('seat-simple-clicked');
+                $(this).removeClass('seat-clicked');
+                seatTableState[$(this).attr('title')].Value = 4;
+                console.log($(this).attr('title'));
+                $(this).attr('value', "4");
+            }
+            else {
+                if (numberSimpleTicket == 0) {
+                    ModalConfirm();
+                } else {
+                    $(this).toggleClass('seat-simple-clicked');
+                    $(this).addClass('seat-clicked');
+                    $(this).attr('value', 1);
+
+                    seatTableState[$(this).attr('title')].Value = 1;
+                    console.log(seatTableState[$(this).attr('title')].Value);
+                    numberSimpleTicket = numberSimpleTicket - 1;
+                }
             }
         }
     });
@@ -69,7 +121,7 @@ var init = function (reservedSeat) {
             objectProduct.Title = seatNo;
             objectProduct.Value = 0;
             str.push('<li class="' + className + '"' +
-                      'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px" title="' + seatNo + '" value="">' +
+                      'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px" title="' + seatNo + '" value="4">' +
                       '<a title="' + seatNo + '">' + seatNo + '</a>' +
                       '</li>');
             seatTableState.push(objectProduct);
@@ -79,16 +131,37 @@ var init = function (reservedSeat) {
     $('#place').html(str.join(''));
 };
 
-function SeatGenerate() {
-    var lstResult = [];
-    
-}
-
 function CollectSeatTable() {
-    alert(seatTableState[1].Value);
-    var objectResult = {
-        rows: $('#seat-table-height').val(),
-        cols: $('#seat-table-width').val(),
-        tableSeat: null,
-    };
+    console.log(rows + " " + columns);
+    $.ajax({
+        url: '/RoomFilm/CreateRoomFilm',
+        type: 'POST',       
+        dataType: 'JSON',
+        async: true,
+        beforeSend: function () {
+            $.blockUI({
+                message: '<img src="../../../Assets/loading.gif" style="width:150px; height:150px"/>',
+                css: {
+                    border: 'none',
+                    backgroundColor: 'transparent'
+                }
+            });
+        },
+        data: {
+            width: columns,
+            height: rows,
+            seatValueState: JSON.stringify(seatTableState),
+        },
+        success: function (respone) {
+            $.unblockUI();
+            if (respone.status === "OK") {
+                alert("Đặt thành công");
+            } else
+                alert("đặt thất bại");
+        },
+        error: function (xhr) {
+            $.unblockUI();
+            console.log(xhr.message);
+        }
+    });
 }

@@ -1,0 +1,117 @@
+﻿@using MegaCinemaWeb.Models;
+@using MegaCinemaWeb.Infrastructure.Core;
+
+@model PaginationSet<BookingTicketViewModel>
+@{
+    ViewBag.Title = ViewBag.FeatureTitle = "Danh sách vé trong phòng chiếu";
+    Layout = "~/Areas/AdminDashboard/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-custom">
+        <thead>
+            <tr>
+                <th>
+                    Mã vé
+                </th>
+                <th>
+                    Ngày thanh toán
+                </th>
+                <th>
+                    Trạng thái vé
+                </th> 
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @item.BookingTicketCode
+                        </td>
+                        <td>
+                            @item.BookingPaymentDate.Day/@item.BookingPaymentDate.Month/@item.BookingPaymentDate.Year
+                        </td>
+                        @{
+                            if (item.BookingTicketStatusID == "AC")
+                            {
+                                <td>Đã hoàn thành</td>
+                            }
+                            else
+                                if (item.BookingTicketStatusID == "NOT")
+                            {
+                                <td>Chưa hoàn thành</td>
+                            }
+                        }
+
+                    </tr>
+                            }
+
+                            <div style="clear:both"></div>
+                            }
+                            else
+                            {
+                                <tr>Không có sản phẩm hiển thị</tr>
+                            }
+        </tbody>
+    </table>
+</div>
+
+
+
+@if (Model.TotalPages > 1)
+{
+    var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+    var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @if (Model.Page > 1)
+            {
+                <li>
+                    <a href="?page=1" aria-label="First">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </li>
+            }
+            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                {
+                    if (Model.Page == i)
+                    {
+                    <li class="active"><a href="?page=@i" title="Trang @i">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                }
+            }
+            @if (Model.Page < Model.TotalPages)
+                {
+                <li>
+                    <a href="?page=@(Model.Page+1)" aria-label="Next">
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=@Model.TotalPages" aria-label="Last">
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+@Html.Partial("_ConfirmBox")
+
+@section Scripts {
+    <script src="@Url.Content("~/scripts/jquery.blockUI.js")"></script>
+}
+

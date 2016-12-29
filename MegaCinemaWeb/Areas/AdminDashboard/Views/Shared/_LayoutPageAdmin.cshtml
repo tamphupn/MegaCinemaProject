@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,13 +31,17 @@
 
                     <!-- menu profile quick info -->
                     <div class="profile">
-                        <div class="profile_pic">
-                            <img src="~/Content/images/background.png" alt="..." class="img-circle profile_img">
-                        </div>
-                        <div class="profile_info">
-                            <span>Xin chào,</span>
-                            <h2>Phạm phú</h2>
-                        </div>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <div class="profile_pic">
+                                <img src="~/Content/images/background.png" alt="..." class="img-circle profile_img">
+                            </div>
+                            <div class="profile_info">
+                                <span>Xin chào,</span>
+                                <h2>@User.Identity.GetUserName()</h2>
+                            </div>
+                        }
+                        
                     </div>
 
                     <!-- /menu profile quick info -->
@@ -51,9 +56,12 @@
                                 <li>
                                     <a><i class="fa fa-home"></i>Thông tin rạp phim<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="#">Thêm rạp phim mới</a></li>
-                                        <li><a href="#">Danh sách rạp phim của hệ thống</a></li>
-                                        <li><a href="#">Thêm người quản lý cho rạp phim</a></li>
+                                        <li>
+                                            @Html.ActionLink("Thêm rạp phim mới","Create","Cinema")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Danh sách rạp phim", "Index", "Cinema")
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
@@ -69,9 +77,10 @@
                                 <li>
                                     <a><i class="fa fa-desktop"></i>Phòng chiếu <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="#">Thêm phòng chiếu</a></li>
+                                        <li>
+                                            @Html.ActionLink("Thêm phòng chiếu phim", "CreateRoomDetail", "RoomFilm")
+                                        </li>
                                         <li><a href="#">Danh sách phòng chiếu</a></li>
-                                        <li><a href="#">Kiểm tra tình trạng ghế phòng chiếu</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -82,24 +91,23 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-bar-chart-o"></i> Bảo trì <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="chartjs.html">Danh sách ghế hư hỏng</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-clone"></i>Thống kê <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="#">Thống kê doanh thu theo phòng chiếu</a></li>
-                                        <li><a href="#">Thống kê doanh thu theo phim</a></li>
-                                        <li><a href="#">Thống kê doanh thu theo rạp phim</a></li>
-                                    </ul>
-                                </li>
-                                <li>
                                     <a><i class="fa fa-clone"></i>Nhân viên <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li>@Html.ActionLink("Thêm nhân viên hệ thống", "StaffRegister", "Account")</li>
                                         <li>@Html.ActionLink("Danh sách nhân viên trong hệ thống", "Create", "FoodList")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-clone"></i>Ưu đãi <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Thêm ưu đãi mới", "Create", "Promotion")</li>
+                                        <li>@Html.ActionLink("Danh sách ưu đãi", "Index", "Promotion")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-clone"></i>Phòng vé <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Thống kê vé", "Index", "BookingTicket")</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -115,7 +123,8 @@
                         <div class="nav toggle">
                             <a id="menu_toggle" href="javascript:void(0)" ><i class="fa fa-bars"></i></a>
                         </div>
-                        <ul class="nav navbar-nav navbar-right">
+                        @Html.Partial("_LoginPartial")
+                        @*<ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <img src="~/Content/images/background.png" alt="..."> Phạm Phú
@@ -126,7 +135,7 @@
                                     <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul>*@
                     </nav>
                 </div>
             </div>

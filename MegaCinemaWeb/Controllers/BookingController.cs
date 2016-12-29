@@ -7,24 +7,31 @@ using System.Web.Script.Serialization;
 using AutoMapper;
 using MegaCinemaCommon.BookingTicket;
 using MegaCinemaCommon.StatusCommon;
+using MegaCinemaModel.Models;
 using MegaCinemaService;
 using MegaCinemaWeb.Models;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 
 namespace MegaCinemaWeb.Controllers
 {
+    [Authorize]
     public class BookingController : Controller
     {
         private IFilmCalendarCreateService _filmCalendarCreateService;
         private ITimeSessionService _timeSessionService;
         private IFilmService _filmService;
         private IStaffService _staffService;
-        public BookingController(IFilmCalendarCreateService filmCalendarCreateService, ITimeSessionService timeSessionService, IFilmService filmService, IStaffService staffService)
+        private ICustomerService _customerService;
+        private IBookingTicketService _bookingTicketService;
+        public BookingController(IFilmCalendarCreateService filmCalendarCreateService, ITimeSessionService timeSessionService, IFilmService filmService, IStaffService staffService, ICustomerService customerService,IBookingTicketService bookingTicketService)
         {
             _filmCalendarCreateService = filmCalendarCreateService;
             _timeSessionService = timeSessionService;
             _filmService = filmService;
+            _customerService = customerService;
             _staffService = staffService;
+            _bookingTicketService = bookingTicketService;
         }
         // GET: Booking
         //public ActionResult Index()
@@ -38,7 +45,10 @@ namespace MegaCinemaWeb.Controllers
             var result1 = _staffService.Find(3);
             var result = _filmCalendarCreateService.FilmCalendarOfFilm(id);
             var resultVm = Mapper.Map<IEnumerable<FilmCalendarCreateViewModel>>(result);
-            ViewData["FilmDetailSession"] = Mapper.Map<FilmViewModel>(_filmService.Find(id));
+
+            var filmDetail = _filmService.Find(id);
+            ViewData["FilmDetailSession"] = Mapper.Map<FilmViewModel>(filmDetail);
+            Session["FilmDetailSendTicket"] = filmDetail;
             return View(resultVm);
         }
 
@@ -78,6 +88,7 @@ namespace MegaCinemaWeb.Controllers
             if (resultVm == null) return new HttpStatusCodeResult(404);
 
             //trả về ID session phim và object phòng vé
+            Session["timeDetail"] = result;
             Session["userIDPhim"] = sessionFilm;
             ViewData["detailSessionTicket"] = TempData["TicketDetail"];
             ViewData["InfoTimeSession"] = sessionFilm;
@@ -103,6 +114,7 @@ namespace MegaCinemaWeb.Controllers
         [HttpPost]
         public JsonResult UpdateSeatUserTake(int? xLocation, int? yLocation, int? sessionFilm, string ticketValue)
         {
+            //Check null
             if (xLocation == null || yLocation == null || sessionFilm == null)
             {
                 return Json(new
@@ -111,29 +123,65 @@ namespace MegaCinemaWeb.Controllers
                 }, JsonRequestBehavior.AllowGet);
             }
 
+            //Lấy thông tin time session của phim
             var result = _timeSessionService.Find((int)sessionFilm);
 
-            //serial ticket list 
+            //serial ticket list - Mã hóa state ghế hiện tại theo các ghế được đặt
             JavaScriptSerializer serial = new JavaScriptSerializer();
             List<TicketSubmitDetail> lstTicket = serial.Deserialize<List<TicketSubmitDetail>>(ticketValue);
 
+            //Mã hóa về seat state
             SeatState sumary = BookingTimeHelpers.ConvertJsontoBookingTime(result.SeatTableState);
             foreach (var item in lstTicket)
             {
                 sumary = BookingTimeHelpers.ChangeStateSeat(Convert.ToInt32(item.xLocation),
                     Convert.ToInt32(item.yLocation), 0, sumary);
             }
-            result.SeatTableState = BookingTimeHelpers.ConvertBookingSessionToJson(sumary);
-            _timeSessionService.SaveChanges();
-
-            SeatRoomStateFilmHub.UpdateSeatState();
-
-            return Json(new
+            //lấy customer ID
+            var customerId = _customerService.FindCustomerID(User.Identity.GetUserId());
+            if (customerId == 0)
             {
-                status = "OK",
-                x = xLocation,
-                y = yLocation,
-            }, JsonRequestBehavior.AllowGet);
+                return Json(new
+                {
+                    status = "KO",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            //lấy film detail
+            var filmDetail = (Film)Session["FilmDetailSendTicket"];
+            
+            //insert dữ liệu vào database
+            var resultState = _bookingTicketService.AddTicketToDB(filmDetail, customerId, result.TimeSessionID, sumary);
+
+            //kiểm tra kết quả insert
+            if (resultState)
+            {
+                SeatRoomStateFilmHub.UpdateSeatState();
+                return Json(new
+                {
+                    status = "OK",
+                    x = xLocation,
+                    y = yLocation,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = "KO",
+                }, JsonRequestBehavior.AllowGet);
+
+            }
+            //var filmDetail = (Film)Session["FilmDetailSendTicket"];
+
+            ////detail prepare: FilmID, RoomID, TimeDetail, Prices,Payments Day, CustomerID, statusID, seattable state
+
+
+            //_timeSessionService.SaveChanges();
+
+            
+
+            
         }
 
     }

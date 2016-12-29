@@ -54,6 +54,26 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (roomFilmDetailVm.VipTicket + roomFilmDetailVm.SimpleTicket >
+                    (roomFilmDetailVm.Width*roomFilmDetailVm.Height))
+                {
+                    //Load danh sách các rạp chiếu phim 
+                    var result1 = _cinemaService.GetAll();
+                    var resultVm1 = Mapper.Map<IEnumerable<Cinema>, IEnumerable<CinemaViewModel>>(result1);
+                    ViewBag.CinemaID = new SelectList(resultVm1, "CinemaID", "CinemaFullName");
+
+                    //Load trạng thái của một phòng chiếu
+                    var listStatus1 = new List<SelectListItem>
+                    {
+                        new SelectListItem {Text = "Đang hoạt động", Value = "AC"},
+                        new SelectListItem {Text = "Không hoạt động", Value = "NOT"},
+                    };
+                    ViewBag.CinemaStatusID = new SelectList(listStatus1, "Value", "Text");
+
+                    ModelState.AddModelError("","Số lượng vé không được vượt quá kích thước phòng chiếu");
+                    return View(roomFilmDetailVm);
+                }
+                //success
                 TempData["RoomFilmTable"] = roomFilmDetailVm;
                 return RedirectToAction("SeatTableDetail", "RoomFilm");
             }
@@ -84,5 +104,21 @@ namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
             return Content("error");
         }
 
+        [HttpPost]
+        public JsonResult CreateRoomFilm(string width, string height, string seatValueState)
+        {
+            if (width == null || height == null || string.IsNullOrEmpty(seatValueState))
+            {
+                return Json(new
+                {
+                    status = "KO",
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new
+            {
+                status = "OK",
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

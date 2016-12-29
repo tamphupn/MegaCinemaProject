@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using MegaCinemaCommon.StatusCommon;
+using MegaCinemaModel.Models;
+using MegaCinemaService;
+using MegaCinemaWeb.App_Start;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace MegaCinemaWeb.Areas.AdminDashboard.Controllers
 {
